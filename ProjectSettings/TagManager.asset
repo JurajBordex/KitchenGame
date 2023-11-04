@@ -51,3 +51,12 @@ TagManager:
   - name: Effects
     uniqueID: 1188798027
     locked: 0
+  - name: Player
+    uniqueID: 757642259
+    locked: 0
+  - name: Table
+    uniqueID: 233709283
+    locked: 0
+  - name: Food
+    uniqueID: 3826772631
+    locked: 0
