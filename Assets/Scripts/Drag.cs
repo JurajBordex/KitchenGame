@@ -8,6 +8,7 @@ public class Drag : MonoBehaviour
     //Floats
     //Bools
     private bool canDrag = true;
+    public bool isDragging;
     private bool isOutside()
     {
         return Physics2D.OverlapCircle(transform.position, 0.1f, whatIsOutside);
@@ -33,6 +34,7 @@ public class Drag : MonoBehaviour
 
         //At first spawn when you get the object from basket it will be dragging already
         gameManager.isDragging = true;
+        isDragging = true;
         ChangePositionToMouse();
     }
 
@@ -42,6 +44,7 @@ public class Drag : MonoBehaviour
         {
             //Let game manager know that you are dragging something
             gameManager.isDragging = true;
+            isDragging = true;
 
             //Get mouse position offset so you will hold the card where you start dragging it
             mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
@@ -69,6 +72,7 @@ public class Drag : MonoBehaviour
         }
 
         gameManager.isDragging = false;
+        isDragging = false;
 
     }
     private void ChangePositionToMouse()
