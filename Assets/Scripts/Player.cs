@@ -9,29 +9,41 @@ public class Player : MonoBehaviour
     Rigidbody2D myRidigBody;
 
     [Header("Player Settings")]
-    [SerializeField] float playerSpeed = 10f;
-    [SerializeField] float minX = 0;
-    [SerializeField] float maxX = 32;
-    [SerializeField] float minY = 0;
-    [SerializeField] float maxY = 18;
-    
+    [SerializeField] float playerSpeed;
+    [SerializeField] private Vector2 minPos, maxPos;
+
 
     void Start()
     {
         myRidigBody = GetComponent<Rigidbody2D>();
     }
-
+    public Vector3 GetMouseWorldPosition()
+    {
+        //captures mouse position & returns WorldPoint 
+        return new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0);
+    }
     void Update()
     {
-        float mousePosInUnitsX = Input.mousePosition.x / Screen.width * 53;
-        float mousePosInUnitsY = Input.mousePosition.y / Screen.height * 30;
+        /* 
+        NOT NEEDED ANYMORE
+        float mousePosInUnitsX = Input.mousePosition.x / Screen.width * 53; //????????? whats the * number for ?
+        float mousePosInUnitsY = Input.mousePosition.y / Screen.height * 30; //???????? whats the * number for ?
         Debug.Log("X-Axis is:" + mousePosInUnitsX);
         Debug.Log("Y-Axis is:" + mousePosInUnitsY);
+        playerPos.x = Mathf.Clamp(mousePosInUnitsX, minPos.x, maxPos.x);
+        playerPos.y = Mathf.Clamp(mousePosInUnitsY, minPos.y, maxPos.y);
+        */
+
         Vector2 playerPos = new Vector2(transform.position.x, transform.position.y);
-        playerPos.x = Mathf.Clamp(mousePosInUnitsX, minX, maxX);
-        playerPos.y = Mathf.Clamp(mousePosInUnitsY, minY, maxY);
-        //transform.position = playerPos; //for testing
-        transform.position = Vector2.MoveTowards(transform.position, playerPos, playerSpeed * Time.deltaTime);
+
+        playerPos.x = Mathf.Clamp(GetMouseWorldPosition().x, minPos.x, maxPos.x);
+        playerPos.y = Mathf.Clamp(GetMouseWorldPosition().y, minPos.y, maxPos.y);
+
+        
+        //transform.position = Vector2.MoveTowards(transform.position, playerPos, playerSpeed * Time.deltaTime);
+
+        //Looks smoother (:
+        transform.position = Vector2.Lerp(transform.position, playerPos, playerSpeed * Time.deltaTime);
     }
 
 
