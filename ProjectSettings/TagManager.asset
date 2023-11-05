@@ -42,21 +42,24 @@ TagManager:
   - name: Background
     uniqueID: 2331872201
     locked: 0
+  - name: BackPart
+    uniqueID: 3826772631
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 757642259
+    locked: 0
+  - name: TablePart
+    uniqueID: 233709283
+    locked: 0
+  - name: MoveableObjects
+    uniqueID: 2215194789
     locked: 0
   - name: UI
     uniqueID: 1885178115
     locked: 0
   - name: Effects
     uniqueID: 1188798027
-    locked: 0
-  - name: Player
-    uniqueID: 757642259
-    locked: 0
-  - name: Table
-    uniqueID: 233709283
-    locked: 0
-  - name: Food
-    uniqueID: 3826772631
     locked: 0
