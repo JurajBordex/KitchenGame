@@ -10,9 +10,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] float nextSceneDelayTime = 1.0f;
     [SerializeField] float quitGameDelayTime = 1.0f;
 
-    [Header("Settings")]
-    [SerializeField] Button[] menuButtons;
-
     public void PlayGame()
     {
         StartCoroutine(LoadNextScene());
@@ -25,27 +22,17 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator LoadNextScene()
     {
-        DeactiveAllButtons();
         yield return new WaitForSeconds(nextSceneDelayTime);
         LoadNextSceneInSequence();
     }
 
     IEnumerator QuitGame()
     {
-        DeactiveAllButtons();
         yield return new WaitForSeconds(quitGameDelayTime);
         Application.Quit();
     }
     void LoadNextSceneInSequence()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    void DeactiveAllButtons()
-    {
-        for(int i = 0; i< menuButtons.Length; i++)
-        {
-            menuButtons[i].interactable = false;
-        }
     }
 }
