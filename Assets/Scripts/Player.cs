@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
                     multiplier = (transform.position.y - maxPos.y * -1) / (minPos.y * -1 - maxPos.y * -1);
                 }
 
-                float scale = minScale + multiplier * (maxScale - minScale) * -1;
+                float scale = minScale + multiplier * (maxScale - minScale);
 
                 Debug.Log(scale);
 
