@@ -28,15 +28,19 @@ public class Ingredient : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (!droppedOnScale && other.tag == "Scale" && !drag.isDragging)
+        if (!droppedOnScale && !drag.isDragging && other.tag == "Scale" )
         {
             scale.AddedObject(currentIngredientWeight);
             droppedOnScale = true;
         }
+        if (!drag.isDragging && other.tag == "Trash")
+        {
+            Destroy(gameObject);
+        }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (droppedOnScale && other.tag == "Scale" && drag.isDragging)
+        if (droppedOnScale && drag.isDragging && other.tag == "Scale" )
         {
             scale.RemovedObject(currentIngredientWeight);
             droppedOnScale = false;
