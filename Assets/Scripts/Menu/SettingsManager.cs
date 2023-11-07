@@ -39,7 +39,9 @@ public class SettingsManager : MonoBehaviour
             string option = resolutions[i].width + "x" + resolutions[i].height + " @ " + resolutions[i].refreshRate + "hz";
             options.Add(option);
 
-            if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            if (resolutions[i].width == Screen.currentResolution.width && 
+                resolutions[i].height == Screen.currentResolution.height && 
+                resolutions[i].refreshRate == Screen.currentResolution.refreshRate)
             {
                 currentResolutionIndex = i;
             }
