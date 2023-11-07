@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] float nextSceneDelayTime = 1.0f;
-    [SerializeField] float quitGameDelayTime = 1.0f;
+    [SerializeField] float quitGameDelayTime = 0.5f;
 
     public void PlayGame()
     {
