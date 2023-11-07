@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] float nextSceneDelayTime = 1.0f;
-    [SerializeField] float quitGameDelayTime = 1.0f;
+    [SerializeField] float quitGameDelayTime = 0.5f;
 
     public void PlayGame()
     {
@@ -17,7 +17,8 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGameButton()
     {
-        StartCoroutine(QuitGame());
+        Debug.Log("I Quit");
+        Application.Quit();
     }
 
     IEnumerator LoadNextScene()
@@ -26,11 +27,6 @@ public class MainMenu : MonoBehaviour
         LoadNextSceneInSequence();
     }
 
-    IEnumerator QuitGame()
-    {
-        yield return new WaitForSeconds(quitGameDelayTime);
-        Application.Quit();
-    }
     void LoadNextSceneInSequence()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
