@@ -7,6 +7,7 @@ public class Drag : MonoBehaviour
     //Ints
     //Floats
     //Bools
+    [SerializeField] private bool isSpawnable;
     private bool canDrag = true;
     public bool isDragging;
     private bool isOutside()
@@ -32,12 +33,16 @@ public class Drag : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
-        //At first spawn when you get the object from basket it will be dragging already
-        gameManager.isDragging = true;
-        isDragging = true;
-        ChangePositionToMouse();
+        if(isSpawnable) //If the object is from many other objects that are being spawned from spawner
+        {
+            //At first spawn when you get the object from basket it will be dragging already
+            gameManager.isDragging = true;
+            isDragging = true;
+            ChangePositionToMouse();
+            Debug.Log(Input.GetKeyDown(KeyCode.Mouse0));
+            Debug.Log(Input.GetKeyUp(KeyCode.Mouse0));
+        }
     }
-
     private void OnMouseDown()
     {
         if (canDrag && !gameManager.isDragging)
@@ -77,8 +82,11 @@ public class Drag : MonoBehaviour
     }
     private void ChangePositionToMouse()
     {
-        transform.position = GetMouseWorldPosition() + mousePositionOffset;
-        StartCoroutine(LoopingFirstDrag());
+        if (Input.GetKey(KeyCode.Mouse0)) //if the mouse left button is sitll being pressed
+        {
+            transform.position = GetMouseWorldPosition() + mousePositionOffset;
+            StartCoroutine(LoopingFirstDrag());
+        }
     }
     IEnumerator LoopingFirstDrag()
     {

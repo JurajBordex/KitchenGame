@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e54f912c837010e449e06d288223176f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isSpawnable: 1
   isDragging: 0
   whatIsOutside:
     serializedVersion: 2
