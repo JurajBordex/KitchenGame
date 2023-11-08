@@ -10,12 +10,15 @@ public class Player : MonoBehaviour
 
     [Header("Player Settings")]
     [SerializeField] float playerSpeed;
+    [SerializeField] float aditionalMovementTime = 0.4f;
     [SerializeField] float scaleChangeMultiplier;
     [SerializeField] private Vector2 minPos, maxPos;
     //Floats
     [SerializeField] float maxScale, minScale;
     //Bools
     private bool scaleIsChanging;
+    private bool mouseIsStable; //means  that the position of mouse is not changing
+    private bool changingStableBool;
     //Vectors
     private Vector3 lastMousePos;
 
@@ -30,8 +33,24 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        if (GetMouseWorldPosition() != lastMousePos) //does only if the position has changed
+        if (GetMouseWorldPosition() != lastMousePos && mouseIsStable) //does change the stable bool if the position has changed and mouse is set to stable already
         {
+            mouseIsStable = false;
+        }
+        else if(GetMouseWorldPosition() == lastMousePos && !mouseIsStable && !changingStableBool) //starts coroutine to change the stable bool
+        {
+            changingStableBool = true;
+            StartCoroutine(MouseStable());
+        }
+
+        //Updating voids
+        if(!mouseIsStable) //if mouse is not on one spot
+        {
+            MovementAndScale();
+        }
+    }
+    private void MovementAndScale()
+    {
             lastMousePos = GetMouseWorldPosition();
 
             Vector2 playerPos = new Vector2(transform.position.x, transform.position.y);
@@ -42,7 +61,7 @@ public class Player : MonoBehaviour
             //Changing position
             transform.position = Vector2.Lerp(transform.position, playerPos, playerSpeed * Time.deltaTime);
             //Changing scale
-            if(!scaleIsChanging)
+            if (!scaleIsChanging)
             {
                 //StartCoroutine(ChangeScale());
                 float multiplier;
@@ -59,47 +78,14 @@ public class Player : MonoBehaviour
 
                 float scale = minScale + multiplier * (maxScale - minScale);
 
-                Debug.Log(scale);
-
                 transform.localScale = new Vector3(scale, scale, 0);
             }
-        }
     }
-
-    /*IEnumerator ChangeScale()
+    IEnumerator MouseStable()
     {
-        scaleIsChanging = true;
-        //Changes the scale based on the y position/distance from front table
-        //transform.localScale = new Vector3(transform.position.y * scaleChangeMultiplier, transform.position.y * scaleChangeMultiplier, 0);
-
-
-        float multiplier;
-        if(transform.position.y < 0)
-        {
-            multiplier = (transform.position.y * -1 - minPos.y) / (maxPos.y * -1 - minPos.y);
-        }
-        else
-        {
-            multiplier = (transform.position.y - minPos.y) / (maxPos.y * -1 - minPos.y);
-        }
-        if (transform.position.y < 0)
-        {
-            multiplier = (transform.position.y * -1 - maxPos.y) / (minPos.y * -1 - maxPos.y);
-        }
-        else
-        {
-            multiplier = (transform.position.y - maxPos.y) / (minPos.y * -1 - maxPos.y);
-        }
-
-        float scale = minScale + multiplier * (maxScale - minScale);
-
-        Debug.Log(scale);
-
-        transform.localScale = new Vector3(scale, scale, 0);
-
-
-        yield return new WaitForEndOfFrame();
-        scaleIsChanging = false;
-    }*/
+        yield return new WaitForSeconds(aditionalMovementTime);
+        mouseIsStable = true;
+        changingStableBool = false;
+    }
     
 }

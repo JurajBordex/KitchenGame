@@ -2436,6 +2436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 6
+  aditionalMovementTime: 0.4
   scaleChangeMultiplier: 1.75
   minPos: {x: -25, y: -4}
   maxPos: {x: 25, y: -0.65}
