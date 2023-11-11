@@ -7,11 +7,12 @@ TagManager:
   - GameManager
   - Scale
   - Trash
+  - Location
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Outside
