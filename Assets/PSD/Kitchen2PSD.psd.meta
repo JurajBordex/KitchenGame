@@ -458,8 +458,8 @@ ScriptedImporter:
     spritePosition: {x: 2588, y: 379}
   - name: Layer 13
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5025351, y: 0.100497015}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -479,8 +479,8 @@ ScriptedImporter:
     spritePosition: {x: 1620, y: 1227}
   - name: Layer 12
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.3991445, y: 0.22325629}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -500,8 +500,8 @@ ScriptedImporter:
     spritePosition: {x: 1375, y: 1229}
   - name: Layer 11
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.49958175, y: 0.12100944}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2

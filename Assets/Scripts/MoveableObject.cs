@@ -11,11 +11,12 @@ public class MoveableObject : MonoBehaviour
     [SerializeField] private float currentIngredientWeight; 
     //Bools
     private bool droppedOnScale; //creted bool to not call the if statements and functions again
-    private bool droppedOnLocation; //creted bool to not call the if statements and functions again
+    [SerializeField]private bool droppedOnLocation; //creted bool to not call the if statements and functions again
 
     [SerializeField] private bool isSpawnable;
     private bool canDrag = true;
     public bool isDragging;
+
     private bool isOutside()
     {
         return Physics2D.OverlapCircle(transform.position, 0.1f, whatIsOutside);
@@ -24,6 +25,7 @@ public class MoveableObject : MonoBehaviour
     //Components
     private Scale scale;
     private GameManager gameManager;
+    private Location currentLocationScript;
     //Layer masks
     [SerializeField] private LayerMask whatIsOutside;
     //GameObjects
@@ -57,6 +59,19 @@ public class MoveableObject : MonoBehaviour
             //Let game manager know that you are dragging something
             gameManager.isDragging = true;
             isDragging = true;
+
+            //Changes bools when the object is picked up if they are being used
+            if(droppedOnScale)
+            {
+                droppedOnScale = false;
+                scale.RemovedObject(currentIngredientWeight);
+            }
+            else if(droppedOnLocation)
+            {
+                droppedOnLocation = false;
+                currentLocationScript.ObjectRemoved();
+                currentLocationScript = null;
+            }
 
             //Get mouse position offset so you will hold the card where you start dragging it
             mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
@@ -109,30 +124,18 @@ public class MoveableObject : MonoBehaviour
             scale.AddedObject(currentIngredientWeight);
             droppedOnScale = true;
         }
-        if (other.tag == "Trash" && !isDragging)
+        if (other.tag == "Trash" && !isDragging && isSpawnable)
         {
             Destroy(gameObject);
         }
         if(other.tag == "Location" && !droppedOnLocation && !isDragging) //If stopped dragging on location
         {
-            other.GetComponent<Location>().ObjectPlaced(); //lets the location know that there is object placed
-            transform.position = other.GetComponent<Location>().placePosition; //places the object to the given pos
-            droppedOnLocation = true;
-            gameManager.isDragging = false;
-            isDragging = false;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "Scale" && droppedOnScale && isDragging)
-        {
-            scale.RemovedObject(currentIngredientWeight);
-            droppedOnScale = false;
-        }
-        if(other.tag == "Location" && droppedOnLocation && isDragging)
-        {
-            other.GetComponent<Location>().ObjectRemoved();
-            droppedOnLocation = false;
+                currentLocationScript = other.GetComponent<Location>();  //stores the current location script
+                currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
+                transform.position = other.GetComponent<Location>().placePosition; //places the object to the given pos
+                droppedOnLocation = true;
+                gameManager.isDragging = false;
+                isDragging = false;
         }
     }
     IEnumerator LoopingFirstDrag()
@@ -143,5 +146,4 @@ public class MoveableObject : MonoBehaviour
             ChangePositionToMouse();
         }
     }
-
 }//END OF CLASS 

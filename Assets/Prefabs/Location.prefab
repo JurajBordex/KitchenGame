@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2685550194359776118}
   - component: {fileID: 6395782374822821219}
   - component: {fileID: 453813172249143939}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Location
   m_TagString: Location
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5831528675982620375}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlacePosition
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
