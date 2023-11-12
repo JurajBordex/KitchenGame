@@ -98,13 +98,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eaec36ac28fe5f4ca90bffd4d7ba46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defualtIngredientWeight: 5
+  defualtIngredientWeight: 140
   currentIngredientWeight: 0
-  isSpawnable: 1
+  droppedOnLocation: 0
   isDragging: 0
+  spawnable: 1
+  cutable: 1
+  cookable: 1
+  fillable: 0
   whatIsOutside:
     serializedVersion: 2
     m_Bits: 64
+  whatIsLocation:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!58 &8478793425430779220
 CircleCollider2D:
   m_ObjectHideFlags: 0

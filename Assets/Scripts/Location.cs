@@ -8,10 +8,13 @@ public class Location : MonoBehaviour
 	//Floats
 	//Bools
 	[SerializeField] private bool hasObjectPlaced;
+
+	[SerializeField] private bool cut, cook, fill, place, instrumentPlace; //the functions of this location
 	//Strings
-	[SerializeField] private string functionName;
 	//Components
 	[SerializeField] private Transform placePositionPoint;
+
+	public MoveableObject objectScript;
 	//GameObjects
 	//Vectors
 	public Vector3 placePosition;
@@ -20,14 +23,77 @@ public class Location : MonoBehaviour
     {
 		placePosition = placePositionPoint.position;
     }
-
+	private void PlaceObjectAtPosition()
+    {
+		objectScript.transform.position = placePosition;
+		objectScript.droppedOnLocation = true;
+		hasObjectPlaced = true;
+	}
+	private void WrongTypeOfObject()
+    {
+		objectScript.droppedOnLocation = false;
+		//object return to position before
+		objectScript = null;
+		
+	}
     public void ObjectPlaced()
     {
-		hasObjectPlaced = true;
-		//if the function of this location can do something with the object that was placed it will start coroutine and execute the function
-		//in the coroutine there will be something like if(functionName == "CutToSmallerPieces") then we will split the object in wanted number that was given to use when calling the object placed void
-		//could also use bools or ints instead of strings
-		Debug.Log("OBJECT WAS PLACED ON A LOCATION");
+		if(!hasObjectPlaced)
+        {
+			
+			if(instrumentPlace && !objectScript.spawnable) //means when the function of this is to store instruments and the object is instrument
+            {
+				PlaceObjectAtPosition();
+            }
+			else if(instrumentPlace && objectScript.spawnable) //means the obj is not an instrument
+            {
+				WrongTypeOfObject();
+            }
+
+			if(place)
+            {
+				PlaceObjectAtPosition();
+            }
+
+			if(cut && objectScript.cutable)
+            {
+				PlaceObjectAtPosition();
+				//Give player option to select how many pieces to cut it into
+            }
+			else if(cut && !objectScript.cutable)
+            {
+				WrongTypeOfObject();
+            }
+
+			if(cook && objectScript.cookable)
+            {
+				PlaceObjectAtPosition();
+				//start cooking
+            }
+			else if(cook && !objectScript.cookable) //ADD IF THERE IS COOKING INSTRUMENT ON IT
+            {
+				WrongTypeOfObject();
+            }
+
+			if(fill && objectScript.fillable)
+            {
+				PlaceObjectAtPosition();
+            }
+			else if(fill && !objectScript.fillable)
+            {
+				WrongTypeOfObject();
+            }
+
+			if(!cut && !cook && !fill && !place && !instrumentPlace)
+            {
+				Debug.Log("No Function Has Been Set, name of game object : " + this.name);
+			}
+		}
+		else
+        {
+			WrongTypeOfObject(); //there is a object in this spot already
+        }
+		
     }
 	public void ObjectRemoved()
     {

@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class MoveableObject : MonoBehaviour
 {
-	//Ints
+    //Ints
 	//Floats
     //Weight is stated in grams
 	[SerializeField] private float defualtIngredientWeight; //important later on when we will be changing the weight by cutting or other actions
     [SerializeField] private float currentIngredientWeight; 
     //Bools
     private bool droppedOnScale; //creted bool to not call the if statements and functions again
-    [SerializeField]private bool droppedOnLocation; //creted bool to not call the if statements and functions again
+    public bool droppedOnLocation; //creted bool to not call the if statements and functions again
 
-    [SerializeField] private bool isSpawnable;
     private bool canDrag = true;
     public bool isDragging;
+
+    public bool spawnable, cutable, cookable, fillable;
 
     private bool isOutside()
     {
@@ -26,6 +27,8 @@ public class MoveableObject : MonoBehaviour
     private Scale scale;
     private GameManager gameManager;
     private Location currentLocationScript;
+    [SerializeField] private InstrumentTrigger instrumentTrigger;
+
     //Layer masks
     [SerializeField] private LayerMask whatIsOutside;
     //GameObjects
@@ -44,7 +47,7 @@ public class MoveableObject : MonoBehaviour
         scale = GameObject.FindGameObjectWithTag("Scale").GetComponent<Scale>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
-        if (isSpawnable) //If the object is from many other objects that are being spawned from spawner
+        if (spawnable) //If the object is from many other objects that are being spawned from spawner
         {
             //At first spawn when you get the object from basket it will be dragging already
             gameManager.isDragging = true;
@@ -69,8 +72,18 @@ public class MoveableObject : MonoBehaviour
             else if(droppedOnLocation)
             {
                 droppedOnLocation = false;
-                currentLocationScript.ObjectRemoved();
-                currentLocationScript = null;
+                if(currentLocationScript != null) //if the object has instance of the location script
+                {
+                    currentLocationScript.ObjectRemoved();
+                    currentLocationScript = null;
+                    
+                }
+                if(instrumentTrigger != null)
+                {
+                    instrumentTrigger.onLocation = false;
+                    instrumentTrigger.location = null;
+                }
+                
             }
 
             //Get mouse position offset so you will hold the card where you start dragging it
@@ -88,10 +101,16 @@ public class MoveableObject : MonoBehaviour
     private void OnMouseUp()
     {
 
-        //Checks if the object is in bounds
-        if (!isOutside())
+        //Checks if the object is in bounds && on location
+        if (!isOutside() && instrumentTrigger != null && instrumentTrigger.onLocation)
         {
+            currentLocationScript = instrumentTrigger.location.GetComponent<Location>();  //stores the current location script
+            currentLocationScript.objectScript = GetComponent<MoveableObject>();
+            currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
+            gameManager.isDragging = false;
+            isDragging = false;
             //Here goes code for checking where is the object being placed at
+
         }
         else if (isOutside())
         {
@@ -124,19 +143,27 @@ public class MoveableObject : MonoBehaviour
             scale.AddedObject(currentIngredientWeight);
             droppedOnScale = true;
         }
-        if (other.tag == "Trash" && !isDragging && isSpawnable)
+        if (other.tag == "Trash" && !isDragging)
         {
-            Destroy(gameObject);
+            if(spawnable)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                //ReturnToPosition
+            }
         }
-        if(other.tag == "Location" && !droppedOnLocation && !isDragging) //If stopped dragging on location
+        if(other.tag == "Location" && !droppedOnLocation && !isDragging && spawnable) //If stopped dragging on location
         {
                 currentLocationScript = other.GetComponent<Location>();  //stores the current location script
+                currentLocationScript.objectScript = GetComponent<MoveableObject>();
                 currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
-                transform.position = other.GetComponent<Location>().placePosition; //places the object to the given pos
-                droppedOnLocation = true;
                 gameManager.isDragging = false;
                 isDragging = false;
         }
+        //THIS IS WAY IT WILL WILL WORK, OVERLAP DOESN@T WORK BECAUSE WE DON'T KNOW ON WHAT LOCATION HE IS SPeCIFICLY
+        //IMPORTANT, FOR THE OBJECTS THAT ARE NOT SPAWNABLE CREATE OTHER SCRIPT AND CHILDER OF THE OBJECT, THE CHILDREN WILL HAVE TRIGGER VOIDS IN IT USING ITS OWN COLLIDER TO DETECT THAT, ONCE MOUSE IS UP IT WILL PASS IF THE OBJECT IS INSIDE LOCATION, IF SO THEN PLACE IT THERE
     }
     IEnumerator LoopingFirstDrag()
     {

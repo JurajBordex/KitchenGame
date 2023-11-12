@@ -48,8 +48,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasObjectPlaced: 0
-  functionName: 
+  cut: 0
+  cook: 0
+  fill: 0
+  place: 0
+  instrumentPlace: 0
   placePositionPoint: {fileID: 5831528675982620375}
+  objectScript: {fileID: 0}
   placePosition: {x: 0, y: 0, z: 0}
 --- !u!60 &6395782374822821219
 PolygonCollider2D:
