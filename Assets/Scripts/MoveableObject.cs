@@ -5,7 +5,8 @@ using UnityEngine;
 public class MoveableObject : MonoBehaviour
 {
     //Ints
-	//Floats
+    //Floats
+    [SerializeField] private float returnSpeed;
     //Weight is stated in grams
 	[SerializeField] private float defualtIngredientWeight; //important later on when we will be changing the weight by cutting or other actions
     [SerializeField] private float currentIngredientWeight; 
@@ -15,24 +16,28 @@ public class MoveableObject : MonoBehaviour
 
     private bool canDrag = true;
     public bool isDragging;
+    private bool isReturning;
 
-    public bool spawnable, cutable, cookable, fillable;
+    public bool spawnable, cutable, cookable, fillable; //Function of the object
 
     private bool isOutside()
     {
+        //Using Physics2D.Overlap to check if the object is outside of screen bounds or not
         return Physics2D.OverlapCircle(transform.position, 0.1f, whatIsOutside);
     }
     //Strings
     //Components
+    //Scripts
     private Scale scale;
     private GameManager gameManager;
-    private Location currentLocationScript;
-    [SerializeField] private InstrumentTrigger instrumentTrigger;
+    [SerializeField] private Location currentLocationScript;
+    [SerializeField] private InstrumentTrigger instrumentTrigger; //secndary trigger script for non spawnable objects
 
     //Layer masks
     [SerializeField] private LayerMask whatIsOutside;
     //GameObjects
     //Vectors
+    public Vector3 lastLocationPosition;
     private Vector3 mousePositionOffset;
     public Vector3 GetMouseWorldPosition()
     {
@@ -43,6 +48,7 @@ public class MoveableObject : MonoBehaviour
     private void Start()
     {
         currentIngredientWeight = defualtIngredientWeight;
+        lastLocationPosition = transform.position;
 
         scale = GameObject.FindGameObjectWithTag("Scale").GetComponent<Scale>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
@@ -62,6 +68,7 @@ public class MoveableObject : MonoBehaviour
             //Let game manager know that you are dragging something
             gameManager.isDragging = true;
             isDragging = true;
+            //lastLocationPosition = transform.position;
 
             //Changes bools when the object is picked up if they are being used
             if(droppedOnScale)
@@ -109,13 +116,23 @@ public class MoveableObject : MonoBehaviour
             currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
             gameManager.isDragging = false;
             isDragging = false;
-            //Here goes code for checking where is the object being placed at
 
         }
         else if (isOutside())
         {
-            Destroy(gameObject);
+            if(spawnable)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                ReturnToLastPosition(false); //false because it is not already returning
+            }
+
         }
+
+        //Checks if the object is on location, if not then it will return to its last position
+        StartCoroutine(CheckIfDoppedOnLocation());
 
         gameManager.isDragging = false;
         isDragging = false;
@@ -128,13 +145,44 @@ public class MoveableObject : MonoBehaviour
             transform.position = GetMouseWorldPosition() + mousePositionOffset;
             StartCoroutine(LoopingFirstDrag());
         }
-        else //when mouse is not held down and it should stop dragging
+        else //when mouse is not held down, means it should stop dragging
         {
             gameManager.isDragging = false;
             isDragging = false;
         }
     }
     
+    public void ReturnToLastPosition(bool returningAlready)
+    {
+        if(!returningAlready) //this means that the frist time you call this void, you will put false in the (), the coroutine will say true when it will call this void again
+        {
+            isReturning = true;
+            canDrag = false;
+        }
+
+        if(isReturning)
+        {
+            if (Vector2.Distance(transform.position, lastLocationPosition) > 0.01f) //if position is not close enough to location pos
+            {
+                StartCoroutine(CallReturnAgain());
+            }
+            else //if the position is close enough to location pos, the loops breaks
+            {
+                canDrag = true;
+                isReturning = false;
+                //checks if the object is on location
+                if (instrumentTrigger != null && instrumentTrigger.onLocation)
+                {
+                    currentLocationScript = instrumentTrigger.location.GetComponent<Location>();  //stores the current location script
+                    currentLocationScript.objectScript = GetComponent<MoveableObject>();
+                    currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
+                }
+                
+            }
+        }
+        
+
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -147,11 +195,18 @@ public class MoveableObject : MonoBehaviour
         {
             if(spawnable)
             {
+                //If the current location is not removed already - BUG FIX
+                if (currentLocationScript != null) //if the object has instance of the location script
+                {
+                    currentLocationScript.ObjectRemoved();
+                    currentLocationScript = null;
+                }
                 Destroy(gameObject);
+
             }
             else
             {
-                //ReturnToPosition
+                ReturnToLastPosition(false); //false because it is not already returning
             }
         }
         if(other.tag == "Location" && !droppedOnLocation && !isDragging && spawnable) //If stopped dragging on location
@@ -171,6 +226,24 @@ public class MoveableObject : MonoBehaviour
         if (gameManager.isDragging)
         {
             ChangePositionToMouse();
+        }
+    }
+    IEnumerator CallReturnAgain()
+    {
+        //Changing the position by lerp
+        transform.position = Vector2.Lerp(transform.position, lastLocationPosition, returnSpeed * Time.deltaTime);
+        yield return new WaitForEndOfFrame();
+        //Calls it self again to change the position constantly
+        ReturnToLastPosition(true);
+    }
+    IEnumerator CheckIfDoppedOnLocation()
+    {
+        //Waiting to give time for doppedOnLocation to be changed
+        yield return new WaitForEndOfFrame();
+        //If the object is not dropped on location it will return back to original position
+        if(!droppedOnLocation)
+        {
+            ReturnToLastPosition(false);
         }
     }
 }//END OF CLASS 

@@ -26,22 +26,23 @@ public class Location : MonoBehaviour
 	private void PlaceObjectAtPosition()
     {
 		objectScript.transform.position = placePosition;
+		objectScript.lastLocationPosition = placePosition; //sets the last location pos
 		objectScript.droppedOnLocation = true;
 		hasObjectPlaced = true;
 	}
 	private void WrongTypeOfObject()
     {
 		objectScript.droppedOnLocation = false;
-		//object return to position before
+		objectScript.ReturnToLastPosition(false); //false cuz not happening already
 		objectScript = null;
 		
 	}
     public void ObjectPlaced()
     {
-		if(!hasObjectPlaced)
+		if(!hasObjectPlaced) //If the 
         {
-			
-			if(instrumentPlace && !objectScript.spawnable) //means when the function of this is to store instruments and the object is instrument
+
+			if (instrumentPlace && !objectScript.spawnable) //means when the function of this is to store instruments and the object is instrument
             {
 				PlaceObjectAtPosition();
             }
