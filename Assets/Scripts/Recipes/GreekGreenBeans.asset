@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: GreekGreenBeans
   m_EditorClassIdentifier: 
   recipeName: Greek Green Beans
-  recipeDescription: The Greek Salad has been Greek's most go to starter all accross
-    the world, due to its rich nutritions and exquisite taste.
-  recipeServings: 3-4
-  recipeWeight: 0.9
-  recipeDuration: 120 min
+  recipeDescription: Hearty, healthy, and bursting with fresh and vibrant colors
+    and flavors. This traditional Greek green beans recipe (Fasolakia giaxni) will
+    certainly amaze you!
+  recipeServings: 2-4
+  recipeWeight: 300
+  recipeDuration: 50 minutes
   ingredient:
   - Green Beans
   - Tomatoes
