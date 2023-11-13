@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d0636f2912b1e44ae752bb48af2ae7, type: 3}
+  m_Name: ChickenGyro
+  m_EditorClassIdentifier: 
+  recipeName: Chicken Gyro
+  recipeDescription: Enter Recipe Description here
+  recipeServings: Enter how many servings here
+  recipeWeight: 0.9
+  recipeDuration: Enter Recipe preperation Time here in minutes
+  ingredient:
+  - Chicken
+  - Pita Bread
+  - Tzatziki Sauce
+  - Onions
+  - Cucumber
+  - Tomatoes
+  recipeSprite: {fileID: 0}
