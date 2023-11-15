@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: AppetizeCheese
   m_EditorClassIdentifier: 
   recipeName: Appetize Cheese & Olives
-  recipeDescription: Enter Recipe Description here
+  recipeDescription: The Best Appetizers there is world wide, it is most common in
+    north of Greece due to cold weather and shortage of raw materials.
   recipeServings: 3-2
   recipeWeight: 1.01
   recipeDuration: 90
@@ -21,4 +22,8 @@ MonoBehaviour:
   - Olives
   - Feta Cheese
   - Bread cut to sticks
+  ingredientWeight:
+  - 0.1
+  - 0.3
+  - 0.25
   recipeSprite: {fileID: 21300000, guid: 30eb9866cb4ece94394e2457fd3b1ab2, type: 3}

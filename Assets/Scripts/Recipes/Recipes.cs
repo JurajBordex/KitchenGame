@@ -14,6 +14,7 @@ public class Recipes : ScriptableObject
 
     [Header("Ingredients")]
     [SerializeField] string[] ingredient;
+    [SerializeField] float[] ingredientWeight;
 
     [Header("Visiuals")]
     [SerializeField] Sprite recipeSprite;
@@ -43,9 +44,14 @@ public class Recipes : ScriptableObject
         return recipeDuration;
     }
 
-    public string GetIngredient(int index)
+    public string[] GetIngredients()
     {
-        return ingredient[index];
+        return ingredient;
+    }
+
+    public float[] GetIngredientsWeights()
+    {
+        return ingredientWeight;
     }
 
     public Sprite GetRecipeSprite()

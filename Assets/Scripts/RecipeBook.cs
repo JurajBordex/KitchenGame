@@ -12,8 +12,7 @@ public class RecipeBook : MonoBehaviour
     [SerializeField] TextMeshProUGUI recipeServings1;
     [SerializeField] TextMeshProUGUI recipeWeight1;
     [SerializeField] TextMeshProUGUI recipeDuration1;
-    //[SerializeField] TextMeshProUGUI[] ingredient;
-    //[SerializeField] GameObject ingredientText1;
+    [SerializeField] TextMeshProUGUI ingredientText1;
 
     [Header("Page 2")]
     [SerializeField] TextMeshProUGUI recipeName2;
@@ -21,6 +20,7 @@ public class RecipeBook : MonoBehaviour
     [SerializeField] TextMeshProUGUI recipeServings2;
     [SerializeField] TextMeshProUGUI recipeWeight2;
     [SerializeField] TextMeshProUGUI recipeDuration2;
+    [SerializeField] TextMeshProUGUI ingredientText2;
 
 
     [Header("Visiuals")]
@@ -30,6 +30,9 @@ public class RecipeBook : MonoBehaviour
     [Header("Cached Items")]
     GameSession gameSession;
     [SerializeField] Recipes[] recipesList;
+    [SerializeField] TextMeshProUGUI ingredientTextPrefab;
+    [SerializeField] GameObject ingredientList1;
+    [SerializeField] GameObject ingredientList2;
 
     [Header("SerializeField for Testing")]
     [SerializeField] int recipeIndex = 0;
@@ -54,6 +57,15 @@ public class RecipeBook : MonoBehaviour
             recipeWeight1.text = recipesList[recipeIndex].GetRecipeWeight().ToString();
 
             recipeImage1.sprite = recipesList[recipeIndex].GetRecipeSprite();
+
+        for (int i = 0; i< recipesList[recipeIndex].GetIngredients().Length; i++)
+        {
+            var newIngredient = Instantiate(ingredientTextPrefab);
+            newIngredient.transform.parent = ingredientList1.transform;
+            newIngredient.text = recipesList[recipeIndex].GetIngredients()[i].ToString();
+        }
+            
+       
     }
 
     void UpdateRecipePage2()
@@ -69,6 +81,13 @@ public class RecipeBook : MonoBehaviour
         recipeWeight2.text = recipesList[recipeIndex2].GetRecipeWeight().ToString();
 
         recipeImage2.sprite = recipesList[recipeIndex2].GetRecipeSprite();
+
+        for (int i = 0; i < recipesList[recipeIndex2].GetIngredients().Length; i++)
+        {
+            var newIngredient = Instantiate(ingredientTextPrefab);
+            newIngredient.transform.parent = ingredientList2.transform;
+            newIngredient.text = recipesList[recipeIndex2].GetIngredients()[i].ToString();
+        }
     }
 
 }
