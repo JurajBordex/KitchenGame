@@ -23,4 +23,4 @@ MonoBehaviour:
   - Herbs
   - Fish
   - Garlic
-  recipeSprite: {fileID: 0}
+  recipeSprite: {fileID: 21300000, guid: 3ebcd34009647d94a8e27229aef0ac5b, type: 3}

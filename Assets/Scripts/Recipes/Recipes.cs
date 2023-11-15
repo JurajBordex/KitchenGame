@@ -40,7 +40,7 @@ public class Recipes : ScriptableObject
 
     public string GetRecipeDuration() 
     {
-        return recipeDescription;
+        return recipeDuration;
     }
 
     public string GetIngredient(int index)

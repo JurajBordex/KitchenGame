@@ -24,4 +24,4 @@ MonoBehaviour:
   - Onions
   - Cucumber
   - Tomatoes
-  recipeSprite: {fileID: 0}
+  recipeSprite: {fileID: 295263219, guid: 04f25ecb69bdc294d9a0d632ad6e55ec, type: 3}

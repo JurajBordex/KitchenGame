@@ -18,4 +18,4 @@ MonoBehaviour:
   recipeWeight: 0.9
   recipeDuration: Enter Recipe preperation Time here in minutes
   ingredient: []
-  recipeSprite: {fileID: 0}
+  recipeSprite: {fileID: 21300000, guid: 882385a012dc8564e9ca25f940a60401, type: 3}

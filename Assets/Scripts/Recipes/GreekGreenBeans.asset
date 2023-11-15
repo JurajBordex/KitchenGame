@@ -26,4 +26,4 @@ MonoBehaviour:
   - Garlic
   - Olive Oil
   - Herbs & Spices
-  recipeSprite: {fileID: 0}
+  recipeSprite: {fileID: 21300000, guid: 2af00b5591b8544448631516c1fafe2d, type: 3}
