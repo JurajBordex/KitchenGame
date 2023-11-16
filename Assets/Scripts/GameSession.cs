@@ -44,6 +44,8 @@ public class GameSession : MonoBehaviour
         {
             return;
             // will add code here later
+            // LevelCompleted()
+            // LoadNextScene()
         }
         
     }
