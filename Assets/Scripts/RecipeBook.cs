@@ -90,4 +90,50 @@ public class RecipeBook : MonoBehaviour
         }
     }
 
+    public void RefreshRecipeBookPages()
+    {
+        
+        UpdateRecipePage1();
+        UpdateRecipePage2();
+    }
+
+    public void RightButtonSelected()
+    {
+        if(recipeIndex + 2 <  recipesList.Length)
+        {
+            recipeIndex += 2;
+            ResetIngredients();
+            RefreshRecipeBookPages();
+        }
+        else
+        {
+            return;
+        }
+        
+    }
+
+    public void LefttButtonSelected()
+    {
+        if (recipeIndex > 0)
+        {
+            recipeIndex -= 2;
+            ResetIngredients();
+            RefreshRecipeBookPages();
+        }
+        else
+        {
+            return;
+        }
+        
+    }
+
+    void ResetIngredients()
+    {
+        var itemsToDestroy = GameObject.FindGameObjectsWithTag("IngredientText");
+        for(int i = 0;i < itemsToDestroy.Length;i++)
+        {
+            Destroy(itemsToDestroy[i]);
+        }
+        
+    }
 }
