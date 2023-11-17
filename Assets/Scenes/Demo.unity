@@ -8167,10 +8167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d7ac02ff2f76e4580e96e15099d9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientsTypeWeightState:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
+  ingredientsTypeWeightState: []
 --- !u!50 &1397510810
 Rigidbody2D:
   serializedVersion: 4

@@ -27,7 +27,6 @@ public class Ingredient : MonoBehaviour
     {
         if(other.tag == "Instrument" && !moveableScript.isDragging && !gameManager.isDragging && !moveableScript.isReturning && !gameManager.isReturning) //if nothing is being drag and it the object is not just returning
         {
-            Debug.Log("Ingredient Added");
             other.GetComponent<Instrument>().IngredientPlaced(type, state, moveableScript.currentIngredientWeight, gameObject);
         }
     }
