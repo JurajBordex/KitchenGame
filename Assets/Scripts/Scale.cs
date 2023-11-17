@@ -18,12 +18,28 @@ public class Scale : MonoBehaviour
 	public void AddedObject(float addedWeight)
     {
 		totalWeight += addedWeight;
-		totalWeightText.text = totalWeight.ToString() + "g";
+		//Checking weight limit
+		if(totalWeight <= 9999)
+        {
+			totalWeightText.text = totalWeight.ToString() + "g";
+		}
+		else
+        {
+			totalWeightText.text = "Error";
+        }
 	}
 	public void RemovedObject(float removedWeight)
 	{
 		totalWeight -= removedWeight;
-		totalWeightText.text = totalWeight.ToString() + "g";
+		//Checking weight limit
+		if (totalWeight <= 9999)
+		{
+			totalWeightText.text = totalWeight.ToString() + "g";
+		}
+		else
+		{
+			totalWeightText.text = "Error";
+		}
 	}
 
 

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 	//Floats
 	//Bools
 	public bool isDragging;
+	public bool isReturning;
 	//Strings
 	//Components
 	//GameObjects

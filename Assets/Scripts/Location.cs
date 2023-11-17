@@ -32,9 +32,16 @@ public class Location : MonoBehaviour
 	}
 	private void WrongTypeOfObject()
     {
-		objectScript.droppedOnLocation = false;
-		objectScript.ReturnToLastPosition(false); //false cuz not happening already
-		objectScript = null;
+		if(objectScript.lastLocationPosition != Vector3.zero) //if the object was not on location before
+        {
+			objectScript.droppedOnLocation = false;
+			objectScript.ReturnToLastPosition(false); //false cuz not happening already
+			objectScript = null;
+		}
+		else if(objectScript != null) //if the object still exists
+        {
+			Destroy(objectScript.gameObject);
+        }
 		
 	}
     public void ObjectPlaced()
