@@ -32,6 +32,7 @@ public class MoveableObject : MonoBehaviour
     }
     //Strings
     //Components
+    [HideInInspector] public SpriteRenderer sr;
     //Scripts
     private Scale scale;
     private GameManager gameManager;
@@ -55,7 +56,8 @@ public class MoveableObject : MonoBehaviour
     private void Start()
     {
         currentIngredientWeight = defualtIngredientWeight;
-        
+
+        sr = GetComponent<SpriteRenderer>();
         scale = GameObject.FindGameObjectWithTag("Scale").GetComponent<Scale>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
@@ -64,6 +66,7 @@ public class MoveableObject : MonoBehaviour
             //At first spawn when you get the object from basket it will be dragging already
             gameManager.isDragging = true;
             isDragging = true;
+            sr.sortingOrder = 10; //Setting the sorting order to show obj at top
             ChangePositionToMouse();
         }
         else //if its not ingredient then set the last location pos to current pos
@@ -78,10 +81,10 @@ public class MoveableObject : MonoBehaviour
             //Let game manager know that you are dragging something
             gameManager.isDragging = true;
             isDragging = true;
-            //lastLocationPosition = transform.position;
+            sr.sortingOrder = 10; //Setting the sorting order to show obj at top
 
             //Changes bools when the object is picked up if they are being used
-            if(droppedOnScale)
+            if (droppedOnScale)
             {
                 droppedOnScale = false;
                 scale.RemovedObject(currentIngredientWeight);
@@ -126,7 +129,8 @@ public class MoveableObject : MonoBehaviour
             currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
             gameManager.isDragging = false;
             isDragging = false;
-            
+            sr.sortingOrder = 1; //Setting the sorting order to not show obj at top
+
         }
         else if (isOutside())
         {
@@ -149,6 +153,8 @@ public class MoveableObject : MonoBehaviour
 
         gameManager.isDragging = false;
         isDragging = false;
+        sr.sortingOrder = 1; //Setting the sorting order to not show obj at top
+
 
     }
     private void ChangePositionToMouse()
@@ -162,7 +168,9 @@ public class MoveableObject : MonoBehaviour
         {
             gameManager.isDragging = false;
             isDragging = false;
-            if(!onScale()) //If the object is not even on scale it checks if it is on location - scale is not LOCATIOn because it doesn not have a precise spot position
+            sr.sortingOrder = 1; //Setting the sorting order to not show obj at top
+
+            if (!onScale()) //If the object is not even on scale it checks if it is on location - scale is not LOCATIOn because it doesn not have a precise spot position
             {
                 StartCoroutine(CheckIfDroppedOnLocationFirstTime());
             }
@@ -176,9 +184,10 @@ public class MoveableObject : MonoBehaviour
             isReturning = true;
             gameManager.isReturning = true;
             canDrag = false;
+            sr.sortingOrder = 1; //Setting the sorting order to not show obj at top
         }
 
-        if(isReturning)
+        if (isReturning)
         {
             if (Vector2.Distance(transform.position, lastLocationPosition) > 0.01f) //if position is not close enough to location pos
             {
@@ -238,6 +247,8 @@ public class MoveableObject : MonoBehaviour
                 currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
                 gameManager.isDragging = false;
                 isDragging = false;
+                sr.sortingOrder = 1; //Setting the sorting order to not show obj at top
+
         }
     }
     IEnumerator LoopingFirstDrag()

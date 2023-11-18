@@ -11,13 +11,16 @@ public class Instrument : MonoBehaviour
 	//Strings
 	//Components
 	private MoveableObject instrumentsMoveableScript;
+	private GameManager gameManager;
 	//GameObjects
 	//Vectors
 	public List<Vector3> ingredientsTypeWeightState; //I FEEL FANCY TODAY .... AND TOMORROW
 
     private void Start()
     {
+		gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 		instrumentsMoveableScript = GetComponent<MoveableObject>();
+
 		//Can add ingredient is true on the game start
 		canAddIngredient = true;
     }
@@ -37,6 +40,24 @@ public class Instrument : MonoBehaviour
 			//UPDATE THE IMAGE - ADD FOOD INTO THE INSTRUMENT
 		}
 
+	}
+
+	private void OnTriggerStay2D(Collider2D other)
+	{
+		if (other.tag == "Instrument" && !instrumentsMoveableScript.isDragging && !gameManager.isDragging && !instrumentsMoveableScript.isReturning && !gameManager.isReturning && other.GetComponent<MoveableObject>().droppedOnLocation) //if nothing is being drag and it the object is not just returning and its dropped on location(so you can't drag the instrument above food and then just drop it when its not on the location)
+		{
+			//Assigning other instrument script to not search for it multiple times
+			Instrument otherInstrument = other.GetComponent<Instrument>();
+
+			//Adding the ingredients in this instrument to the other instrument/plate/bowl
+			for (int i = 0; i < ingredientsTypeWeightState.Count; i++)
+            {
+				otherInstrument.ingredientsTypeWeightState.Add(ingredientsTypeWeightState[i]);
+			}
+			//Return the instrument to last pos
+			ingredientsTypeWeightState.Clear();
+			instrumentsMoveableScript.ReturnToLastPosition(false);
+		}
 	}
 	IEnumerator EnableToAddIngredientAgain()
     {

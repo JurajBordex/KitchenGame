@@ -28,12 +28,6 @@ public class GameSession : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SubrtactRecipeMenu()
     {
         if (recipesList.Count > 1)
@@ -62,6 +56,15 @@ public class GameSession : MonoBehaviour
         return recipesList[currentRecipeIndex];
         //more code to add
         //instantiate Banner/ Music/ Animation / Game trackers
+    }
+
+    //THe passed recipe index will be passed when meal is put on the counter, each recipe(meal) will have a recipeIndex(what recipe it is)
+    public void RecipeCompletedTracker(int passedRecipeIndex)
+    {
+        for(int i = 0; i < recipes[passedRecipeIndex].ingredientsTypeWeightState.Count; i++)
+        {
+            //DO
+        }
     }
 
     public void RecipeCompleted()

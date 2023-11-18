@@ -11,13 +11,21 @@ public class Recipes : ScriptableObject
     [SerializeField] string recipeServings = "Enter how many servings here";
     [SerializeField] float recipeWeight = 0.90f;
     [SerializeField] string recipeDuration = "Enter Recipe preperation Time here in minutes";
+    [SerializeField] int recipeDifficulty = 3;
 
     [Header("Ingredients")]
     [SerializeField] string[] ingredient;
     [SerializeField] float[] ingredientWeight;
 
+    public List<Vector3> ingredientsTypeWeightState; //I FEEL FANCY TODAY .... AND TOMORROW
+
     [Header("Visiuals")]
     [SerializeField] Sprite recipeSprite;
+
+    public Vector3 GetIngredientsInfo(int i)
+    {
+        return ingredientsTypeWeightState[i];
+    }
 
     public string GetRecipeName()
     {
