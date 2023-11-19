@@ -11,7 +11,7 @@ public class MoveableObject : MonoBehaviour
 	[SerializeField] private float defualtIngredientWeight; //important later on when we will be changing the weight by cutting or other actions
     public float currentIngredientWeight; 
     //Bools
-    private bool droppedOnScale; //creted bool to not call the if statements and functions again
+    public bool droppedOnScale; //creted bool to not call the if statements and functions again
     public bool droppedOnLocation; //creted bool to not call the if statements and functions again
 
     private bool canDrag = true;
@@ -28,7 +28,7 @@ public class MoveableObject : MonoBehaviour
     private bool onScale()
     {
         //Using Physics2D.Overlap to check if the object is outside of screen bounds or not
-        return Physics2D.OverlapCircle(transform.position, 0.1f, whatIsScale);
+        return Physics2D.OverlapCircle(transform.position, 0.15f, whatIsScale);
     }
     //Strings
     //Components
@@ -150,6 +150,10 @@ public class MoveableObject : MonoBehaviour
             //Checks if the object is on location, if not then it will return to its last position
             StartCoroutine(CheckIfDroppedOnLocation());
         }
+        else //if it is on scale
+        {
+           StartCoroutine(CheckIfDroppedOnScale());
+        }
 
         gameManager.isDragging = false;
         isDragging = false;
@@ -173,6 +177,10 @@ public class MoveableObject : MonoBehaviour
             if (!onScale()) //If the object is not even on scale it checks if it is on location - scale is not LOCATIOn because it doesn not have a precise spot position
             {
                 StartCoroutine(CheckIfDroppedOnLocationFirstTime());
+            }
+            else //if is on scale the lstLocationPosition will be set to its transform.position
+            {
+                StartCoroutine(CheckIfDroppedOnScale());
             }
         }
     }
@@ -199,13 +207,17 @@ public class MoveableObject : MonoBehaviour
                 isReturning = false;
                 gameManager.isReturning = false;
 
-                //checks if the object is on location && has not set those values and assigned scripts yet
-                if (instrumentTrigger != null && instrumentTrigger.onLocation && currentLocationScript == null)
+                if (onScale()) //checks if object in on scale after returned
+                {
+                    StartCoroutine(CheckIfDroppedOnScale());
+                }
+                else if (instrumentTrigger != null && instrumentTrigger.onLocation && currentLocationScript == null) //checks if the object is on location && has not set those values and assigned scripts yet
                 {
                     currentLocationScript = instrumentTrigger.location.GetComponent<Location>();  //stores the current location script
                     currentLocationScript.objectScript = GetComponent<MoveableObject>();
                     currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
                 }
+                
                 
             }
         }
@@ -213,12 +225,7 @@ public class MoveableObject : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Scale" && !droppedOnScale && !isDragging)
-        {
-            scale.AddedObject(currentIngredientWeight);
-            droppedOnScale = true;
-        }
-        if (other.tag == "Trash" && !isDragging)
+        if (other.tag == "Trash" && !isDragging && !isReturning)
         {
             if(spawnable)
             {
@@ -236,6 +243,7 @@ public class MoveableObject : MonoBehaviour
                 if(instrument.ingredientsTypeWeightState.Count != 0) //if there is something in the instrument
                 {
                     instrument.ingredientsTypeWeightState.Clear(); //it will clear/throw out the ingredients and then return
+                    currentIngredientWeight = defualtIngredientWeight; //setting weight back to normal
                 }
                 ReturnToLastPosition(false); //false because it is not already returning
             }
@@ -287,5 +295,18 @@ public class MoveableObject : MonoBehaviour
         {
             ReturnToLastPosition(false);
         }
+    }
+    IEnumerator CheckIfDroppedOnScale()
+    {
+        //Waiting 0.05 seconds (3 frames) to give time for doppedOnLocation to be changed
+        yield return new WaitForSeconds(0.05f);
+        //If still on scale then make it like it
+        if(onScale())
+        {
+            droppedOnScale = true;
+            lastLocationPosition = transform.position;
+            scale.AddedObject(currentIngredientWeight);
+        }
+        
     }
 }//END OF CLASS 

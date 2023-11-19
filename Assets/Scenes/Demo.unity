@@ -615,6 +615,7 @@ MonoBehaviour:
   returnSpeed: 15
   defualtIngredientWeight: 250
   currentIngredientWeight: 0
+  droppedOnScale: 0
   droppedOnLocation: 1
   isDragging: 0
   isReturning: 0
@@ -7035,6 +7036,7 @@ MonoBehaviour:
   returnSpeed: 15
   defualtIngredientWeight: 200
   currentIngredientWeight: 0
+  droppedOnScale: 0
   droppedOnLocation: 1
   isDragging: 0
   isReturning: 0
@@ -8349,6 +8351,7 @@ MonoBehaviour:
   returnSpeed: 15
   defualtIngredientWeight: 400
   currentIngredientWeight: 0
+  droppedOnScale: 0
   droppedOnLocation: 1
   isDragging: 0
   isReturning: 0
@@ -8792,7 +8795,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -27.035091, y: -9.621192}
+  m_AnchoredPosition: {x: -35.53, y: -7.4}
   m_SizeDelta: {x: 5.7893, y: 2.1682}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1474381720

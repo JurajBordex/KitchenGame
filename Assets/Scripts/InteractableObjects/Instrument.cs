@@ -44,6 +44,7 @@ public class Instrument : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D other)
 	{
+		//Passing meal onto plate or other instruments
 		if (other.tag == "Instrument" && !instrumentsMoveableScript.isDragging && !gameManager.isDragging && !instrumentsMoveableScript.isReturning && !gameManager.isReturning && other.GetComponent<MoveableObject>().droppedOnLocation) //if nothing is being drag and it the object is not just returning and its dropped on location(so you can't drag the instrument above food and then just drop it when its not on the location)
 		{
 			//Assigning other instrument script to not search for it multiple times
@@ -54,6 +55,9 @@ public class Instrument : MonoBehaviour
             {
 				otherInstrument.ingredientsTypeWeightState.Add(ingredientsTypeWeightState[i]);
 			}
+
+			//CHANGE VISUALS OF OTHER AND THIS INSTRUMENT
+
 			//Return the instrument to last pos
 			ingredientsTypeWeightState.Clear();
 			instrumentsMoveableScript.ReturnToLastPosition(false);
