@@ -12,7 +12,6 @@ public class RecipeBook : MonoBehaviour
     [SerializeField] TextMeshProUGUI recipeServings1;
     [SerializeField] TextMeshProUGUI recipeWeight1;
     [SerializeField] TextMeshProUGUI recipeDifficulty1;
-    [SerializeField] TextMeshProUGUI ingredientText1;
 
     [Header("Page 2")]
     [SerializeField] TextMeshProUGUI recipeName2;
@@ -20,8 +19,6 @@ public class RecipeBook : MonoBehaviour
     [SerializeField] TextMeshProUGUI recipeServings2;
     [SerializeField] TextMeshProUGUI recipeWeight2;
     [SerializeField] TextMeshProUGUI recipeDifficulty2;
-    [SerializeField] TextMeshProUGUI ingredientText2;
-
 
     [Header("Visiuals")]
     [SerializeField] Image recipeImage1;
