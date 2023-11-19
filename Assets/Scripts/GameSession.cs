@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameSession : MonoBehaviour
 {
     [SerializeField] Recipes[] recipes;
+    [SerializeField] int numOfRecipesInLevel = 4;
     
 
     [Header("Testing")]
@@ -14,7 +15,6 @@ public class GameSession : MonoBehaviour
     void Start()
     {
         GenerateRecipesList();
-        GenerateRandomRecipe();
     }
     // note: we have an array that is manually filled from inspector, and a list that is generated
     // automatically though code
@@ -22,9 +22,10 @@ public class GameSession : MonoBehaviour
     // the array will be consistent throught the level, and will be used for the Recipe book and checklist
     private void GenerateRecipesList()
     {
-        for (int i = 0; i < recipes.Length; i++)
+        for (int i = 0; i < numOfRecipesInLevel; i++)
         {
-            recipesList.Add(recipes[i]);
+            GenerateRandomRecipe();
+            recipesList.Add(recipes[currentRecipeIndex]);
         }
     }
 
@@ -48,7 +49,7 @@ public class GameSession : MonoBehaviour
 
     public void GenerateRandomRecipe()
     {
-        currentRecipeIndex = Random.Range(0, recipesList.Count);
+        currentRecipeIndex = Random.Range(0, recipes.Length);
     }
 
     public Recipes RecallCurrentRecipe()
