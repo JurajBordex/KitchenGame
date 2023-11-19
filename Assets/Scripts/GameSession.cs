@@ -61,7 +61,7 @@ public class GameSession : MonoBehaviour
     //THe passed recipe index will be passed when meal is put on the counter, each recipe(meal) will have a recipeIndex(what recipe it is)
     public void RecipeCompletedTracker(int passedRecipeIndex)
     {
-        for(int i = 0; i < recipes[passedRecipeIndex].ingredientsTypeWeightState.Count; i++)
+        for(int i = 0; i < recipesList[passedRecipeIndex].ingredientsTypeWeightState.Count; i++)
         {
             //DO
         }
