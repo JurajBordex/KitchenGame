@@ -168,6 +168,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CookingLocation
       objectReference: {fileID: 0}
+    - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432537815501987465, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2685550194359776118, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: cook
       value: 1
@@ -334,6 +342,14 @@ PrefabInstance:
     - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: m_Name
       value: CookingLocation
+      objectReference: {fileID: 0}
+    - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432537815501987465, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685550194359776118, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: cook
@@ -878,6 +894,14 @@ PrefabInstance:
     - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: m_Name
       value: InstrumentPlaceLocation
+      objectReference: {fileID: 0}
+    - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432537815501987465, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685550194359776118, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: hasObjectPlaced
@@ -1706,6 +1730,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: InstrumentPlaceLocation
       objectReference: {fileID: 0}
+    - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432537815501987465, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2685550194359776118, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: hasObjectPlaced
       value: 1
@@ -1970,13 +2002,11 @@ MonoBehaviour:
   recipeServings1: {fileID: 1355764061}
   recipeWeight1: {fileID: 1357438428}
   recipeDifficulty1: {fileID: 1026532873}
-  ingredientText1: {fileID: 0}
   recipeName2: {fileID: 295827404}
   recipeDescription2: {fileID: 452895442}
   recipeServings2: {fileID: 1337535469}
   recipeWeight2: {fileID: 1526490838}
   recipeDifficulty2: {fileID: 1776728464}
-  ingredientText2: {fileID: 0}
   recipeImage1: {fileID: 1055185829}
   recipeImage2: {fileID: 2116471322}
   recipesList:
@@ -2005,6 +2035,14 @@ PrefabInstance:
     - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: m_Name
       value: PlaceLocation (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432537815501987465, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685550194359776118, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: place
@@ -2982,6 +3020,14 @@ PrefabInstance:
     - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: m_Name
       value: PlaceLocation (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432537815501987465, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685550194359776118, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: place
@@ -4149,6 +4195,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CookingLocation
       objectReference: {fileID: 0}
+    - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432537815501987465, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2685550194359776118, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: cook
       value: 1
@@ -4798,6 +4852,14 @@ PrefabInstance:
     - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: m_Name
       value: PlaceLocation
+      objectReference: {fileID: 0}
+    - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432537815501987465, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685550194359776118, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: place
@@ -7167,6 +7229,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaceLocation (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432537815501987465, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2685550194359776118, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: place
       value: 1
@@ -7925,6 +7995,14 @@ PrefabInstance:
     - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: m_Name
       value: CookingLocation
+      objectReference: {fileID: 0}
+    - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432537815501987465, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685550194359776118, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: cook
@@ -10106,6 +10184,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CuttingLocation
       objectReference: {fileID: 0}
+    - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432537815501987465, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2685550194359776118, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: cut
       value: 1
@@ -10760,6 +10846,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaceLocation (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432537815501987465, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2685550194359776118, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: place
       value: 1
@@ -11152,6 +11246,14 @@ PrefabInstance:
     - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: m_Name
       value: InstrumentPlaceLocation
+      objectReference: {fileID: 0}
+    - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2432537815501987465, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2685550194359776118, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: functionName
