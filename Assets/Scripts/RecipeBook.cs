@@ -11,7 +11,7 @@ public class RecipeBook : MonoBehaviour
     [SerializeField] TextMeshProUGUI recipeDescription1;
     [SerializeField] TextMeshProUGUI recipeServings1;
     [SerializeField] TextMeshProUGUI recipeWeight1;
-    [SerializeField] TextMeshProUGUI recipeDuration1;
+    [SerializeField] TextMeshProUGUI recipeDifficulty1;
     [SerializeField] TextMeshProUGUI ingredientText1;
 
     [Header("Page 2")]
@@ -19,7 +19,7 @@ public class RecipeBook : MonoBehaviour
     [SerializeField] TextMeshProUGUI recipeDescription2;
     [SerializeField] TextMeshProUGUI recipeServings2;
     [SerializeField] TextMeshProUGUI recipeWeight2;
-    [SerializeField] TextMeshProUGUI recipeDuration2;
+    [SerializeField] TextMeshProUGUI recipeDifficulty2;
     [SerializeField] TextMeshProUGUI ingredientText2;
 
 
@@ -52,7 +52,7 @@ public class RecipeBook : MonoBehaviour
 
             recipeDescription1.text = recipesList[recipeIndex].GetRecipeDescription();
 
-            recipeDuration1.text = recipesList[recipeIndex].GetRecipeDuration();
+            recipeDifficulty1.text = recipesList[recipeIndex].GetRecipeDifficulty().ToString();
 
             recipeWeight1.text = recipesList[recipeIndex].GetRecipeWeight().ToString();
 
@@ -76,7 +76,7 @@ public class RecipeBook : MonoBehaviour
 
         recipeDescription2.text = recipesList[recipeIndex2].GetRecipeDescription();
 
-        recipeDuration2.text = recipesList[recipeIndex2].GetRecipeDuration();
+        recipeDifficulty2.text = recipesList[recipeIndex2].GetRecipeDifficulty().ToString();
 
         recipeWeight2.text = recipesList[recipeIndex2].GetRecipeWeight().ToString();
 

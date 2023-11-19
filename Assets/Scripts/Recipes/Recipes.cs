@@ -10,8 +10,8 @@ public class Recipes : ScriptableObject
     [TextArea(2,4)] [SerializeField] string recipeDescription = "Enter Recipe Description here";
     [SerializeField] string recipeServings = "Enter how many servings here";
     [SerializeField] float recipeWeight = 0.90f;
-    [SerializeField] string recipeDuration = "Enter Recipe preperation Time here in minutes";
-    [SerializeField] int recipeDifficulty = 3;
+    [SerializeField] int recipeDifficulty = 2;
+    
 
     [Header("Ingredients")]
     [SerializeField] string[] ingredient;
@@ -47,9 +47,9 @@ public class Recipes : ScriptableObject
         return recipeWeight;
     }
 
-    public string GetRecipeDuration() 
+    public int GetRecipeDifficulty() 
     {
-        return recipeDuration;
+        return recipeDifficulty;
     }
 
     public string[] GetIngredients()
