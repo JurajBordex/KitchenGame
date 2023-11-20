@@ -13,6 +13,7 @@ public class GameSession : MonoBehaviour
     
 
     [Header("Testing")]
+    [SerializeField] int currentRecipeIndex;
     [SerializeField] int randomRecipeIndex;
     [SerializeField] List<Recipes> recipesList;
 
@@ -27,15 +28,17 @@ public class GameSession : MonoBehaviour
     // the array will be consistent throught the level, and will be used for the Recipe book and checklist
     private void GenerateRecipesList()
     {
-        for (int i = 0; i < numOfRecipesInLevel; i++)
+        for (int i = 0; i < recipes.Length; i++)
         {
-            GenerateRandomRecipe();
-            recipesList.Add(recipes[randomRecipeIndex]);
-            var orderSprite = Instantiate(orderSpritePrefab);
-            orderSprite.GetComponent<SpriteRenderer>().sprite = recipes[randomRecipeIndex].GetRecipeSprite();
-            orderSprite.transform.parent = poster.transform;
-            //orderSprite.SetActive(false);
+            recipesList.Add(recipes[i]);
         }
+    }
+
+    private void GenerateOrderSprite()
+    {
+        var orderSprite = Instantiate(orderSpritePrefab);
+        orderSprite.GetComponent<SpriteRenderer>().sprite = recipes[currentRecipeIndex].GetRecipeSprite();
+        orderSprite.transform.parent = poster.transform;
     }
 
     public void SubrtactRecipeMenu()
@@ -58,12 +61,12 @@ public class GameSession : MonoBehaviour
 
     public void GenerateRandomRecipe()
     {
-        //Bordex said : won't work as we want to. This way it may happen that some dishesh won't be randomly selected
-        randomRecipeIndex = Random.Range(0, recipes.Length);
+        randomRecipeIndex = Random.Range(0, recipesList.Count);
     }
 
     public Recipes RecallCurrentRecipe()
     {
+        GenerateRandomRecipe();
         return recipesList[randomRecipeIndex];
         //more code to add
         //instantiate Banner/ Music/ Animation / Game trackers
