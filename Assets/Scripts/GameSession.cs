@@ -6,10 +6,14 @@ public class GameSession : MonoBehaviour
 {
     [SerializeField] Recipes[] recipes;
     [SerializeField] int numOfRecipesInLevel = 4;
+
+    [Header("Cached Items")]
+    [SerializeField] GameObject orderSpritePrefab;
+    [SerializeField] GameObject poster;
     
 
     [Header("Testing")]
-    [SerializeField] int currentRecipeIndex;
+    [SerializeField] int randomRecipeIndex;
     [SerializeField] List<Recipes> recipesList;
 
     void Start()
@@ -25,7 +29,11 @@ public class GameSession : MonoBehaviour
         for (int i = 0; i < numOfRecipesInLevel; i++)
         {
             GenerateRandomRecipe();
-            recipesList.Add(recipes[currentRecipeIndex]);
+            recipesList.Add(recipes[randomRecipeIndex]);
+            var orderSprite = Instantiate(orderSpritePrefab);
+            orderSprite.GetComponent<SpriteRenderer>().sprite = recipes[randomRecipeIndex].GetRecipeSprite();
+            orderSprite.transform.parent = poster.transform;
+            //orderSprite.SetActive(false);
         }
     }
 
@@ -33,7 +41,7 @@ public class GameSession : MonoBehaviour
     {
         if (recipesList.Count > 1)
         {
-            recipesList.Remove(recipesList[currentRecipeIndex]);
+            recipesList.Remove(recipesList[randomRecipeIndex]);
         }
         else
         {
@@ -49,12 +57,12 @@ public class GameSession : MonoBehaviour
 
     public void GenerateRandomRecipe()
     {
-        currentRecipeIndex = Random.Range(0, recipes.Length);
+        randomRecipeIndex = Random.Range(0, recipes.Length);
     }
 
     public Recipes RecallCurrentRecipe()
     {
-        return recipesList[currentRecipeIndex];
+        return recipesList[randomRecipeIndex];
         //more code to add
         //instantiate Banner/ Music/ Animation / Game trackers
     }
