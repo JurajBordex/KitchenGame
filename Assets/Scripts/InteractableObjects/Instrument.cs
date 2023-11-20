@@ -8,6 +8,8 @@ public class Instrument : MonoBehaviour
 	//Floats
 	//Bools
 	private bool canAddIngredient;
+
+	
 	//Strings
 	//Components
 	private MoveableObject instrumentsMoveableScript;
@@ -24,7 +26,6 @@ public class Instrument : MonoBehaviour
 		//Can add ingredient is true on the game start
 		canAddIngredient = true;
     }
-
     public void IngredientPlaced(int ingredientType, int ingredientState, float ingredientWeight, GameObject ingredientObj)
     {
 		if(canAddIngredient)

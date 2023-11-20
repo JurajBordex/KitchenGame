@@ -17,7 +17,7 @@ MonoBehaviour:
     tend to be delicious and not so expensive, there fore best sellers.
   recipeServings: 2-2
   recipeWeight: 2.02
-  recipeDuration: 30
+  recipeDifficulty: 2
   ingredient:
   - Cheese
   - Fish
@@ -27,4 +27,12 @@ MonoBehaviour:
   - Cream
   - Herbs & Spices
   ingredientWeight: []
+  ingredientsTypeWeightState:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   recipeSprite: {fileID: 21300000, guid: 7e531bf47ba5b224d983d2d25ab34d14, type: 3}

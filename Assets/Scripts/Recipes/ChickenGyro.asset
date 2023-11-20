@@ -16,7 +16,7 @@ MonoBehaviour:
   recipeDescription: Enter Recipe Description here
   recipeServings: Enter how many servings here
   recipeWeight: 0.9
-  recipeDuration: Enter Recipe preperation Time here in minutes
+  recipeDifficulty: 2
   ingredient:
   - Chicken
   - Pita Bread
@@ -24,4 +24,12 @@ MonoBehaviour:
   - Onions
   - Cucumber
   - Tomatoes
+  ingredientWeight: []
+  ingredientsTypeWeightState:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   recipeSprite: {fileID: 295263219, guid: 04f25ecb69bdc294d9a0d632ad6e55ec, type: 3}

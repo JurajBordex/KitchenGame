@@ -17,7 +17,7 @@ MonoBehaviour:
     north of Greece due to cold weather and shortage of raw materials.
   recipeServings: 3-2
   recipeWeight: 650
-  recipeDuration: 90
+  recipeDifficulty: 2
   ingredient:
   - Olives
   - Feta Cheese
@@ -26,4 +26,8 @@ MonoBehaviour:
   - 100
   - 300
   - 250
+  ingredientsTypeWeightState:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   recipeSprite: {fileID: 21300000, guid: 30eb9866cb4ece94394e2457fd3b1ab2, type: 3}

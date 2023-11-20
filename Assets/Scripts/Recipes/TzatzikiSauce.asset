@@ -16,11 +16,18 @@ MonoBehaviour:
   recipeDescription: Enter Recipe Description here
   recipeServings: Enter how many servings here
   recipeWeight: 0.9
-  recipeDuration: Enter Recipe preperation Time here in minutes
+  recipeDifficulty: 2
   ingredient:
   - Cream
   - Cucumber
   - Garlic
   - Olive Oil
   - Herbs & Spices
+  ingredientWeight: []
+  ingredientsTypeWeightState:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   recipeSprite: {fileID: 3479051378746070589, guid: a37b837d663d37c4db83821f9fcb77da, type: 3}

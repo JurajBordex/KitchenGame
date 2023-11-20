@@ -16,6 +16,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] int randomRecipeIndex;
     [SerializeField] List<Recipes> recipesList;
 
+
     void Start()
     {
         GenerateRecipesList();
@@ -57,6 +58,7 @@ public class GameSession : MonoBehaviour
 
     public void GenerateRandomRecipe()
     {
+        //Bordex said : won't work as we want to. This way it may happen that some dishesh won't be randomly selected
         randomRecipeIndex = Random.Range(0, recipes.Length);
     }
 
@@ -67,17 +69,33 @@ public class GameSession : MonoBehaviour
         //instantiate Banner/ Music/ Animation / Game trackers
     }
 
-    //THe passed recipe index will be passed when meal is put on the counter, each recipe(meal) will have a recipeIndex(what recipe it is)
-    public void RecipeCompletedTracker(int passedRecipeIndex)
+    //The passed recipe index will be passed when meal is put on the counter, each recipe(meal) will have a recipeIndex(what recipe it is)
+    public void RecipeCompletedTracker(List<Vector3> passedIngredientTypeWeightState)
     {
-        for(int i = 0; i < recipesList[passedRecipeIndex].ingredientsTypeWeightState.Count; i++)
+        bool ingredientsMatch = false;
+
+        for(int recipeIndex = 0; recipeIndex < recipesList.Count; recipeIndex++) //goes through each recipe in recipe list
         {
-            //DO
+            for (int i = 0; i < recipesList[recipeIndex].ingredientsTypeWeightState.Count; i++) //goes through every vector3 of previously chosen List
+            {
+                //SIMPLIFIED if(recipesList[recipeIndex].ingredientsTypeWeightState.Contains(passedIngredientTypeWeightState[i])) //if the chosen vector 3 list contains the ingredient the loop continues until all of ingredients have been looped through 
+                if (recipesList[recipeIndex].ingredientsTypeWeightState.Contains(passedIngredientTypeWeightState[i]) && passedIngredientTypeWeightState.Contains(passedIngredientTypeWeightState[i])) //if the chosen vector 3 list contains the ingredient the loop continues until all of ingredients have been looped through , check for the other way as well
+                {
+                    Debug.Log("CONTAINS THIS ELEMENT INGREDIENT " + i);
+                }
+                else
+                {
+                    Debug.Log("DOES NOT CONTAIN THIS ELEMENT INGREDIENT OR WRONG WEIGHT OF INGREDIENT " + i);
+                    Debug.Log("ESCAPE THESE BLOODY LOOPS PLEASE");
+                }
+                //if the script got here it will loop the second for loop again
+            }
         }
     }
 
     public void RecipeCompleted()
     {
+        //CODE WHEN COMPLETED AS DELETING OBJS AND RESETING THE ASSIGNED VARIABLES
             SubrtactRecipeMenu();
             GenerateRandomRecipe();
     }

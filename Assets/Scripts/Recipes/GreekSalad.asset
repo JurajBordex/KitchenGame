@@ -17,11 +17,18 @@ MonoBehaviour:
     the world, due to its rich nutritions and exquisite taste.
   recipeServings: 3-4
   recipeWeight: 0.9
-  recipeDuration: 120 min
+  recipeDifficulty: 2
   ingredient:
   - Lettece
   - Tomatos
   - Cheese
   - Garlic
   - Oil
+  ingredientWeight: []
+  ingredientsTypeWeightState:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   recipeSprite: {fileID: 126854196191288954, guid: a37b837d663d37c4db83821f9fcb77da, type: 3}

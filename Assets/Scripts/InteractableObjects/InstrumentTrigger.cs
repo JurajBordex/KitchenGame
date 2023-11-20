@@ -8,6 +8,7 @@ public class InstrumentTrigger : MonoBehaviour
     //Floats
     //Bools
     public bool onLocation;
+    public bool onInstrumentPlaceLocation;
     //Strings
     //Components
     public Transform location;
@@ -19,6 +20,11 @@ public class InstrumentTrigger : MonoBehaviour
         {
             onLocation = true;
             location = other.transform;
+            //Checking if the location has a instrument holder function
+            if (other.GetComponent<Location>().instrumentPlace)
+            {
+                onInstrumentPlaceLocation = true;
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -27,6 +33,7 @@ public class InstrumentTrigger : MonoBehaviour
         {
             onLocation = false;
             location = null;
+            onInstrumentPlaceLocation = false;
         }
     }
 

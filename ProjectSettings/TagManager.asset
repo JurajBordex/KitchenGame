@@ -10,6 +10,7 @@ TagManager:
   - Location
   - IngredientText
   - Instrument
+  - GameSession
   layers:
   - Default
   - TransparentFX

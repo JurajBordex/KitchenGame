@@ -18,8 +18,20 @@ public class MoveableObject : MonoBehaviour
     public bool isDragging;
     public bool isReturning;
 
-    public bool spawnable, cutable, cookable, fillable; //Function of the object
+    public bool spawnable, cutable, cookable, fillable, servingInstrument; //Function of the object
 
+    public bool onInstrumentLocation()
+    {
+        //If the instrument is on its instrument(spawn) place location 
+        if (instrumentTrigger != null && instrumentTrigger.onInstrumentPlaceLocation)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     private bool isOutside()
     {
         //Using Physics2D.Overlap to check if the object is outside of screen bounds or not
@@ -251,6 +263,10 @@ public class MoveableObject : MonoBehaviour
         if(other.tag == "Location" && !droppedOnLocation && !isDragging && spawnable && !isReturning) //If stopped dragging on location and its not returning
         {
                 currentLocationScript = other.GetComponent<Location>();  //stores the current location script
+                if(GetComponent<Instrument>() != null) //if the object has instrument script then assign it to the location script, will be used when you finished order
+                {
+                    currentLocationScript.instrumentScript = GetComponent<Instrument>();
+                }
                 currentLocationScript.objectScript = GetComponent<MoveableObject>();
                 currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
                 gameManager.isDragging = false;

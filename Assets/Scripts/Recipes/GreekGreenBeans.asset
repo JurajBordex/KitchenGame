@@ -18,7 +18,7 @@ MonoBehaviour:
     certainly amaze you!
   recipeServings: 2-4
   recipeWeight: 300
-  recipeDuration: 50 minutes
+  recipeDifficulty: 2
   ingredient:
   - Green Beans
   - Tomatoes
@@ -26,4 +26,12 @@ MonoBehaviour:
   - Garlic
   - Olive Oil
   - Herbs & Spices
+  ingredientWeight: []
+  ingredientsTypeWeightState:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
   recipeSprite: {fileID: 21300000, guid: 2af00b5591b8544448631516c1fafe2d, type: 3}
