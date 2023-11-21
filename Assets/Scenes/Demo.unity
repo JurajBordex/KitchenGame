@@ -4865,7 +4865,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: m_Name
-      value: CompletedRecipePlaceLocation
+      value: RecipeServingPlaceLocation
       objectReference: {fileID: 0}
     - target: {fileID: 748128020514646670, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: m_Layer
@@ -4878,6 +4878,10 @@ PrefabInstance:
     - target: {fileID: 2685550194359776118, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: place
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2685550194359776118, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
+      propertyPath: servingPlace
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2685550194359776118, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: completionPlace

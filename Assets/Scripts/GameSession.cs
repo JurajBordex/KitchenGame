@@ -42,12 +42,17 @@ public class GameSession : MonoBehaviour
         orderSprite.transform.parent = poster.transform;
     }
 
-    public void SubrtactRecipeMenu()
+    public void SubrtactRecipeMenu(Recipes completedRecipe)
     {
         if (recipesList.Count > 1)
         {
+
             recipesList.Remove(recipesList[currentRecipeIndex]);
             GenerateRandomRecipe();
+
+            Debug.Log("SHOULD REMOVE RECIPE ");
+            recipesList.Remove(completedRecipe);
+
         }
         else
         {
@@ -77,30 +82,41 @@ public class GameSession : MonoBehaviour
     public void RecipeCompletedTracker(List<Vector3> passedIngredientTypeWeightState)
     {
         bool ingredientsMatch = false;
+        Recipes passedRecipe = null;
 
         for(int recipeIndex = 0; recipeIndex < recipesList.Count; recipeIndex++) //goes through each recipe in recipe list
         {
-            for (int i = 0; i < recipesList[recipeIndex].ingredientsTypeWeightState.Count; i++) //goes through every vector3 of previously chosen List
+            if(ingredientsMatch)
+            {
+                Debug.Log("RECIPE CONTAINS THOSE INGREDIENTS AT THAT WEIGHTS AND STATES");
+                RecipeCompleted(passedRecipe);
+                return;
+            }
+            //COmparing if all the ingredients are same in the chosen recipe
+            for (int i = 0; i < recipesList[recipeIndex].ingredientsTypeWeightState.Count; i++)
             {
                 //SIMPLIFIED if(recipesList[recipeIndex].ingredientsTypeWeightState.Contains(passedIngredientTypeWeightState[i])) //if the chosen vector 3 list contains the ingredient the loop continues until all of ingredients have been looped through 
                 if (recipesList[recipeIndex].ingredientsTypeWeightState.Contains(passedIngredientTypeWeightState[i]) && passedIngredientTypeWeightState.Contains(passedIngredientTypeWeightState[i])) //if the chosen vector 3 list contains the ingredient the loop continues until all of ingredients have been looped through , check for the other way as well
                 {
-                    Debug.Log("CONTAINS THIS ELEMENT INGREDIENT " + i);
+                    ingredientsMatch = true;
+                    passedRecipe = recipesList[recipeIndex]; //sets the recipe to passedRecipe
                 }
                 else
                 {
                     Debug.Log("DOES NOT CONTAIN THIS ELEMENT INGREDIENT OR WRONG WEIGHT OF INGREDIENT " + i);
-                    Debug.Log("ESCAPE THESE BLOODY LOOPS PLEASE");
+                    ingredientsMatch = false;
+                    passedRecipe = null;
+                    break;
                 }
                 //if the script got here it will loop the second for loop again
             }
         }
     }
 
-    public void RecipeCompleted()
+    public void RecipeCompleted(Recipes completedRecipe)
     {
         //CODE WHEN COMPLETED AS DELETING OBJS AND RESETING THE ASSIGNED VARIABLES
-            SubrtactRecipeMenu();
+            SubrtactRecipeMenu(completedRecipe);
             GenerateRandomRecipe();
     }
 }
