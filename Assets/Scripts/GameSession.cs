@@ -14,14 +14,15 @@ public class GameSession : MonoBehaviour
 
     [Header("Testing")]
     [SerializeField] int currentRecipeIndex;
-    [SerializeField] int randomRecipeIndex;
     [SerializeField] List<Recipes> recipesList;
 
 
     void Start()
     {
         GenerateRecipesList();
+        GenerateRandomRecipe();
     }
+
     // note: we have an array that is manually filled from inspector, and a list that is generated
     // automatically though code
     // the reason is; the list will be shortened and therefore can't be used in other game elements
@@ -45,7 +46,8 @@ public class GameSession : MonoBehaviour
     {
         if (recipesList.Count > 1)
         {
-            recipesList.Remove(recipesList[randomRecipeIndex]);
+            recipesList.Remove(recipesList[currentRecipeIndex]);
+            GenerateRandomRecipe();
         }
         else
         {
@@ -61,13 +63,12 @@ public class GameSession : MonoBehaviour
 
     public void GenerateRandomRecipe()
     {
-        randomRecipeIndex = Random.Range(0, recipesList.Count);
+        currentRecipeIndex = Random.Range(0, recipesList.Count);
     }
 
     public Recipes RecallCurrentRecipe()
     {
-        GenerateRandomRecipe();
-        return recipesList[randomRecipeIndex];
+        return recipesList[currentRecipeIndex];
         //more code to add
         //instantiate Banner/ Music/ Animation / Game trackers
     }

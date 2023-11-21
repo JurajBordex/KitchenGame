@@ -84,6 +84,7 @@ public class RecipeBook : MonoBehaviour
             var newIngredient = Instantiate(ingredientTextPrefab);
             newIngredient.transform.parent = ingredientList2.transform;
             newIngredient.text = recipesList[recipeIndex2].GetIngredients()[i].ToString();
+            
         }
     }
 
