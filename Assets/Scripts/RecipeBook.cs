@@ -30,6 +30,7 @@ public class RecipeBook : MonoBehaviour
     [SerializeField] TextMeshProUGUI ingredientTextPrefab;
     [SerializeField] GameObject ingredientList1;
     [SerializeField] GameObject ingredientList2;
+    TextMeshProUGUI newText;
 
     [Header("SerializeField for Testing")]
     [SerializeField] int recipeIndex = 0;
@@ -57,9 +58,9 @@ public class RecipeBook : MonoBehaviour
 
         for (int i = 0; i< recipesList[recipeIndex].GetIngredients().Length; i++)
         {
-            var newIngredient = Instantiate(ingredientTextPrefab);
-            newIngredient.transform.parent = ingredientList1.transform;
-            newIngredient.text = recipesList[recipeIndex].GetIngredients()[i].ToString();
+            newText = Instantiate(ingredientTextPrefab);
+            AssignParent(ingredientList1.transform);
+            newText.text = recipesList[recipeIndex].GetIngredients()[i].ToString();
         }
             
        
@@ -81,11 +82,16 @@ public class RecipeBook : MonoBehaviour
 
         for (int i = 0; i < recipesList[recipeIndex2].GetIngredients().Length; i++)
         {
-            var newIngredient = Instantiate(ingredientTextPrefab);
-            newIngredient.transform.parent = ingredientList2.transform;
-            newIngredient.text = recipesList[recipeIndex2].GetIngredients()[i].ToString();
+            newText = Instantiate(ingredientTextPrefab);
+            AssignParent(ingredientList2.transform);
+            newText.text = recipesList[recipeIndex2].GetIngredients()[i].ToString();
             
         }
+    }
+
+    void AssignParent(Transform newParent)
+    {
+        newText.transform.SetParent(newParent);
     }
 
     public void RefreshRecipeBookPages()
