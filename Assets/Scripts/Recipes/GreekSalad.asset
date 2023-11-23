@@ -15,20 +15,20 @@ MonoBehaviour:
   recipeName: Greek Salad
   recipeDescription: The Greek Salad has been Greek's most go to starter all accross
     the world, due to its rich nutritions and exquisite taste.
-  recipeServings: 3-4
-  recipeWeight: 0.9
+  recipeServings: 1
+  recipeWeight: 330
   recipeDifficulty: 2
   ingredient:
-  - Lettece
-  - Tomatos
+  - Lettuce
+  - Tomatoes
   - Cheese
   - Garlic
-  - Oil
+  - Olive oil
   ingredientWeight: []
   ingredientsTypeWeightState:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 100, z: 0}
+  - {x: 1, y: 150, z: 0}
+  - {x: 13, y: 50, z: 0}
+  - {x: 4, y: 10, z: 2}
+  - {x: 7, y: 20, z: 4}
   recipeSprite: {fileID: 126854196191288954, guid: a37b837d663d37c4db83821f9fcb77da, type: 3}

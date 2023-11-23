@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeName: Keftedes
   recipeDescription: Enter Recipe Description here
-  recipeServings: Enter how many servings here
-  recipeWeight: 0.9
+  recipeServings: 1
+  recipeWeight: 245
   recipeDifficulty: 2
   ingredient:
   - Lamb
@@ -25,9 +25,9 @@ MonoBehaviour:
   - Herbs & Spices
   ingredientWeight: []
   ingredientsTypeWeightState:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 10, y: 150, z: 3}
+  - {x: 3, y: 50, z: 2}
+  - {x: 4, y: 10, z: 2}
+  - {x: 8, y: 30, z: 2}
+  - {x: 6, y: 5, z: 4}
   recipeSprite: {fileID: 21300000, guid: 30eb9866cb4ece94394e2457fd3b1ab2, type: 3}

@@ -16,22 +16,20 @@ MonoBehaviour:
   recipeDescription: Hearty, healthy, and bursting with fresh and vibrant colors
     and flavors. This traditional Greek green beans recipe (Fasolakia giaxni) will
     certainly amaze you!
-  recipeServings: 2-4
-  recipeWeight: 300
+  recipeServings: 1
+  recipeWeight: 285
   recipeDifficulty: 2
   ingredient:
-  - Green Beans
   - Tomatoes
-  - Onions
+  - Green Beans
   - Garlic
   - Olive Oil
   - Herbs & Spices
   ingredientWeight: []
   ingredientsTypeWeightState:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 1, y: 150, z: 2}
+  - {x: 5, y: 100, z: 3}
+  - {x: 4, y: 10, z: 2}
+  - {x: 7, y: 20, z: 4}
+  - {x: 6, y: 5, z: 4}
   recipeSprite: {fileID: 21300000, guid: 2af00b5591b8544448631516c1fafe2d, type: 3}

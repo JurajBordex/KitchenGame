@@ -15,8 +15,8 @@ MonoBehaviour:
   recipeName: Appetize Cheese & Olives
   recipeDescription: The Best Appetizers there is world wide, it is most common in
     north of Greece due to cold weather and shortage of raw materials.
-  recipeServings: 3-2
-  recipeWeight: 650
+  recipeServings: 1
+  recipeWeight: 130
   recipeDifficulty: 2
   ingredient:
   - Olives
@@ -27,7 +27,7 @@ MonoBehaviour:
   - 300
   - 250
   ingredientsTypeWeightState:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: 12, y: 40, z: 0}
+  - {x: 13, y: 40, z: 0}
+  - {x: 8, y: 50, z: 1}
   recipeSprite: {fileID: 21300000, guid: 30eb9866cb4ece94394e2457fd3b1ab2, type: 3}
