@@ -517,13 +517,13 @@ GameObject:
   - component: {fileID: 165467853}
   - component: {fileID: 165467852}
   - component: {fileID: 165467854}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: NPC Waiter
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &165467852
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -609,7 +609,7 @@ MonoBehaviour:
     dialogueBoxes:
     - You finally Arrived! well, you're late! Again!
     - 'people have been waiting their orders. '
-    - 
+    - kjhgkjhgkjhvkjhvb
 --- !u!1 &202584391 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7178615899162201487, guid: 2268bcd3abae36f479b03e61efc81ceb, type: 3}
@@ -1563,6 +1563,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d2035aea46b84d90de610f1439dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcNameText: {fileID: 1182552938}
+  dialogueText: {fileID: 514572613}
 --- !u!4 &385642635
 Transform:
   m_ObjectHideFlags: 0
@@ -2635,7 +2637,7 @@ GameObject:
   - component: {fileID: 514572612}
   - component: {fileID: 514572614}
   - component: {fileID: 514572613}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Dialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2658,8 +2660,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.04423, y: 1.3805}
-  m_SizeDelta: {x: 2.31185, y: 0.82878}
+  m_AnchoredPosition: {x: 2.04423, y: 1.47101}
+  m_SizeDelta: {x: 2.31185, y: 0.65289}
   m_Pivot: {x: 0.57913315, y: 0.8188096}
 --- !u!114 &514572613
 MonoBehaviour:
@@ -7672,7 +7674,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1149067505}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Dialogue Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7745,7 +7747,7 @@ GameObject:
   - component: {fileID: 1182552937}
   - component: {fileID: 1182552939}
   - component: {fileID: 1182552938}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9800,7 +9802,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1587356865}
   - component: {fileID: 1587356866}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11632,7 +11634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2060607882
 SpriteRenderer:
   m_ObjectHideFlags: 0
