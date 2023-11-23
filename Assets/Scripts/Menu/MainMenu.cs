@@ -29,5 +29,7 @@ public class MainMenu : MonoBehaviour
     void LoadNextSceneInSequence()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        FindObjectOfType<MusicList>().LoadNextMusic();
+        FindObjectOfType<Ambient>().PlayAmbient();
     }
 }

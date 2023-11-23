@@ -72,6 +72,11 @@ public class SettingsManager : MonoBehaviour
         audioMixer.SetFloat("SFX", volume);
     }
 
+    public void SetAmbientVolume(float volume)
+    {
+        audioMixer.SetFloat("Ambient", volume);
+    }
+
     public void SetFullScreen (bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
