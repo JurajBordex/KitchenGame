@@ -5,11 +5,11 @@ using UnityEngine;
 public class GameSession : MonoBehaviour
 {
     [SerializeField] Recipes[] recipes;
-    [SerializeField] int numOfRecipesInLevel = 4;
 
     [Header("Cached Items")]
     [SerializeField] GameObject orderSpritePrefab;
     [SerializeField] GameObject poster;
+    GameObject newSprite;
     
 
     [Header("Testing")]
@@ -37,9 +37,14 @@ public class GameSession : MonoBehaviour
 
     private void GenerateOrderSprite()
     {
-        var orderSprite = Instantiate(orderSpritePrefab);
-        orderSprite.GetComponent<SpriteRenderer>().sprite = recipes[currentRecipeIndex].GetRecipeSprite();
-        orderSprite.transform.parent = poster.transform;
+        newSprite = Instantiate(orderSpritePrefab);
+        newSprite.GetComponent<SpriteRenderer>().sprite = recipes[currentRecipeIndex].GetRecipeSprite();
+        AssignSpriteParent(poster.transform);
+    }
+
+    void AssignSpriteParent(Transform newPosition)
+    {
+        newSprite.transform.SetParent(newPosition);
     }
 
     public void SubrtactRecipeMenu(Recipes completedRecipe)
