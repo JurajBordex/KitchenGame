@@ -60,11 +60,17 @@ TagManager:
   - name: TablePart
     uniqueID: 233709283
     locked: 0
-  - name: UI
+  - name: GameUI
     uniqueID: 1885178115
     locked: 0
   - name: MoveableObjects
     uniqueID: 2215194789
+    locked: 0
+  - name: PlayersHat
+    uniqueID: 887227167
+    locked: 0
+  - name: UI
+    uniqueID: 1349091961
     locked: 0
   - name: Effects
     uniqueID: 1188798027

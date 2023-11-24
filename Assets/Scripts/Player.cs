@@ -21,10 +21,14 @@ public class Player : MonoBehaviour
     private bool changingStableBool;
     //Vectors
     private Vector3 lastMousePos;
+    //Components
+    private SpriteRenderer sr;
+    [SerializeField] private Sprite frontSprite, backSprite;
 
     void Start()
     {
         myRidigBody = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
     }
     public Vector3 GetMouseWorldPosition()
     {
@@ -74,6 +78,15 @@ public class Player : MonoBehaviour
                 else
                 {
                     multiplier = (transform.position.y - maxPos.y * -1) / (minPos.y * -1 - maxPos.y * -1);
+                }
+
+                if(lastMousePos.y > 0)
+                {
+                    sr.sprite = backSprite;
+                }
+                else
+                {
+                sr.sprite = frontSprite;
                 }
 
                 float scale = minScale + multiplier * (maxScale - minScale);
