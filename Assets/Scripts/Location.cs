@@ -35,11 +35,6 @@ public class Location : MonoBehaviour
 		objectScript.lastLocationPosition = placePosition; //sets the last location pos
 		objectScript.droppedOnLocation = true;
 		hasObjectPlaced = true;
-		//Checking if this place is made for completing meals
-		//if(completionPlace)
-        //{
-			//gameSession.RecipeCompletedTracker()
-        //}
 	}
 	private void WrongTypeOfObject()
     {
@@ -88,6 +83,8 @@ public class Location : MonoBehaviour
             {
 				PlaceObjectAtPosition();
 				//start cooking
+				StartCoroutine(Cooking(10));
+				//visualize the cooking time in circle graph
             }
 			else if(cook && !objectScript.cookable)
             {
@@ -130,5 +127,20 @@ public class Location : MonoBehaviour
     {
 		hasObjectPlaced = false;
     }
+
+	IEnumerator Cooking(float secondsToWait)
+    {
+		yield return new WaitForSeconds(secondsToWait);
+		//After done wiating
+		for(int i = 0; i < instrumentScript.ingredientsTypeWeightState.Count; i++) //looping every ingredient 
+        {
+			Vector3 ingredientInfoVector3 = instrumentScript.ingredientsTypeWeightState[i];
+			if (ingredientInfoVector3.z != 4) //if the ingredient state can be changed (state is not 4) then change it
+            {
+				instrumentScript.ingredientsTypeWeightState[i] = new Vector3(ingredientInfoVector3.x, ingredientInfoVector3.y, 3); //cooked
+            }
+
+		}
+	}
 
 }//END OF CLASS 
