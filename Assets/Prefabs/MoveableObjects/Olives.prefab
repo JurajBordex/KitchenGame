@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 12
-  state: 0
-  cutToSlicesWeight: 50
-  cutToSmallPiecesWeight: 40
+  state: 4
+  cutToSlicesWeight: 0
+  cutToSmallPiecesWeight: 0
 --- !u!114 &6672754451280458250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnSpeed: 15
-  defualtIngredientWeight: 60
+  defualtIngredientWeight: 40
   currentIngredientWeight: 0
   droppedOnScale: 0
   droppedOnLocation: 0
