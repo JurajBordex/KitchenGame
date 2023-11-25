@@ -16,18 +16,15 @@ MonoBehaviour:
   recipeDescription: The Best Appetizers there is world wide, it is most common in
     north of Greece due to cold weather and shortage of raw materials.
   recipeServings: 1
-  recipeWeight: 130
+  recipeWeight: 140
   recipeDifficulty: 2
   ingredient:
   - Olives
   - Feta Cheese
   - Bread cut to sticks
-  ingredientWeight:
-  - 100
-  - 300
-  - 250
+  ingredientWeight: []
   ingredientsTypeWeightState:
   - {x: 12, y: 40, z: 0}
-  - {x: 13, y: 40, z: 0}
+  - {x: 13, y: 50, z: 0}
   - {x: 8, y: 50, z: 1}
   recipeSprite: {fileID: 21300000, guid: 30eb9866cb4ece94394e2457fd3b1ab2, type: 3}

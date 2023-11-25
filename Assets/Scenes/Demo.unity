@@ -3548,7 +3548,7 @@ GameObject:
   - component: {fileID: 564543319}
   - component: {fileID: 564543318}
   m_Layer: 5
-  m_Name: KGText2
+  m_Name: GramsText2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3593,7 +3593,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kg
+  m_text: g
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c4f22aeefab6fe647a208b7772bd7ac6, type: 2}
   m_sharedMaterial: {fileID: -2455214613876085108, guid: c4f22aeefab6fe647a208b7772bd7ac6, type: 2}
@@ -4030,7 +4030,7 @@ GameObject:
   - component: {fileID: 581624335}
   - component: {fileID: 581624334}
   m_Layer: 5
-  m_Name: 'KGText1 '
+  m_Name: 'GramsText1 '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4075,7 +4075,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kg
+  m_text: g
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c4f22aeefab6fe647a208b7772bd7ac6, type: 2}
   m_sharedMaterial: {fileID: -2455214613876085108, guid: c4f22aeefab6fe647a208b7772bd7ac6, type: 2}

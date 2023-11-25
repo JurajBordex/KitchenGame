@@ -16,7 +16,7 @@ MonoBehaviour:
   recipeDescription: The Greek Salad has been Greek's most go to starter all accross
     the world, due to its rich nutritions and exquisite taste.
   recipeServings: 1
-  recipeWeight: 330
+  recipeWeight: 300
   recipeDifficulty: 2
   ingredient:
   - Lettuce
@@ -26,8 +26,8 @@ MonoBehaviour:
   - Olive oil
   ingredientWeight: []
   ingredientsTypeWeightState:
-  - {x: 0, y: 100, z: 0}
-  - {x: 1, y: 150, z: 0}
+  - {x: 0, y: 100, z: 1}
+  - {x: 1, y: 120, z: 1}
   - {x: 13, y: 50, z: 0}
   - {x: 4, y: 10, z: 2}
   - {x: 7, y: 20, z: 4}

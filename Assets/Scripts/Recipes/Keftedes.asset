@@ -15,7 +15,7 @@ MonoBehaviour:
   recipeName: Keftedes
   recipeDescription: Enter Recipe Description here
   recipeServings: 1
-  recipeWeight: 245
+  recipeWeight: 235
   recipeDifficulty: 2
   ingredient:
   - Lamb
@@ -26,7 +26,7 @@ MonoBehaviour:
   ingredientWeight: []
   ingredientsTypeWeightState:
   - {x: 10, y: 150, z: 5}
-  - {x: 3, y: 50, z: 2}
+  - {x: 3, y: 40, z: 2}
   - {x: 4, y: 10, z: 2}
   - {x: 8, y: 30, z: 2}
   - {x: 6, y: 5, z: 4}

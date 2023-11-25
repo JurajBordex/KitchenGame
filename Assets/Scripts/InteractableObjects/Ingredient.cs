@@ -7,6 +7,8 @@ public class Ingredient : MonoBehaviour
     //Ints
     [SerializeField] private int type;
     [SerializeField] private int state;
+
+    public int cutToSlicesWeight, cutToSmallPiecesWeight;
     //Floats
     //Weight is stated in grams
     //Bools

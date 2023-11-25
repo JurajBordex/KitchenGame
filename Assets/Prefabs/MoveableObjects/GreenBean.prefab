@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6672754451280458250}
   - component: {fileID: 247745678073061996}
   m_Layer: 0
-  m_Name: Ingredient
+  m_Name: GreenBean
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2079772507
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: e957b07359f135146a240bf0de1f58f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7523d5d75f065439d4207825a22221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 5
   state: 0
 --- !u!114 &6672754451280458250
 MonoBehaviour:
@@ -114,8 +114,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnSpeed: 15
-  defualtIngredientWeight: 0
+  defualtIngredientWeight: 100
   currentIngredientWeight: 0
+  droppedOnScale: 0
   droppedOnLocation: 0
   isDragging: 0
   isReturning: 0
@@ -123,6 +124,7 @@ MonoBehaviour:
   cutable: 0
   cookable: 0
   fillable: 0
+  servingInstrument: 0
   sr: {fileID: 5588779270479032874}
   currentLocationScript: {fileID: 0}
   instrumentTrigger: {fileID: 0}
