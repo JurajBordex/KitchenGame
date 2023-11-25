@@ -26,7 +26,7 @@ public class Instrument : MonoBehaviour
 		//Can add ingredient is true on the game start
 		canAddIngredient = true;
     }
-    public void IngredientPlaced(int ingredientType, int ingredientState, float ingredientWeight, GameObject ingredientObj)
+    public void IngredientPlaced(int ingredientType, float ingredientWeight, int ingredientState, GameObject ingredientObj)
     {
 		if(canAddIngredient)
         {
@@ -35,9 +35,16 @@ public class Instrument : MonoBehaviour
 			StartCoroutine(EnableToAddIngredientAgain());
 
 			//Adding the ingredient info into 1 Vector3 list
-			ingredientsTypeWeightState.Add(new Vector3(ingredientType, ingredientState, ingredientWeight)); //storing the added ingredients int(name), state(coocked, raw...) and weight. This will be later used when we will decide if the dish is made correctly or not
+			ingredientsTypeWeightState.Add(new Vector3(ingredientType, ingredientWeight,ingredientState)); //storing the added ingredients int(name), state(coocked, raw...) and weight. This will be later used when we will decide if the dish is made correctly or not
 			instrumentsMoveableScript.currentIngredientWeight += ingredientWeight; //changing the total weight of the obj
 			Destroy(ingredientObj); //destroying the added ingredient
+
+			//If the object is dropped on location and the location is cooking spot
+			if(instrumentsMoveableScript.droppedOnLocation && instrumentsMoveableScript.currentLocationScript.cook)
+            {
+				//Telling location that it should start cooking
+				instrumentsMoveableScript.currentLocationScript.StartCooking();
+            }
 			//UPDATE THE IMAGE - ADD FOOD INTO THE INSTRUMENT
 		}
 

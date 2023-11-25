@@ -48,9 +48,9 @@ public class MoveableObject : MonoBehaviour
     //Scripts
     private Scale scale;
     private GameManager gameManager;
-    [SerializeField] private Location currentLocationScript;
+    public Location currentLocationScript;
     [SerializeField] private InstrumentTrigger instrumentTrigger; //secndary trigger script for non spawnable objects
-    [SerializeField] private Instrument instrument; //for non spawnable objects
+    public Instrument instrument; //for non spawnable objects
 
     //Layer masks
     [SerializeField] private LayerMask whatIsOutside;
@@ -138,6 +138,7 @@ public class MoveableObject : MonoBehaviour
         { 
             currentLocationScript = instrumentTrigger.location.GetComponent<Location>();  //stores the current location script
             currentLocationScript.objectScript = GetComponent<MoveableObject>();
+            currentLocationScript.instrumentScript = GetComponent<Instrument>();
             currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
             gameManager.isDragging = false;
             isDragging = false;
@@ -252,7 +253,7 @@ public class MoveableObject : MonoBehaviour
             }
             else
             {
-                if(instrument.ingredientsTypeWeightState.Count != 0) //if there is something in the instrument
+                if (instrument.ingredientsTypeWeightState.Count > 0) //if there is something in the instrument
                 {
                     instrument.ingredientsTypeWeightState.Clear(); //it will clear/throw out the ingredients and then return
                     currentIngredientWeight = defualtIngredientWeight; //setting weight back to normal

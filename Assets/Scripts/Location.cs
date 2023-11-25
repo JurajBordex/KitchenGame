@@ -9,7 +9,8 @@ public class Location : MonoBehaviour
 	//Bools
 	[SerializeField] private bool hasObjectPlaced;
 
-	[SerializeField] private bool cut, cook, fill, place; //the functions of this location
+	[SerializeField] private bool cut, fill, place; //the functions of this location
+	public bool cook;
 	public bool instrumentPlace, servingPlace;
 	//Strings
 	//Components
@@ -52,7 +53,7 @@ public class Location : MonoBehaviour
 	}
     public void ObjectPlaced()
     {
-		if(!hasObjectPlaced) //If the 
+		if(!hasObjectPlaced) //If the location doesn't have object placed already
         {
 
 			if (instrumentPlace && !objectScript.spawnable) //means when the function of this is to store instruments and the object is instrument
@@ -83,9 +84,12 @@ public class Location : MonoBehaviour
             {
 				PlaceObjectAtPosition();
 				//start cooking
-				StartCoroutine(Cooking(10));
+				if(objectScript.instrument.ingredientsTypeWeightState.Count != 0)
+                {
+					StartCoroutine(Cooking(10));
+				}
 				//visualize the cooking time in circle graph
-            }
+			}
 			else if(cook && !objectScript.cookable)
             {
 				WrongTypeOfObject();
@@ -126,38 +130,44 @@ public class Location : MonoBehaviour
 	public void ObjectRemoved()
     {
 		hasObjectPlaced = false;
+		objectScript = null;
+		instrumentScript = null;
+    }
+	public void StartCooking()
+    {
+		StartCoroutine(Cooking(10));
     }
 
 	IEnumerator Cooking(float secondsToWait)
     {
-		yield return new WaitForSeconds(secondsToWait);
-		//After done wiating
-		for(int i = 0; i < instrumentScript.ingredientsTypeWeightState.Count; i++) //looping every ingredient 
+		if(instrumentScript.ingredientsTypeWeightState.Count != 0) //cook only if the instrument has ingredients
         {
-			Vector3 ingredientInfoVector3 = instrumentScript.ingredientsTypeWeightState[i];
-			if (ingredientInfoVector3.z != 4) //if the ingredient state can be changed (state is not 4) then change it and its not lamb
-            {
-				if(ingredientInfoVector3.x != 10) //if is not lamb
-				{
-                    instrumentScript.ingredientsTypeWeightState[i] = new Vector3(ingredientInfoVector3.x, ingredientInfoVector3.y, 3); //cooked
-                }
-				else if(ingredientInfoVector3.x == 10) //if is lamb
-				{
-					if(ingredientInfoVector3.z != 2) //if is not cut to small pieces
-					{
-                        instrumentScript.ingredientsTypeWeightState[i] = new Vector3(ingredientInfoVector3.x, ingredientInfoVector3.y, 3); //cooked
-                    }
-                    else if(ingredientInfoVector3.z == 2) //if is cut to small pieces
-					{
-                        instrumentScript.ingredientsTypeWeightState[i] = new Vector3(ingredientInfoVector3.x, ingredientInfoVector3.y, 5); //cooked & cut to small pieces
-                    }
-                }
-            }
-			else if(ingredientInfoVector3.x == 10)
+			yield return new WaitForSeconds(secondsToWait);
+			//After done wiating
+			for (int i = 0; i < instrumentScript.ingredientsTypeWeightState.Count; i++) //looping every ingredient 
 			{
-            }
-
-        }
+				Vector3 ingredientInfoVector3 = instrumentScript.ingredientsTypeWeightState[i];
+				if (ingredientInfoVector3.z != 4) //if the ingredient state can be changed (state is not 4) then change it and its not lamb
+				{
+					if (ingredientInfoVector3.x != 10) //if is not lamb
+					{
+						instrumentScript.ingredientsTypeWeightState[i] = new Vector3(ingredientInfoVector3.x, ingredientInfoVector3.y, 3); //cooked
+					}
+					else if (ingredientInfoVector3.x == 10) //if is lamb
+					{
+						if (ingredientInfoVector3.z != 2) //if is not cut to small pieces
+						{
+							instrumentScript.ingredientsTypeWeightState[i] = new Vector3(ingredientInfoVector3.x, ingredientInfoVector3.y, 3); //cooked
+						}
+						else if (ingredientInfoVector3.z == 2) //if is cut to small pieces
+						{
+							instrumentScript.ingredientsTypeWeightState[i] = new Vector3(ingredientInfoVector3.x, ingredientInfoVector3.y, 5); //cooked & cut to small pieces
+						}
+					}
+				}
+			}
+		}
+		
 	}
 
 }//END OF CLASS 

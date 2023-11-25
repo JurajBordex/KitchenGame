@@ -941,7 +941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5930947596472629715, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.4
+      value: 11.59
       objectReference: {fileID: 0}
     - target: {fileID: 5930947596472629715, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1359,7 +1359,7 @@ Transform:
   m_GameObject: {fileID: 301464989}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.087026, y: -1.6751366, z: 0}
+  m_LocalPosition: {x: -0.087026, y: -0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1781,7 +1781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5930947596472629715, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.4
+      value: 11.59
       objectReference: {fileID: 0}
     - target: {fileID: 5930947596472629715, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3308,7 +3308,7 @@ Transform:
   m_GameObject: {fileID: 522369169}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.059387207, y: -1.4594364, z: 0}
+  m_LocalPosition: {x: 0.059387207, y: -0.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3833,7 +3833,7 @@ Transform:
   m_GameObject: {fileID: 577164240}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.64, y: 17.31, z: 0}
+  m_LocalPosition: {x: -12.58, y: 16.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3951,10 +3951,10 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.48}
+  m_Offset: {x: 0, y: 2.65}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.49999997, y: 0.14129482}
     oldSize: {x: 6.7777777, y: 3.8611112}
     newSize: {x: 6.7777777, y: 3.8611112}
     adaptiveTilingThreshold: 0.5
@@ -3965,7 +3965,7 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 2.656279, y: -0.09062004}
       - {x: 1.2486806, y: 0.45946932}
-      - {x: -1.6441894, y: 0.30817676}
+      - {x: -1.5273032, y: 0.43480372}
       - {x: -2.6350155, y: -0.028607368}
       - {x: -2.078268, y: -3.059814}
       - {x: 2.202431, y: -3.080783}
@@ -4010,7 +4010,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   currentLocationScript: {fileID: 2122414512}
   instrumentTrigger: {fileID: 522369172}
-  instrument: {fileID: 1397510808}
+  instrument: {fileID: 577164245}
   whatIsOutside:
     serializedVersion: 2
     m_Bits: 64
@@ -8578,7 +8578,7 @@ Transform:
   m_GameObject: {fileID: 1306018838}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.3, y: 16.3, z: 0}
+  m_LocalPosition: {x: -6.176, y: 16.095, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8696,10 +8696,10 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.83, y: 0.57}
+  m_Offset: {x: 1.77, y: 0.78}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.38499486, y: 0.37143722}
     oldSize: {x: 8, y: 1.9722222}
     newSize: {x: 8, y: 1.9722222}
     adaptiveTilingThreshold: 0.5
@@ -8709,15 +8709,16 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 2.8308039, y: -1.4177508}
+      - {x: 3.0588617, y: -1.1994349}
       - {x: 2.940024, y: -0.7418475}
       - {x: 1.5213869, y: -0.47725296}
-      - {x: 1.2060153, y: 0.15274042}
-      - {x: -1.0803275, y: 0.3635053}
-      - {x: -4.018319, y: 0.35159248}
-      - {x: -4.7953835, y: -0.026276171}
+      - {x: 1.2060153, y: 0.15274036}
+      - {x: -1.0803275, y: 0.36350524}
+      - {x: -4.018319, y: 0.35159242}
+      - {x: -4.7953835, y: -0.02627623}
       - {x: -4.330797, y: -1.1957893}
       - {x: -1.7164922, y: -1.6250455}
-      - {x: 0.80202216, y: -1.1708759}
+      - {x: 0.8020222, y: -1.1708759}
   m_UseDelaunayMesh: 0
 --- !u!114 &1306018843
 MonoBehaviour:
@@ -8759,7 +8760,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   currentLocationScript: {fileID: 1097625311}
   instrumentTrigger: {fileID: 1479850646}
-  instrument: {fileID: 202584399}
+  instrument: {fileID: 1306018843}
   whatIsOutside:
     serializedVersion: 2
     m_Bits: 64
@@ -10259,7 +10260,7 @@ Transform:
   m_GameObject: {fileID: 1479850643}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8623996, y: -0.42079926, z: 0}
+  m_LocalPosition: {x: -0.16, y: -0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11696,7 +11697,7 @@ Transform:
   m_GameObject: {fileID: 1895828614}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.32, y: 17.48, z: 0}
+  m_LocalPosition: {x: 1.18, y: 16.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11814,10 +11815,10 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.64}
+  m_Offset: {x: 0, y: 2.93}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.17804027}
     oldSize: {x: 7.5277777, y: 4.1944447}
     newSize: {x: 7.5277777, y: 4.1944447}
     adaptiveTilingThreshold: 0.5
@@ -11873,7 +11874,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   currentLocationScript: {fileID: 884557918}
   instrumentTrigger: {fileID: 1941350504}
-  instrument: {fileID: 1112226435}
+  instrument: {fileID: 1895828619}
   whatIsOutside:
     serializedVersion: 2
     m_Bits: 64
@@ -13322,7 +13323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5930947596472629715, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.4
+      value: 11.59
       objectReference: {fileID: 0}
     - target: {fileID: 5930947596472629715, guid: 624ab0b0bcf0fbc409add360c25077d8, type: 3}
       propertyPath: m_LocalPosition.z
