@@ -16,6 +16,7 @@ public class Location : MonoBehaviour
 	//Components
 	[SerializeField] private Transform placePositionPoint;
 
+	[SerializeField] private CuttingManager cuttingManager;
 	public MoveableObject objectScript;
 	public Instrument instrumentScript;
 	private GameSession gameSession;
@@ -73,7 +74,21 @@ public class Location : MonoBehaviour
 			if(cut && objectScript.cutable)
             {
 				PlaceObjectAtPosition();
-				//Give player option to select how many pieces to cut it into
+
+				if(objectScript.ingredientScript.state == 0 || objectScript.ingredientScript.state == 3) //if is raw or is roasted
+                {
+					//Enable cutting buttons and assign the needed scripts to later change values
+					cuttingManager.moveableScript = objectScript;
+					cuttingManager.ingredientScript = objectScript.ingredientScript;
+					cuttingManager.EnableButtons();
+				}	
+				else if(objectScript.ingredientScript.state == 1) //if is in first cut state
+                {
+					//Enable 2nd cutting button to cat to smallest pieces and assign the needed scripts to later change values
+					cuttingManager.moveableScript = objectScript;
+					cuttingManager.ingredientScript = objectScript.ingredientScript;
+					cuttingManager.EnableButtonForSmallestPieces();
+				}
             }
 			else if(cut && !objectScript.cutable)
             {
@@ -132,6 +147,13 @@ public class Location : MonoBehaviour
 		hasObjectPlaced = false;
 		objectScript = null;
 		instrumentScript = null;
+
+		if(cuttingManager != null && cuttingManager.buttonsEnabled) //If buttons are shown and obj is removed, hide the buttons
+        {
+			cuttingManager.moveableScript = null;
+			cuttingManager.ingredientScript = null;
+			cuttingManager.DisableButtons();
+        }
     }
 	public void StartCooking()
     {

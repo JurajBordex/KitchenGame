@@ -51,6 +51,7 @@ public class MoveableObject : MonoBehaviour
     public Location currentLocationScript;
     [SerializeField] private InstrumentTrigger instrumentTrigger; //secndary trigger script for non spawnable objects
     public Instrument instrument; //for non spawnable objects
+    public Ingredient ingredientScript;
 
     //Layer masks
     [SerializeField] private LayerMask whatIsOutside;
@@ -75,6 +76,7 @@ public class MoveableObject : MonoBehaviour
 
         if (spawnable) //If the object is from many other objects that are being spawned from spawner
         {
+            ingredientScript = GetComponent<Ingredient>();
             //At first spawn when you get the object from basket it will be dragging already
             gameManager.isDragging = true;
             isDragging = true;
@@ -224,7 +226,7 @@ public class MoveableObject : MonoBehaviour
                 {
                     StartCoroutine(CheckIfDroppedOnScale());
                 }
-                else if (instrumentTrigger != null && instrumentTrigger.onLocation && currentLocationScript == null) //checks if the object is on location && has not set those values and assigned scripts yet
+                else //means back on location
                 {
                     currentLocationScript = instrumentTrigger.location.GetComponent<Location>();  //stores the current location script
                     currentLocationScript.objectScript = GetComponent<MoveableObject>();
@@ -284,7 +286,6 @@ public class MoveableObject : MonoBehaviour
             ChangePositionToMouse();
         }
     }
-    
     IEnumerator CallReturnAgain()
     {
         //Changing the position by lerp

@@ -14,6 +14,7 @@ public class Instrument : MonoBehaviour
 	//Components
 	private MoveableObject instrumentsMoveableScript;
 	private GameManager gameManager;
+	private Scale scale;
 	//GameObjects
 	//Vectors
 	public List<Vector3> ingredientsTypeWeightState; //I FEEL FANCY TODAY .... AND TOMORROW
@@ -21,6 +22,7 @@ public class Instrument : MonoBehaviour
     private void Start()
     {
 		gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+		scale = GameObject.FindGameObjectWithTag("Scale").GetComponent<Scale>();
 		instrumentsMoveableScript = GetComponent<MoveableObject>();
 
 		//Can add ingredient is true on the game start
@@ -45,6 +47,10 @@ public class Instrument : MonoBehaviour
 				//Telling location that it should start cooking
 				instrumentsMoveableScript.currentLocationScript.StartCooking();
             }
+			else if(instrumentsMoveableScript.droppedOnScale)
+            {
+				scale.AddedObject(instrumentsMoveableScript.currentIngredientWeight);
+			}
 			//UPDATE THE IMAGE - ADD FOOD INTO THE INSTRUMENT
 		}
 

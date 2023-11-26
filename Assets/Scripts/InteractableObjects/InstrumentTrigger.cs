@@ -12,8 +12,13 @@ public class InstrumentTrigger : MonoBehaviour
     //Strings
     //Components
     public Transform location;
+    private GameManager gameManager;
     //GameObjects
     //Vectors
+    private void Start()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+    }
     private void OnTriggerStay2D(Collider2D other)
     {
         if(other.tag == "Location" && !onLocation)
