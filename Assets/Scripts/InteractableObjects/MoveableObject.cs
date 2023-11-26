@@ -121,7 +121,7 @@ public class MoveableObject : MonoBehaviour
             }
 
             //Get mouse position offset so you will hold the card where you start dragging it
-            mousePositionOffset = gameObject.transform.position - GetMouseWorldPosition();
+            mousePositionOffset = new Vector3(transform.position.x, transform.position.y, 0) - GetMouseWorldPosition();
         }
     }
     private void OnMouseDrag()
@@ -130,6 +130,7 @@ public class MoveableObject : MonoBehaviour
         if (canDrag && gameManager.isDragging)
         {
             transform.position = GetMouseWorldPosition() + mousePositionOffset;
+            Debug.Log("TRANS POS Z VALUE : " + transform.position.z);
         }
     }
     private void OnMouseUp()
@@ -289,7 +290,7 @@ public class MoveableObject : MonoBehaviour
     IEnumerator CallReturnAgain()
     {
         //Changing the position by lerp
-        transform.position = Vector2.Lerp(transform.position, lastLocationPosition, returnSpeed * Time.deltaTime);
+        transform.position = Vector2.Lerp(transform.position, new Vector3(lastLocationPosition.x, lastLocationPosition.y, 0), returnSpeed * Time.deltaTime);
         yield return new WaitForEndOfFrame();
         //Calls it self again to change the position constantly
         ReturnToLastPosition(true);

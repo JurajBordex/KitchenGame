@@ -122,8 +122,8 @@ MonoBehaviour:
   droppedOnLocation: 0
   isDragging: 0
   isReturning: 0
-  spawnable: 0
-  cutable: 0
+  spawnable: 1
+  cutable: 1
   cookable: 0
   fillable: 0
   servingInstrument: 0

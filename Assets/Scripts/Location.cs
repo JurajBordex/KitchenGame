@@ -28,7 +28,7 @@ public class Location : MonoBehaviour
     {
 		gameSession = GameObject.FindGameObjectWithTag("GameSession").GetComponent<GameSession>();
 
-		placePosition = placePositionPoint.position;
+		placePosition = new Vector3(placePositionPoint.position.x, placePositionPoint.position.y, 0);
 
     }
 	private void PlaceObjectAtPosition()

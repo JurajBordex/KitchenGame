@@ -122,7 +122,7 @@ MonoBehaviour:
   droppedOnLocation: 0
   isDragging: 0
   isReturning: 0
-  spawnable: 0
+  spawnable: 1
   cutable: 0
   cookable: 0
   fillable: 0
@@ -131,6 +131,7 @@ MonoBehaviour:
   currentLocationScript: {fileID: 0}
   instrumentTrigger: {fileID: 0}
   instrument: {fileID: 0}
+  ingredientScript: {fileID: 0}
   whatIsOutside:
     serializedVersion: 2
     m_Bits: 64
