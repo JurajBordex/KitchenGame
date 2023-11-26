@@ -130,7 +130,6 @@ public class MoveableObject : MonoBehaviour
         if (canDrag && gameManager.isDragging)
         {
             transform.position = GetMouseWorldPosition() + mousePositionOffset;
-            Debug.Log("TRANS POS Z VALUE : " + transform.position.z);
         }
     }
     private void OnMouseUp()
