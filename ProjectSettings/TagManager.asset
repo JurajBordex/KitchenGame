@@ -11,6 +11,7 @@ TagManager:
   - IngredientText
   - Instrument
   - GameSession
+  - SFX
   layers:
   - Default
   - TransparentFX
