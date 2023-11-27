@@ -332,8 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicList:
-  - {fileID: 8300000, guid: 8d342b5f608d1114aa467d091b7c68a6, type: 3}
-  - {fileID: 8300000, guid: 60d2a0ee17db4be499057f283dbb1b83, type: 3}
+  - {fileID: 8300000, guid: 86c2c84af840a254a81d3c54c49cf64d, type: 3}
   CurrentMusicIndex: 0
 --- !u!1 &5611603818799328030
 GameObject:
