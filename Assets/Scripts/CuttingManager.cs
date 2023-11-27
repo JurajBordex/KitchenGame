@@ -29,7 +29,7 @@ public class CuttingManager : MonoBehaviour
 		//change the visuals
 		//play sfx
 		buttonCuttingToSlices.SetActive(false); //setting just this button to not active in case the player wants to cut the vegetables again
-		buttonCuttingToSmallestPieces.transform.position = new Vector3(-15.44f, -2.44f, 0); //change position to more centered
+		buttonCuttingToSmallestPieces.transform.position = new Vector3(8.10f, -2.09f, 0); //change position to more centered
     }
 	public void CutToSmallestPieces()
     {
@@ -39,12 +39,12 @@ public class CuttingManager : MonoBehaviour
         //play sfx
 
         //IF YOU WANT TO CHANGE THE LOCATION THAN ADD THE POSITION OF GameCanvas TO IT OR ELSE IT WON'T BE RIGHT PRECISE
-        buttonCuttingToSmallestPieces.transform.position = new Vector3(-12.83f, -2.44f, 0); //change position to right defualt side
+        buttonCuttingToSmallestPieces.transform.position = new Vector3(9.82f, -2.09f, 0); //change position to right defualt side
 		DisableButtons();
 	}
 	public void EnableButtonForSmallestPieces()
     {
-		buttonCuttingToSmallestPieces.transform.position = new Vector3(-15.44f, -2.44f, 0); //change position to more centered
+		buttonCuttingToSmallestPieces.transform.position = new Vector3(8.10f, -2.09f, 0); //change position to more centered
 
 		buttonsEnabled = true;
 		buttonCuttingToSmallestPieces.SetActive(true);
@@ -55,7 +55,7 @@ public class CuttingManager : MonoBehaviour
 		buttonCuttingToSlices.SetActive(true);
 		buttonCuttingToSmallestPieces.SetActive(true);
 		//IF YOU WANT TO CHANGE THE LOCATION THAN ADD THE POSITION OF GameCanvas TO IT OR ELSE IT WON'T BE RIGHT PRECISE
-		buttonCuttingToSmallestPieces.transform.position = new Vector3(-12.83f, -2.44f , 0); //change position to right defualt side
+		buttonCuttingToSmallestPieces.transform.position = new Vector3(9.82f, -2.09f, 0); //change position to right defualt side
 	}
 	public void DisableButtons()
     {

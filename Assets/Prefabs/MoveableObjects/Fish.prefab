@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5588779270479032874}
   - component: {fileID: 6982487399016893655}
   - component: {fileID: 6672754451280458250}
-  - component: {fileID: 247745678073061996}
+  - component: {fileID: 7571647954152212102}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -2079772507
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: e957b07359f135146a240bf0de1f58f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4d8ca1eccb493fd4b8fb8564a0d6b5c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -139,8 +139,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   lastLocationPosition: {x: 0, y: 0, z: 0}
---- !u!58 &247745678073061996
-CircleCollider2D:
+--- !u!60 &7571647954152212102
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -171,6 +171,27 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04, y: -0.18}
-  serializedVersion: 2
-  m_Radius: 1.16
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8.18, y: 2.23}
+    newSize: {x: 16.33, y: 16.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -4.0655003, y: -0.3868466}
+      - {x: -4.0970964, y: -0.22223692}
+      - {x: -3.2224672, y: 0.32398924}
+      - {x: -2.255445, y: 0.4088456}
+      - {x: -1.7329903, y: 0.9478459}
+      - {x: -0.88645244, y: 1.1712154}
+      - {x: 3.7393367, y: 0.11868194}
+      - {x: 4.160007, y: -0.22087422}
+      - {x: 0.31457344, y: -0.85393095}
+      - {x: -1.5781461, y: -1.1057484}
+      - {x: -2.6177819, y: -1.0312946}
+  m_UseDelaunayMesh: 0

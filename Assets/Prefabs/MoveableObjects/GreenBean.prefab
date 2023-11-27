@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5588779270479032874}
   - component: {fileID: 6982487399016893655}
   - component: {fileID: 6672754451280458250}
-  - component: {fileID: 247745678073061996}
+  - component: {fileID: 1836660114823360746}
   m_Layer: 0
   m_Name: GreenBean
   m_TagString: Untagged
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -2079772507
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: e957b07359f135146a240bf0de1f58f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 54944c607b1c7b2408deb632b464bc1a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -139,8 +139,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   lastLocationPosition: {x: 0, y: 0, z: 0}
---- !u!58 &247745678073061996
-CircleCollider2D:
+--- !u!60 &1836660114823360746
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -171,6 +171,29 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04, y: -0.18}
-  serializedVersion: 2
-  m_Radius: 1.16
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.05, y: 3.04}
+    newSize: {x: 16.33, y: 16.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.2987354, y: -1.5422993}
+      - {x: 1.4670731, y: -1.4951893}
+      - {x: 1.5311203, y: -1.2926637}
+      - {x: -0.043204665, y: -0.3125742}
+      - {x: -0.97064936, y: 1.2533419}
+      - {x: -1.2299006, y: 1.5191038}
+      - {x: -1.5242237, y: 1.5203018}
+      - {x: -1.540706, y: 1.417911}
+      - {x: -1.2462623, y: 1.3521554}
+      - {x: -1.251631, y: 1.049618}
+      - {x: -0.96153724, y: 0.0632717}
+      - {x: -0.3206911, y: -0.7739226}
+      - {x: 0.34639275, y: -1.2376008}
+  m_UseDelaunayMesh: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5588779270479032874}
   - component: {fileID: 6982487399016893655}
   - component: {fileID: 6672754451280458250}
-  - component: {fileID: 247745678073061996}
+  - component: {fileID: 4639131781914325487}
   m_Layer: 0
   m_Name: FetaCheese
   m_TagString: Untagged
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -2079772507
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: e957b07359f135146a240bf0de1f58f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2240cd75f8945364d8e693b1f920b60b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -139,8 +139,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   lastLocationPosition: {x: 0, y: 0, z: 0}
---- !u!58 &247745678073061996
-CircleCollider2D:
+--- !u!60 &4639131781914325487
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -171,6 +171,23 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04, y: -0.18}
-  serializedVersion: 2
-  m_Radius: 1.16
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.69, y: 1.8}
+    newSize: {x: 16.33, y: 16.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.8079537, y: 0.55088425}
+      - {x: 0.23885047, y: 0.9817087}
+      - {x: -1.8496885, y: 0.20829684}
+      - {x: -1.8956537, y: -0.56519824}
+      - {x: -0.05040422, y: -0.9937077}
+      - {x: 1.5174539, y: -0.4194131}
+      - {x: 1.9328742, y: -0.14168105}
+  m_UseDelaunayMesh: 0
