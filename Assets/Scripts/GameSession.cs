@@ -109,7 +109,6 @@ public class GameSession : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("DOES NOT CONTAIN THIS ELEMENT INGREDIENT OR WRONG WEIGHT OF INGREDIENT " + i);
                     sfx.PlayWrongBell();
                     ingredientsMatch = false;
                     passedRecipe = null;
