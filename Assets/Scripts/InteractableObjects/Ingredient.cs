@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ingredient : MonoBehaviour
 {
     //Ints
-    [SerializeField] private int type;
+    public int type;
     public int state;
 
     public int cutToSlicesWeight, cutToSmallPiecesWeight;
