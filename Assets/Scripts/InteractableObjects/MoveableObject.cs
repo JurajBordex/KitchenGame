@@ -46,6 +46,7 @@ public class MoveableObject : MonoBehaviour
     //Components
     [HideInInspector] public SpriteRenderer sr;
     //Scripts
+    private SFX sfx;
     private Scale scale;
     private GameManager gameManager;
     public Location currentLocationScript;
@@ -72,6 +73,7 @@ public class MoveableObject : MonoBehaviour
 
         sr = GetComponent<SpriteRenderer>();
         scale = GameObject.FindGameObjectWithTag("Scale").GetComponent<Scale>();
+        sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFX>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
         if (spawnable) //If the object is from many other objects that are being spawned from spawner
@@ -176,6 +178,15 @@ public class MoveableObject : MonoBehaviour
 
 
     }
+
+    public void ChangeLocationToNotHaveObj()
+    {
+        if(currentLocationScript != null)
+        {
+            currentLocationScript.ObjectRemoved();
+        }
+    }
+
     private void ChangePositionToMouse()
     {
         if (Input.GetKey(KeyCode.Mouse0)) //if the mouse left button is sitll being pressed

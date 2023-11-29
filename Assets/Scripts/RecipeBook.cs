@@ -34,11 +34,15 @@ public class RecipeBook : MonoBehaviour
 
     [Header("SerializeField for Testing")]
     [SerializeField] int recipeIndex = 0;
+
+    private SFX sfx;
     
 
     // Start is called before the first frame update
     void Start()
     {
+        sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFX>();
+
         gameSession = FindObjectOfType<GameSession>();
         UpdateRecipePage1();
         UpdateRecipePage2();
@@ -105,6 +109,7 @@ public class RecipeBook : MonoBehaviour
     {
         if(recipeIndex + 2 <  recipesList.Length)
         {
+            PlayPageFlipSFX();
             recipeIndex += 2;
             ResetIngredients();
             RefreshRecipeBookPages();
@@ -120,6 +125,7 @@ public class RecipeBook : MonoBehaviour
     {
         if (recipeIndex > 0)
         {
+            PlayPageFlipSFX();
             recipeIndex -= 2;
             ResetIngredients();
             RefreshRecipeBookPages();
@@ -129,6 +135,10 @@ public class RecipeBook : MonoBehaviour
             return;
         }
         
+    }
+    private void PlayPageFlipSFX()
+    {
+        sfx.PlayPageFlip();
     }
 
     void ResetIngredients()

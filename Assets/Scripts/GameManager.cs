@@ -9,12 +9,25 @@ public class GameManager : MonoBehaviour
 	//Bools
 	public bool isDragging;
 	public bool isReturning;
-	//Strings
-	//Components
-	//GameObjects
-	//Vectors
+    //Strings
+    //Components
+    private SFX sfx;
+    //GameObjects
+    //Vectors
+    private void Start()
+    {
+		sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFX>();
+    }
 
+    public void PlayBookOpenSFX()
+    {
+        sfx.PlayBookOpen();
+    }
 
+    public void PlayBookCloseSFX()
+    {
+        sfx.PlayBookClosed();
+    }
 
 
 

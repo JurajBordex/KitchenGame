@@ -22,12 +22,32 @@ public class CuttingManager : MonoBehaviour
     {
 		sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFX>();
     }
+	private void PlaySFX(bool cutToSlices)
+    {
+		if (moveableScript.ingredientScript.type >= 9 && moveableScript.ingredientScript.type <= 11) //if is any meat
+		{
+			sfx.PlayCuttingMeat();
+		}
+		else if (moveableScript.ingredientScript.type >= 0 && moveableScript.ingredientScript.type <= 5) //if is any vegetable
+        {
+			sfx.PlayCuttingVegetable();
+        }
+		else if(cutToSlices) //when ingredient is not meat nor vegetable and was cut to slices
+		{
+			sfx.PlayCuttingOtherSlices();
+        }
+		else
+        {
+			sfx.PlayCuttingOtherDices();
+        }
+
+	}
     public void CutToSlices()
     {
 		moveableScript.currentIngredientWeight = ingredientScript.cutToSlicesWeight; //change the weight
 		moveableScript.ingredientScript.state = 1; //change the state to 1
-		//change the visuals
-		//play sfx
+   	    //change the visuals
+		PlaySFX(true);
 		buttonCuttingToSlices.SetActive(false); //setting just this button to not active in case the player wants to cut the vegetables again
 		buttonCuttingToSmallestPieces.transform.position = new Vector3(8.10f, -2.09f, 0); //change position to more centered
     }
@@ -35,9 +55,8 @@ public class CuttingManager : MonoBehaviour
     {
 		moveableScript.currentIngredientWeight = ingredientScript.cutToSmallPiecesWeight; //change the weight
 		moveableScript.ingredientScript.state = 2; //change the state to 2
-        //change the visuals
-        //play sfx
-
+		//change the visuals
+		PlaySFX(false);
         //IF YOU WANT TO CHANGE THE LOCATION THAN ADD THE POSITION OF GameCanvas TO IT OR ELSE IT WON'T BE RIGHT PRECISE
         buttonCuttingToSmallestPieces.transform.position = new Vector3(9.82f, -2.09f, 0); //change position to right defualt side
 		DisableButtons();

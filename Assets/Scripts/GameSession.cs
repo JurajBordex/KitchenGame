@@ -16,9 +16,11 @@ public class GameSession : MonoBehaviour
     [SerializeField] int currentRecipeIndex;
     [SerializeField] List<Recipes> recipesList;
 
-
+    private SFX sfx;
     void Start()
     {
+        sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFX>();
+
         GenerateRecipesList();
         GenerateRandomRecipe();
     }
@@ -93,7 +95,6 @@ public class GameSession : MonoBehaviour
         {
             if(ingredientsMatch)
             {
-                Debug.Log("RECIPE CONTAINS THOSE INGREDIENTS AT THAT WEIGHTS AND STATES");
                 RecipeCompleted(passedRecipe);
                 return;
             }
@@ -108,7 +109,7 @@ public class GameSession : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("DOES NOT CONTAIN THIS ELEMENT INGREDIENT OR WRONG WEIGHT OF INGREDIENT " + i);
+                    sfx.PlayWrongBell();
                     ingredientsMatch = false;
                     passedRecipe = null;
                     break;
@@ -121,6 +122,8 @@ public class GameSession : MonoBehaviour
     public void RecipeCompleted(Recipes completedRecipe)
     {
         //CODE WHEN COMPLETED AS DELETING OBJS AND RESETING THE ASSIGNED VARIABLES
+
+            sfx.PlayBell();
             SubrtactRecipeMenu(completedRecipe);
             GenerateRandomRecipe();
     }
