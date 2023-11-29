@@ -173,6 +173,7 @@ public class MoveableObject : MonoBehaviour
     }
     private void OnMouseUp()
     {
+        StartCoroutine(WaitToBeAbleToClickAgain());
 
         //Checks if the object is in bounds(if is not outside)
         if (!isOutside() && instrumentTrigger != null && instrumentTrigger.onLocation) //check if the object has instrumentTrigger && isOnLocaion
@@ -234,6 +235,8 @@ public class MoveableObject : MonoBehaviour
         }
         else //when mouse is not held down, means it should stop dragging
         {
+            StartCoroutine(WaitToBeAbleToClickAgain());
+
             gameManager.isDragging = false;
             isDragging = false;
             sr.sortingOrder = 1; //Setting the sorting order to not show obj at top
@@ -399,5 +402,12 @@ public class MoveableObject : MonoBehaviour
             scale.AddedObject(currentIngredientWeight);
         }
         
+    }
+    IEnumerator WaitToBeAbleToClickAgain()
+    {
+        canDrag = true;
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        canDrag = true;
     }
 }//END OF CLASS 
