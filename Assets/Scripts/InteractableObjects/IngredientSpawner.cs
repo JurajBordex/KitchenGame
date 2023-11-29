@@ -7,14 +7,17 @@ public class IngredientSpawner : MonoBehaviour
 	//Ints
 	//Floats
 	//Bools
+
 	//Strings
 	//Components
+	private SFX sfx;
 	private GameManager gameManager;
 	//GameObjects
 	[SerializeField] private GameObject ingredientPrefab;
     //Vectors
     private void Start()
     {
+		sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFX>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
 	}
@@ -27,9 +30,51 @@ public class IngredientSpawner : MonoBehaviour
 	{
 		if (!gameManager.isDragging)
 		{
+            sfx.PlayPickingBread();
 			SpawnIngredient();
 		}
 	}
+    private void PlayPickingSFX()
+    {
+        if(ingredientPrefab.GetComponent<Ingredient>() != null)
+        {
+            Ingredient ingredientScript = ingredientPrefab.GetComponent<Ingredient>();
 
+            if (ingredientScript.type >= 0 && ingredientScript.type <= 5) //vegetable
+            {
+                int randomInt = Random.Range(0, 2); //changin random int to randomize sound
+                Debug.Log("PLAY VEGE");
+                if (randomInt == 0)
+                {
+                    sfx.PlayPickingVegetable1();
+                }
+                else
+                {
+                    sfx.PlayPickingVegetable2();
+                }
+            }
+            else if (ingredientScript.type >= 9 && ingredientScript.type <= 11) //fish
+            {
+                sfx.PlayPickingMeat();
+                Debug.Log("PLAY MEAT");
+
+            }
+            else if (ingredientScript.type == 8)
+            {
+                sfx.PlayPickingBread();
+                Debug.Log("PLAY BREAD");
+
+            }
+            else
+            {
+                sfx.PlayPickingVegetable1();
+            }
+        }
+        else //means it is instrument
+        {
+            sfx.PlaySettingInstrument();
+        }
+        
+    }
 
 }//END OF CLASS 

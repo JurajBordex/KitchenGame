@@ -36,7 +36,7 @@ public class Instrument : MonoBehaviour
 			canAddIngredient = false;
 			StartCoroutine(EnableToAddIngredientAgain());
 
-			ingredientObj.GetComponent<MoveableObject>().
+			ingredientObj.GetComponent<MoveableObject>().ChangeLocationToNotHaveObj();
 
 			//Adding the ingredient info into 1 Vector3 list
 			ingredientsTypeWeightState.Add(new Vector3(ingredientType, ingredientWeight,ingredientState)); //storing the added ingredients int(name), state(coocked, raw...) and weight. This will be later used when we will decide if the dish is made correctly or not

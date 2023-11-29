@@ -98,6 +98,43 @@ public class MoveableObject : MonoBehaviour
             gameManager.isDragging = true;
             isDragging = true;
             sr.sortingOrder = 10; //Setting the sorting order to show obj at top
+            if (ingredientScript != null)
+            {
+                if (ingredientScript.type >= 0 && ingredientScript.type <= 5) //vegetable
+                {
+                    int randomInt = Random.Range(0, 2); //changin random int to randomize sound
+                    Debug.Log("PLAY VEGE");
+                    if (randomInt == 0)
+                    {
+                        sfx.PlayPickingVegetable1();
+                    }
+                    else
+                    {
+                        sfx.PlayPickingVegetable2();
+                    }
+                }
+                else if (ingredientScript.type >= 9 && ingredientScript.type <= 11) //fish
+                {
+                    sfx.PlayPickingMeat();
+                    Debug.Log("PLAY MEAT");
+
+                }
+                else if (ingredientScript.type == 8)
+                {
+                    sfx.PlayPickingBread();
+                    Debug.Log("PLAY BREAD");
+
+                }
+                else
+                {
+                    sfx.PlayPickingVegetable1();
+                }
+            }
+            else //if is not ingredient
+            {
+                sfx.PlaySettingInstrument();
+            }
+               
 
             //Changes bools when the object is picked up if they are being used
             if (droppedOnScale)
@@ -147,6 +184,7 @@ public class MoveableObject : MonoBehaviour
             gameManager.isDragging = false;
             isDragging = false;
             sr.sortingOrder = 1; //Setting the sorting order to not show obj at top
+            SettingObjectSFX();
 
         }
         else if (isOutside())
@@ -239,16 +277,39 @@ public class MoveableObject : MonoBehaviour
                 }
                 else //means back on location
                 {
+
                     currentLocationScript = instrumentTrigger.location.GetComponent<Location>();  //stores the current location script
                     currentLocationScript.objectScript = GetComponent<MoveableObject>();
                     currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
+                    SettingObjectSFX();
                 }
                 
                 
             }
         }
     }
-
+    private void SettingObjectSFX()
+    {
+        if (ingredientScript != null) //if is ingredient
+        {
+            if (ingredientScript.type >= 9 && ingredientScript.type <= 11) //fish
+            {
+                sfx.PlaySettingMeat();
+            }
+            else if (ingredientScript.type == 8)
+            {
+                sfx.PlaySettingBread();
+            }
+            else //vegetables and others
+            {
+                sfx.PlaySettingVegetable();
+            }
+        }
+        else //if is not ingredient
+        {
+            sfx.PlaySettingInstrument();
+        }
+    }
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Trash" && !isDragging && !isReturning)
@@ -286,6 +347,7 @@ public class MoveableObject : MonoBehaviour
                 gameManager.isDragging = false;
                 isDragging = false;
                 sr.sortingOrder = 1; //Setting the sorting order to not show obj at top
+                SettingObjectSFX();
 
         }
     }
