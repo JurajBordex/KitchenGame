@@ -30,4 +30,4 @@ MonoBehaviour:
   - {x: 4, y: 10, z: 2}
   - {x: 7, y: 20, z: 4}
   - {x: 6, y: 5, z: 4}
-  recipeSprite: {fileID: 3479051378746070589, guid: a37b837d663d37c4db83821f9fcb77da, type: 3}
+  recipeSprite: {fileID: 21300000, guid: b05ab954d44d35040b240132e2b1638b, type: 3}
