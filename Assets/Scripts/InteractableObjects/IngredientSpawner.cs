@@ -30,7 +30,7 @@ public class IngredientSpawner : MonoBehaviour
 	{
 		if (!gameManager.isDragging)
 		{
-            sfx.PlayPickingBread();
+            PlayPickingSFX();
 			SpawnIngredient();
 		}
 	}
@@ -43,7 +43,6 @@ public class IngredientSpawner : MonoBehaviour
             if (ingredientScript.type >= 0 && ingredientScript.type <= 5) //vegetable
             {
                 int randomInt = Random.Range(0, 2); //changin random int to randomize sound
-                Debug.Log("PLAY VEGE");
                 if (randomInt == 0)
                 {
                     sfx.PlayPickingVegetable1();
@@ -56,13 +55,11 @@ public class IngredientSpawner : MonoBehaviour
             else if (ingredientScript.type >= 9 && ingredientScript.type <= 11) //fish
             {
                 sfx.PlayPickingMeat();
-                Debug.Log("PLAY MEAT");
 
             }
             else if (ingredientScript.type == 8)
             {
                 sfx.PlayPickingBread();
-                Debug.Log("PLAY BREAD");
 
             }
             else

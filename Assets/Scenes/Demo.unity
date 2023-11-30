@@ -2141,6 +2141,9 @@ MonoBehaviour:
   onLocation: 0
   onInstrumentPlaceLocation: 0
   location: {fileID: 0}
+  whatIsLocation:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &320009860
 GameObject:
   m_ObjectHideFlags: 0
@@ -4565,6 +4568,9 @@ MonoBehaviour:
   onLocation: 0
   onInstrumentPlaceLocation: 0
   location: {fileID: 0}
+  whatIsLocation:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &535989221
 GameObject:
   m_ObjectHideFlags: 0
@@ -5397,6 +5403,7 @@ MonoBehaviour:
   currentIngredientWeight: 0
   droppedOnScale: 0
   droppedOnLocation: 1
+  canDrag: 1
   isDragging: 0
   isReturning: 0
   spawnable: 0
@@ -8869,7 +8876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1261009280900785266, guid: f40edb02c83e68947b06988f5ca60157, type: 3}
       propertyPath: m_Volume
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1261009280900785266, guid: f40edb02c83e68947b06988f5ca60157, type: 3}
       propertyPath: m_PlayOnAwake
@@ -8917,7 +8924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3805090059769012802, guid: f40edb02c83e68947b06988f5ca60157, type: 3}
       propertyPath: m_Volume
-      value: 0.15
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3805090059769012802, guid: f40edb02c83e68947b06988f5ca60157, type: 3}
       propertyPath: m_audioClip
@@ -8993,7 +9000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5858412753164629261, guid: f40edb02c83e68947b06988f5ca60157, type: 3}
       propertyPath: m_Volume
-      value: 0.15
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5858412753164629261, guid: f40edb02c83e68947b06988f5ca60157, type: 3}
       propertyPath: m_audioClip
@@ -11723,6 +11730,7 @@ MonoBehaviour:
   currentIngredientWeight: 0
   droppedOnScale: 0
   droppedOnLocation: 1
+  canDrag: 1
   isDragging: 0
   isReturning: 0
   spawnable: 0
@@ -13316,6 +13324,9 @@ MonoBehaviour:
   onLocation: 0
   onInstrumentPlaceLocation: 0
   location: {fileID: 0}
+  whatIsLocation:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1497747469
 GameObject:
   m_ObjectHideFlags: 0
@@ -15460,6 +15471,7 @@ MonoBehaviour:
   currentIngredientWeight: 0
   droppedOnScale: 0
   droppedOnLocation: 1
+  canDrag: 1
   isDragging: 0
   isReturning: 0
   spawnable: 0

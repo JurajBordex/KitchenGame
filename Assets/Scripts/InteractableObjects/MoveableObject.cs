@@ -14,7 +14,9 @@ public class MoveableObject : MonoBehaviour
     public bool droppedOnScale; //creted bool to not call the if statements and functions again
     public bool droppedOnLocation; //creted bool to not call the if statements and functions again
 
-    private bool canDrag = true;
+    private bool waiting;
+
+    [SerializeField] private bool canDrag = true;
     public bool isDragging;
     public bool isReturning;
 
@@ -103,7 +105,6 @@ public class MoveableObject : MonoBehaviour
                 if (ingredientScript.type >= 0 && ingredientScript.type <= 5) //vegetable
                 {
                     int randomInt = Random.Range(0, 2); //changin random int to randomize sound
-                    Debug.Log("PLAY VEGE");
                     if (randomInt == 0)
                     {
                         sfx.PlayPickingVegetable1();
@@ -116,13 +117,11 @@ public class MoveableObject : MonoBehaviour
                 else if (ingredientScript.type >= 9 && ingredientScript.type <= 11) //fish
                 {
                     sfx.PlayPickingMeat();
-                    Debug.Log("PLAY MEAT");
 
                 }
                 else if (ingredientScript.type == 8)
                 {
                     sfx.PlayPickingBread();
-                    Debug.Log("PLAY BREAD");
 
                 }
                 else
@@ -148,13 +147,7 @@ public class MoveableObject : MonoBehaviour
                 if(currentLocationScript != null) //if the object has instance of the location script
                 {
                     currentLocationScript.ObjectRemoved();
-                    currentLocationScript = null;
                     
-                }
-                if(instrumentTrigger != null)
-                {
-                    instrumentTrigger.onLocation = false;
-                    instrumentTrigger.location = null;
                 }
                 
             }
@@ -173,6 +166,8 @@ public class MoveableObject : MonoBehaviour
     }
     private void OnMouseUp()
     {
+        canDrag = false;
+        if(!waiting)
         StartCoroutine(WaitToBeAbleToClickAgain());
 
         //Checks if the object is in bounds(if is not outside)
@@ -201,12 +196,12 @@ public class MoveableObject : MonoBehaviour
 
         }
 
-        if(!onScale()) //If object is not on scale
+        if(!waiting && !onScale()) //If object is not on scale
         {
             //Checks if the object is on location, if not then it will return to its last position
             StartCoroutine(CheckIfDroppedOnLocation());
         }
-        else //if it is on scale
+        else if(!waiting)//if it is on scale
         {
            StartCoroutine(CheckIfDroppedOnScale());
         }
@@ -270,21 +265,23 @@ public class MoveableObject : MonoBehaviour
             }
             else //if the position is close enough to location pos, the loops breaks
             {
-                canDrag = true;
                 isReturning = false;
                 gameManager.isReturning = false;
+                gameManager.isDragging = false;
+                if(!waiting)
+                StartCoroutine(WaitToBeAbleToClickAgain());
 
-                if (onScale()) //checks if object in on scale after returned
+
+                if (!waiting && onScale()) //checks if object in on scale after returned
                 {
                     StartCoroutine(CheckIfDroppedOnScale());
                 }
-                else //means back on location
+                else if(!waiting) //means back on location
                 {
 
                     currentLocationScript = instrumentTrigger.location.GetComponent<Location>();  //stores the current location script
                     currentLocationScript.objectScript = GetComponent<MoveableObject>();
                     currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
-                    SettingObjectSFX();
                 }
                 
                 
@@ -308,7 +305,7 @@ public class MoveableObject : MonoBehaviour
                 sfx.PlaySettingVegetable();
             }
         }
-        else //if is not ingredient
+        else if(!currentLocationScript.instrumentPlace)//if is not ingredient and is not instrument place
         {
             sfx.PlaySettingInstrument();
         }
@@ -323,7 +320,6 @@ public class MoveableObject : MonoBehaviour
                 if (currentLocationScript != null) //if the object has instance of the location script
                 {
                     currentLocationScript.ObjectRemoved();
-                    currentLocationScript = null;
                 }
                 Destroy(gameObject);
 
@@ -377,6 +373,7 @@ public class MoveableObject : MonoBehaviour
         if(!droppedOnLocation) //means it was not dropped on location yet
         {
             yield return new WaitForSeconds(0.05f); //To give time for instrument script to store values if the object was placed insie of it
+            gameManager.isDragging = false;
             Destroy(gameObject);
         }
     }
@@ -405,9 +402,10 @@ public class MoveableObject : MonoBehaviour
     }
     IEnumerator WaitToBeAbleToClickAgain()
     {
+        waiting = true;
+        yield return new WaitForSeconds(0.2f);
+        waiting = false;
         canDrag = true;
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForEndOfFrame();
-        canDrag = true;
+        
     }
 }//END OF CLASS 

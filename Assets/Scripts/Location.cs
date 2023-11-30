@@ -20,6 +20,7 @@ public class Location : MonoBehaviour
 	public MoveableObject objectScript;
 	public Instrument instrumentScript;
 	private GameSession gameSession;
+	private SFX sfx;
 	//GameObjects
 	//Vectors
 	public Vector3 placePosition;
@@ -27,7 +28,7 @@ public class Location : MonoBehaviour
     private void Start()
     {
 		gameSession = GameObject.FindGameObjectWithTag("GameSession").GetComponent<GameSession>();
-
+		sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFX>();
 		placePosition = new Vector3(placePositionPoint.position.x, placePositionPoint.position.y, 0);
 
     }
@@ -162,9 +163,12 @@ public class Location : MonoBehaviour
 
 	IEnumerator Cooking(float secondsToWait)
     {
-		if(instrumentScript.ingredientsTypeWeightState.Count != 0) //cook only if the instrument has ingredients
+		sfx.PlaySizzling(); //stops sfx
+
+		if (instrumentScript.ingredientsTypeWeightState.Count != 0) //cook only if the instrument has ingredients
         {
 			yield return new WaitForSeconds(secondsToWait);
+			sfx.StopSizzling(); //stops sfx
 			//After done wiating
 			for (int i = 0; i < instrumentScript.ingredientsTypeWeightState.Count; i++) //looping every ingredient 
 			{
