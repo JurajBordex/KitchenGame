@@ -120,6 +120,7 @@ MonoBehaviour:
   currentIngredientWeight: 0
   droppedOnScale: 0
   droppedOnLocation: 0
+  canDrag: 1
   isDragging: 0
   isReturning: 0
   spawnable: 1
@@ -175,7 +176,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.41, y: 0.66}
+    oldSize: {x: 3.9166667, y: 1.8333334}
     newSize: {x: 16.33, y: 16.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -183,13 +184,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.53967655, y: -0.36333358}
-      - {x: 0.7188666, y: -0.13774505}
-      - {x: 0.6774248, y: 0.0684653}
-      - {x: 0.4986567, y: 0.22422887}
-      - {x: 0.315, y: 0.32}
-      - {x: -0.3531596, y: 0.3236816}
-      - {x: -0.6768503, y: 0.12838893}
-      - {x: -0.7277842, y: -0.10358668}
-      - {x: -0.5503982, y: -0.33659244}
+    - - {x: -0.15377903, y: -0.8558815}
+      - {x: 1.3021472, y: -0.79231536}
+      - {x: 1.9152755, y: -0.32686925}
+      - {x: 1.7948354, y: 0.23719066}
+      - {x: 0.93068486, y: 0.7931052}
+      - {x: -0.7679368, y: 0.8551148}
+      - {x: -1.6878698, y: 0.33577752}
+      - {x: -1.9073069, y: -0.18783832}
+      - {x: -1.6067839, y: -0.660637}
   m_UseDelaunayMesh: 0

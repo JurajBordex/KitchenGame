@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 7306602083569423458}
   - component: {fileID: 6318135174741331518}
   - component: {fileID: 6191372375946650274}
-  - component: {fileID: 8348648419138664535}
+  - component: {fileID: 6164169995131469290}
+  - component: {fileID: 3578286776100642726}
   m_Layer: 0
   m_Name: Bowl
   m_TagString: Untagged
@@ -103,6 +104,7 @@ MonoBehaviour:
   currentIngredientWeight: 0
   droppedOnScale: 0
   droppedOnLocation: 0
+  canDrag: 1
   isDragging: 0
   isReturning: 0
   spawnable: 1
@@ -122,8 +124,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   lastLocationPosition: {x: 0, y: 0, z: 0}
---- !u!58 &8348648419138664535
-CircleCollider2D:
+--- !u!60 &6164169995131469290
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -155,5 +157,52 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.3055553, y: 2.3055556}
+    newSize: {x: 16.33, y: 16.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -2.0927339, y: 0.33949324}
+      - {x: -1.9104692, y: -0.22157992}
+      - {x: -1.1110741, y: -1.0048188}
+      - {x: 1.221911, y: -1.0600809}
+      - {x: 1.9337456, y: -0.19724667}
+      - {x: 2.2283056, y: 0.7755241}
+      - {x: 1.2778544, y: 1.0380675}
+      - {x: -0.14756902, y: 1.1249449}
+      - {x: -1.2652376, y: 1.0110697}
+      - {x: -2.0641484, y: 0.7918133}
+  m_UseDelaunayMesh: 0
+--- !u!50 &3578286776100642726
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3458281502216045937}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

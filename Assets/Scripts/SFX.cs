@@ -10,7 +10,7 @@ public class SFX : MonoBehaviour
     [SerializeField] AudioSource pickingInstrument, pickingBread, pickingVegetable1, pickingVegetable2, pickingMeat;
     [SerializeField] AudioSource settingMeat, settingBread, settingInstrument, settingVegetable;
     [SerializeField] AudioSource fridgeOpen, fridgeClose;
-    [SerializeField] AudioSource sizzling, bell, wrongBell, buttonClick;
+    [SerializeField] AudioSource sizzling, bell, wrongBell, buttonClick, win, fail;
 
     public void PlaySizzling()
     {
@@ -104,7 +104,14 @@ public class SFX : MonoBehaviour
     {
         buttonClick.Play();
     }
-
+    public void PlayLevelFinished()
+    {
+        win.Play();
+    }
+    public void PlayLevelFailed()
+    {
+        fail.Play();
+    }
 
 
 

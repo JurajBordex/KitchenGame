@@ -252,6 +252,11 @@ public class MoveableObject : MonoBehaviour
             {
                 StartCoroutine(CheckIfDroppedOnLocationFirstTime());
             }
+            else if(!onScale() && ingredientScript != null && ingredientScript.onInstrument)
+            {
+                //On instrument
+
+            }
             else //if is on scale the lstLocationPosition will be set to its transform.position
             {
                 StartCoroutine(CheckIfDroppedOnScale());
@@ -425,5 +430,11 @@ public class MoveableObject : MonoBehaviour
     {
         yield return new WaitForSeconds(0.33f);
         isReturning = false;
+
+        if(!onScale())
+        {
+            droppedOnLocation = true;
+
+        }
     }
 }//END OF CLASS 
