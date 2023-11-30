@@ -205,7 +205,7 @@ public class MoveableObject : MonoBehaviour
                 StartCoroutine(CheckIfDroppedOnLocation());
                 StartCoroutine(WaitToBeAbleToClickAgain());
             }
-            else if (!waiting)//if it is on scale
+            else if (!waiting && !checkingMouseUp)//if it is on scale
             {
                 StartCoroutine(CheckIfDroppedOnScale());
                 StartCoroutine(WaitToBeAbleToClickAgain());
@@ -277,7 +277,6 @@ public class MoveableObject : MonoBehaviour
             }
             else //if the position is close enough to location pos, the loops breaks
             {
-                isReturning = false;
                 gameManager.isReturning = false;
                 gameManager.isDragging = false;
                 
@@ -299,6 +298,7 @@ public class MoveableObject : MonoBehaviour
 
             }
         }
+        StartCoroutine(IsReturingChangedBool());
     }
     private void SettingObjectSFX()
     {
@@ -415,10 +415,15 @@ public class MoveableObject : MonoBehaviour
     IEnumerator WaitToBeAbleToClickAgain()
     {
         waiting = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         waiting = false;
         checkingMouseUp = false;
         canDrag = true;
         
+    }
+    IEnumerator IsReturingChangedBool()
+    {
+        yield return new WaitForSeconds(0.33f);
+        isReturning = false;
     }
 }//END OF CLASS 

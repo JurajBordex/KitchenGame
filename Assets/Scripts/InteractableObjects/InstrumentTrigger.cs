@@ -36,5 +36,4 @@ public class InstrumentTrigger : MonoBehaviour
         }
     }
 
-
 }//END OF CLASS 
