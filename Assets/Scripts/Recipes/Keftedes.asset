@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: Keftedes
   m_EditorClassIdentifier: 
   recipeName: Keftedes
-  recipeDescription: Enter Recipe Description here
+  recipeDescription: This recipe can serve a crowd as an appetizer, but also makes
+    tasty dinner bowls for the entire family.
   recipeServings: 1
   recipeWeight: 235
   recipeDifficulty: 2
   ingredient:
-  - Lamb
-  - Onions
-  - Garlic
-  - Pita Bread Cumbs
+  - Roasted Lamb Cut To Dices
+  - Onions Cut To Dices
+  - Garlic Cut To Dices
+  - Pita Bread Cut To Crumbs
   - Herbs & Spices
   ingredientWeight: []
   ingredientsTypeWeightState:
