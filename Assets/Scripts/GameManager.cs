@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class GameManager : MonoBehaviour
 	public bool isDragging;
 	public bool isReturning;
     //Strings
+    [SerializeField] private string nextLevelName;
     //Components
     private SFX sfx;
     //GameObjects
@@ -29,6 +32,14 @@ public class GameManager : MonoBehaviour
         sfx.PlayBookClosed();
     }
 
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(nextLevelName);
+    }
 
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
 }//END OF CLASS 
