@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: CheesyGrilledFish
   m_EditorClassIdentifier: 
   recipeName: Cheesy Grilled Fish
-  recipeDescription: Crispy Cream donuts is the most valuable asset in unity as they
-    tend to be delicious and not so expensive, there fore best sellers.
+  recipeDescription: Cheesy Grilled Fish has to be one of the easiest and tastiest
+    fish dishes in the world. It is perfect for children and adults alike.
   recipeServings: 1
   recipeWeight: 435
   recipeDifficulty: 2
   ingredient:
-  - Fish
-  - Cheddar Cheese
-  - Beans
-  - Tomatoes
-  - Onions
+  - Roasted Fish
+  - Roasted Cheddar Cheese
+  - Roasted Green Beans
+  - Tomatoes Cut To Slices
+  - Roasted Onion
   - Mayonnaise
   - Herbs & Spices
   ingredientWeight: []
   ingredientsTypeWeightState:
-  - {x: 11, y: 150, z: 0}
+  - {x: 11, y: 150, z: 3}
   - {x: 17, y: 50, z: 3}
   - {x: 5, y: 100, z: 3}
   - {x: 1, y: 60, z: 1}

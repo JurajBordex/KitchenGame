@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: GreekStyledFish
   m_EditorClassIdentifier: 
   recipeName: Greek Styled Fish
-  recipeDescription: Enter Recipe Description here
+  recipeDescription: This fish recipe is based on Greek Psari Plaki, it can be served
+    hot or cold and it is prepared from fried pieces or fillets of fish in tasty
+    tomato sauce.
   recipeServings: 1
   recipeWeight: 335
   recipeDifficulty: 2
   ingredient:
-  - Fish
-  - Tomatoes
-  - Garlic
+  - Roasted Fish
+  - Tomatoes Cut To Dices
+  - Garlic Cut To Dices
   - Herbs & Spices
   - Olive Oil
   ingredientWeight: []

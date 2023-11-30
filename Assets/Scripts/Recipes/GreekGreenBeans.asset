@@ -14,15 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeName: Greek Green Beans
   recipeDescription: Hearty, healthy, and bursting with fresh and vibrant colors
-    and flavors. This traditional Greek green beans recipe (Fasolakia giaxni) will
-    certainly amaze you!
+    and flavors. This traditional Greek Green Beans recipe will certainly amaze you!
   recipeServings: 1
   recipeWeight: 285
   recipeDifficulty: 2
   ingredient:
-  - Tomatoes
-  - Green Beans
-  - Garlic
+  - Tomatoes Cut To Dices
+  - Roasted Green Beans
+  - Garlic Cut To Dices
   - Olive Oil
   - Herbs & Spices
   ingredientWeight: []

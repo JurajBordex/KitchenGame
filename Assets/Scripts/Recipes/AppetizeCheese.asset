@@ -19,9 +19,9 @@ MonoBehaviour:
   recipeWeight: 140
   recipeDifficulty: 2
   ingredient:
-  - Olives
-  - Feta Cheese
-  - Bread cut to sticks
+  - Olive From Jar
+  - Whole Feta Cheese
+  - Bread Cut To Slices
   ingredientWeight: []
   ingredientsTypeWeightState:
   - {x: 12, y: 40, z: 4}
