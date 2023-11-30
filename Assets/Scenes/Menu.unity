@@ -8003,6 +8003,18 @@ PrefabInstance:
       propertyPath: musicList.Array.data[6]
       value: 
       objectReference: {fileID: 8300000, guid: 3155c9bbd82e60548b30d080dd903e20, type: 3}
+    - target: {fileID: 6823665339944722496, guid: f40edb02c83e68947b06988f5ca60157, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6823665339944722496, guid: f40edb02c83e68947b06988f5ca60157, type: 3}
+      propertyPath: m_Volume
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6823665339944722496, guid: f40edb02c83e68947b06988f5ca60157, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7371639957159212179, guid: f40edb02c83e68947b06988f5ca60157, type: 3}
       propertyPath: resolutionDropDown
       value: 
