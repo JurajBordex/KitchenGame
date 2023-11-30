@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,10 +13,10 @@ public class GameManager : MonoBehaviour
 	public bool isDragging;
 	public bool isReturning;
     //Strings
-    [SerializeField] private string nextLevelName;
     //Components
     private SFX sfx;
-    //GameObjects
+
+    [SerializeField] Animator transition;
     //Vectors
     private void Start()
     {
@@ -34,12 +35,18 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene(nextLevelName);
+        StartCoroutine(TransitionToLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(TransitionToLevel(SceneManager.GetActiveScene().buildIndex));
+    }
+    IEnumerator TransitionToLevel(int sceneIndex)
+    {
+        transition.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(0.95f);
+        SceneManager.LoadScene(sceneIndex);
     }
 
 }//END OF CLASS 

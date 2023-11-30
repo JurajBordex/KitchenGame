@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float nextSceneDelayTime = 1.0f;
 
+    [SerializeField] private Animator transition;
     public void PlayGame()
     {
         StartCoroutine(LoadNextScene());
@@ -16,12 +17,12 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGameButton()
     {
-        Debug.Log("I Quit");
         Application.Quit();
     }
 
     IEnumerator LoadNextScene()
     {
+        transition.SetTrigger("FadeIn");
         yield return new WaitForSeconds(nextSceneDelayTime);
         LoadNextSceneInSequence();
     }
@@ -32,4 +33,7 @@ public class MainMenu : MonoBehaviour
         FindObjectOfType<MusicList>().LoadNextMusic();
         FindObjectOfType<Ambient>().PlayAmbient();
     }
-}
+
+
+
+}//END OF CLASS

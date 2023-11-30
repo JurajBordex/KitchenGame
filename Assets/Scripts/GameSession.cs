@@ -18,13 +18,19 @@ public class GameSession : MonoBehaviour
     [SerializeField] List<Recipes> recipesList;
 
     [SerializeField] TextMeshProUGUI timeText;
+    [SerializeField] TextMeshProUGUI timeLeftText;
+
+    [SerializeField] GameObject winBoard, failBoard;
+    [SerializeField] GameObject wrongObj;
 
     [SerializeField] float gameTime;
     private float timeCounter;
+    private bool countTime;
 
     private SFX sfx;
     void Start()
     {
+        countTime = true;
         timeCounter = gameTime;
         timeText.text = gameTime.ToString("F0");
 
@@ -37,9 +43,12 @@ public class GameSession : MonoBehaviour
     }
     private void Update()
     {
-        timeCounter -= Time.deltaTime;
+        if (countTime)
+        {
+            timeCounter -= Time.deltaTime;
+        }
 
-        if(timeCounter + 1 > int.Parse(timeText.text)) //if changed by 1 sec change the text
+        if (timeCounter + 1 > int.Parse(timeText.text)) //if changed by 1 sec change the text
         {
             timeText.text = timeCounter.ToString("F0");
 
@@ -95,15 +104,22 @@ public class GameSession : MonoBehaviour
     private void LevelCompleted()
     {
         StopCoroutine(WaitToEndGame(gameTime)); //stops the time coroutine
+        countTime = false;
 
         sfx.PlayLevelFinished();
+        winBoard.SetActive(true);
+        timeLeftText.text = timeCounter.ToString("F0");
         //win window
         //load next level
     }
 
     private void LevelFailed()
     {
+        countTime = false;
+        timeText.text = 0.ToString();
+
         sfx.PlayLevelFailed();
+        failBoard.SetActive(true);
         //failed window
         //restart level
     }
@@ -138,7 +154,7 @@ public class GameSession : MonoBehaviour
 
                 }
                 //SIMPLIFIED if(recipesList[recipeIndex].ingredientsTypeWeightState.Contains(passedIngredientTypeWeightState[i])) //if the chosen vector 3 list contains the ingredient the loop continues until all of ingredients have been looped through 
-                if (recipesList[recipeIndex].ingredientsTypeWeightState.Contains(passedIngredientTypeWeightState[i]) && passedIngredientTypeWeightState.Contains(passedIngredientTypeWeightState[i])) //if the chosen vector 3 list contains the ingredient the loop continues until all of ingredients have been looped through , check for the other way as well
+                if (passedIngredientTypeWeightState.Count > 0 && recipesList[recipeIndex].ingredientsTypeWeightState.Contains(passedIngredientTypeWeightState[i]) && passedIngredientTypeWeightState.Contains(passedIngredientTypeWeightState[i])) //if the chosen vector 3 list contains the ingredient the loop continues until all of ingredients have been looped through , check for the other way as well
                 {
                     ingredientsMatch = true;
                     passedRecipe = recipesList[recipeIndex]; //sets the recipe to passedRecipe
@@ -146,6 +162,7 @@ public class GameSession : MonoBehaviour
                 else
                 {
                     sfx.PlayWrongBell();
+                    StartCoroutine(WrongAnimation());
                     ingredientsMatch = false;
                     passedRecipe = null;
                     break;
@@ -163,7 +180,12 @@ public class GameSession : MonoBehaviour
             SubrtactRecipeMenu(completedRecipe);
             GenerateRandomRecipe();
     }
-    
+    IEnumerator WrongAnimation()
+    {
+        wrongObj.SetActive(true);
+        yield return new WaitForSeconds(7f);
+        wrongObj.SetActive(false);
+    }
     IEnumerator WaitToEndGame(float gameTime)
     {
         yield return new WaitForSeconds(gameTime); //counts down time
