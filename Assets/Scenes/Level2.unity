@@ -6068,7 +6068,7 @@ PrefabInstance:
       objectReference: {fileID: 521802178}
     - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
       propertyPath: gameTime
-      value: 123
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
       propertyPath: timeText
@@ -6096,7 +6096,7 @@ PrefabInstance:
       objectReference: {fileID: 2322302667595790673, guid: 714f1f76439f5ed44b414d4b2b18d66d, type: 3}
     - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
       propertyPath: recipes.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
       propertyPath: numOfRecipesInLevel
@@ -6105,11 +6105,11 @@ PrefabInstance:
     - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
       propertyPath: recipes.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 298cad28af7044e4a997886b91fa4017, type: 2}
+      objectReference: {fileID: 11400000, guid: adb072d50dc6c8a438f691766be65aa2, type: 2}
     - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
       propertyPath: recipes.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 599fc3b485de5b84c953af796cc7de48, type: 2}
+      objectReference: {fileID: 11400000, guid: 1dde3a89fafe9ff47a3d6c95231be9d9, type: 2}
     - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
       propertyPath: recipes.Array.data[2]
       value: 
