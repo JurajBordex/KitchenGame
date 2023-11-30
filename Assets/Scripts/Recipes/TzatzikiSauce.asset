@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: TzatzikiSauce
   m_EditorClassIdentifier: 
   recipeName: Tzatziki Sauce
-  recipeDescription: Enter Recipe Description here
+  recipeDescription: Tzatziki Sauce comes straight from the Greek island of Paros.
+    It is very easy to make and can be used with many meals.
   recipeServings: 1
   recipeWeight: 95
   recipeDifficulty: 2
   ingredient:
   - Greek Yoghurt
-  - Cucumber
-  - Garlic
+  - Cucumber Cut To Dices
+  - Garlic Cut To Dices
   - Olive Oil
   - Herbs & Spices
   ingredientWeight: []

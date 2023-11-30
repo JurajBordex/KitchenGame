@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: LambChops
   m_EditorClassIdentifier: 
   recipeName: Lamb Chops
-  recipeDescription: Enter Recipe Description here
+  recipeDescription: Sizzling lamb chops in a skillet creates a beautiful crust loaded
+    with flavor! Bordex reccomends this dish even tho he has never eaten it.
   recipeServings: 1
   recipeWeight: 175
   recipeDifficulty: 2
   ingredient:
-  - Lamb
+  - Roasted Lamb
   - Herbs & Spices
   - Olive Oil
   ingredientWeight: []
