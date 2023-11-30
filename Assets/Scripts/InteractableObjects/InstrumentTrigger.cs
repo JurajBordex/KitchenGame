@@ -9,16 +9,9 @@ public class InstrumentTrigger : MonoBehaviour
     //Bools
     public bool onLocation;
     public bool onInstrumentPlaceLocation;
-
-    public bool CloseToLocation()
-    {
-        return Physics2D.OverlapCircle(transform.position, 0.2f, whatIsLocation);
-    }
     //Strings
     //Components
     public Transform location;
-
-    [SerializeField] private LayerMask whatIsLocation;
     //GameObjects
     //Vectors
     private void OnTriggerStay2D(Collider2D other)
@@ -40,13 +33,6 @@ public class InstrumentTrigger : MonoBehaviour
         {
             onLocation = false;
             onInstrumentPlaceLocation = false;
-        }
-    }
-    public void CheckIfOnLocation()
-    {
-        if(CloseToLocation())
-        {
-            onLocation = true;
         }
     }
 

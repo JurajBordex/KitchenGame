@@ -15,6 +15,7 @@ public class MoveableObject : MonoBehaviour
     public bool droppedOnLocation; //creted bool to not call the if statements and functions again
 
     private bool waiting;
+    private bool checkingMouseUp;
 
     [SerializeField] private bool canDrag = true;
     public bool isDragging;
@@ -166,50 +167,61 @@ public class MoveableObject : MonoBehaviour
     }
     private void OnMouseUp()
     {
-        canDrag = false;
-        if(!waiting)
-        StartCoroutine(WaitToBeAbleToClickAgain());
-
-        //Checks if the object is in bounds(if is not outside)
-        if (!isOutside() && instrumentTrigger != null && instrumentTrigger.onLocation) //check if the object has instrumentTrigger && isOnLocaion
-        { 
-            currentLocationScript = instrumentTrigger.location.GetComponent<Location>();  //stores the current location script
-            currentLocationScript.objectScript = GetComponent<MoveableObject>();
-            currentLocationScript.instrumentScript = GetComponent<Instrument>();
-            currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
-            gameManager.isDragging = false;
-            isDragging = false;
-            sr.sortingOrder = 1; //Setting the sorting order to not show obj at top
-            SettingObjectSFX();
-
-        }
-        else if (isOutside())
+        if(!checkingMouseUp)
         {
-            if(spawnable)
+            checkingMouseUp = true;
+            canDrag = false;
+
+
+            //Checks if the object is in bounds(if is not outside)
+            if (!isOutside() && instrumentTrigger != null && instrumentTrigger.onLocation) //check if the object has instrumentTrigger && isOnLocaion
             {
-                Destroy(gameObject);
+                currentLocationScript = instrumentTrigger.location.GetComponent<Location>();  //stores the current location script
+                currentLocationScript.objectScript = GetComponent<MoveableObject>();
+                currentLocationScript.instrumentScript = GetComponent<Instrument>();
+                currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
+                gameManager.isDragging = false;
+                isDragging = false;
+                sr.sortingOrder = 1; //Setting the sorting order to not show obj at top
+                SettingObjectSFX();
+
+            }
+            else if (isOutside())
+            {
+                if (spawnable)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    ReturnToLastPosition(false); //false because it is not already returning
+                }
+
+            }
+
+            if (!waiting && !onScale()) //If object is not on scale
+            {
+                //Checks if the object is on location, if not then it will return to its last position
+                StartCoroutine(CheckIfDroppedOnLocation());
+                StartCoroutine(WaitToBeAbleToClickAgain());
+            }
+            else if (!waiting)//if it is on scale
+            {
+                StartCoroutine(CheckIfDroppedOnScale());
+                StartCoroutine(WaitToBeAbleToClickAgain());
             }
             else
             {
-                ReturnToLastPosition(false); //false because it is not already returning
+                if (!waiting)
+                    StartCoroutine(WaitToBeAbleToClickAgain());
             }
 
-        }
+            gameManager.isDragging = false;
+            isDragging = false;
+            sr.sortingOrder = 1; //Setting the sorting order to not show obj at top
 
-        if(!waiting && !onScale()) //If object is not on scale
-        {
-            //Checks if the object is on location, if not then it will return to its last position
-            StartCoroutine(CheckIfDroppedOnLocation());
-        }
-        else if(!waiting)//if it is on scale
-        {
-           StartCoroutine(CheckIfDroppedOnScale());
-        }
 
-        gameManager.isDragging = false;
-        isDragging = false;
-        sr.sortingOrder = 1; //Setting the sorting order to not show obj at top
-
+        }
 
     }
 
@@ -268,23 +280,23 @@ public class MoveableObject : MonoBehaviour
                 isReturning = false;
                 gameManager.isReturning = false;
                 gameManager.isDragging = false;
-                if(!waiting)
-                StartCoroutine(WaitToBeAbleToClickAgain());
+                
 
 
-                if (!waiting && onScale()) //checks if object in on scale after returned
+                if (!waiting && !checkingMouseUp && onScale()) //checks if object in on scale after returned
                 {
                     StartCoroutine(CheckIfDroppedOnScale());
                 }
-                else if(!waiting) //means back on location
+                else if(!waiting && !checkingMouseUp) //means back on location
                 {
 
                     currentLocationScript = instrumentTrigger.location.GetComponent<Location>();  //stores the current location script
                     currentLocationScript.objectScript = GetComponent<MoveableObject>();
                     currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
                 }
-                
-                
+                if (!waiting)
+                    StartCoroutine(WaitToBeAbleToClickAgain());
+
             }
         }
     }
@@ -403,8 +415,9 @@ public class MoveableObject : MonoBehaviour
     IEnumerator WaitToBeAbleToClickAgain()
     {
         waiting = true;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         waiting = false;
+        checkingMouseUp = false;
         canDrag = true;
         
     }
