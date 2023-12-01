@@ -132,6 +132,7 @@ public class GameSession : MonoBehaviour
     public void GenerateRandomRecipe()
     {
         currentRecipeIndex = Random.Range(0, recipesList.Count);
+        GenerateOrderSprite();
     }
 
     public Recipes RecallCurrentRecipe()
@@ -185,6 +186,7 @@ public class GameSession : MonoBehaviour
             sfx.PlayBell();
             StartCoroutine(CorrectAnimation());
             SubrtactRecipeMenu(completedRecipe);
+            Destroy(newSprite);
             GenerateRandomRecipe();
     }
     IEnumerator CorrectAnimation()

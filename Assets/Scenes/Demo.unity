@@ -7846,6 +7846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d7ac02ff2f76e4580e96e15099d9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  servingInstrument: 0
+  plateFillSr: {fileID: 0}
   ingredientsTypeWeightState: []
 --- !u!114 &577164246
 MonoBehaviour:
@@ -17906,6 +17908,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d7ac02ff2f76e4580e96e15099d9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  servingInstrument: 0
+  plateFillSr: {fileID: 0}
   ingredientsTypeWeightState: []
 --- !u!114 &1306018844
 MonoBehaviour:
@@ -25327,6 +25331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9d7ac02ff2f76e4580e96e15099d9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  servingInstrument: 0
+  plateFillSr: {fileID: 0}
   ingredientsTypeWeightState: []
 --- !u!114 &1895828620
 MonoBehaviour:
