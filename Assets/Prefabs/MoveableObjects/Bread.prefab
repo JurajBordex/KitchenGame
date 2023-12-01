@@ -103,6 +103,7 @@ MonoBehaviour:
   state: 0
   cutToSlicesWeight: 50
   cutToSmallPiecesWeight: 30
+  onInstrument: 0
 --- !u!114 &6672754451280458250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +141,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   lastLocationPosition: {x: 0, y: 0, z: 0}
+  slicedSprite: {fileID: 412166940, guid: 938e3a704c19cb14f971c9d56e8144b4, type: 3}
+  dicedSprite: {fileID: 21300000, guid: ca391e6cb78c5964cb5c316a4a5ed1a3, type: 3}
+  cutSpriteColor: {r: 0.7372549, g: 0.5058824, b: 0.35686275, a: 1}
 --- !u!60 &7421291503152456700
 PolygonCollider2D:
   m_ObjectHideFlags: 0

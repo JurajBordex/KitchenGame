@@ -64,6 +64,10 @@ public class MoveableObject : MonoBehaviour
     //Vectors
     public Vector3 lastLocationPosition;
     private Vector3 mousePositionOffset;
+    //Sprites
+    public Sprite slicedSprite, dicedSprite;
+    //Colors
+    public Color cutSpriteColor;
     public Vector3 GetMouseWorldPosition()
     {
         //captures mouse position & returns WorldPoint 
@@ -205,7 +209,7 @@ public class MoveableObject : MonoBehaviour
                 StartCoroutine(CheckIfDroppedOnLocation());
                 StartCoroutine(WaitToBeAbleToClickAgain());
             }
-            else if (!waiting && !checkingMouseUp)//if it is on scale
+            else if (!waiting && onScale() )//if it is on scale
             {
                 StartCoroutine(CheckIfDroppedOnScale());
                 StartCoroutine(WaitToBeAbleToClickAgain());
