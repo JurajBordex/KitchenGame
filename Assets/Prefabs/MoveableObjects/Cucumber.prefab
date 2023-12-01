@@ -141,7 +141,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   lastLocationPosition: {x: 0, y: 0, z: 0}
-  slicedSprite: {fileID: 21300000, guid: 4d7b2cce9530e4440b108145fe7a78f4, type: 3}
+  slicedSprite: {fileID: 21300000, guid: 478506e176efd7f439a3dc8db002ad68, type: 3}
   dicedSprite: {fileID: 21300000, guid: ca391e6cb78c5964cb5c316a4a5ed1a3, type: 3}
   cutSpriteColor: {r: 0.427451, g: 0.627451, b: 0.37254903, a: 1}
 --- !u!60 &607569612454105738
