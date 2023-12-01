@@ -87,6 +87,7 @@ public class GameSession : MonoBehaviour
         {
 
             recipesList.Remove(recipesList[currentRecipeIndex]);
+            Destroy(newSprite);
             GenerateRandomRecipe();
 
             recipesList.Remove(completedRecipe);
