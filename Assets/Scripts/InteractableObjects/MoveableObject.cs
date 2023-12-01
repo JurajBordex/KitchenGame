@@ -150,16 +150,12 @@ public class MoveableObject : MonoBehaviour
                 droppedOnScale = false;
                 scale.RemovedObject(currentIngredientWeight);
             }
-            else if(droppedOnLocation)
-            {
                 droppedOnLocation = false;
                 if(currentLocationScript != null) //if the object has instance of the location script
                 {
                     currentLocationScript.ObjectRemoved();
                     
                 }
-                
-            }
 
             //Get mouse position offset so you will hold the card where you start dragging it
             mousePositionOffset = new Vector3(transform.position.x, transform.position.y, 0) - GetMouseWorldPosition();
