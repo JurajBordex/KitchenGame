@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: GreekSalad
   m_EditorClassIdentifier: 
   recipeName: Greek Salad
-  recipeDescription: The Greek Salad has been Greek's most go to starter all accross
-    the world, due to its rich nutritions and exquisite taste.
+  recipeDescription: The Greek Salad is most go to starter all accross the world,
+    due to its rich nutritions and exquisite taste.
   recipeServings: 1
   recipeWeight: 300
   recipeDifficulty: 2
   ingredient:
-  - Lettuce
-  - Tomatoes
-  - Feta Cheese
-  - Garlic
-  - Olive oil
+  - Lettuce - 100g
+  - Tomatoes - 120g
+  - Feta Cheese - 50g
+  - Garlic - 10g
+  - Olive oil - 20g
   ingredientWeight: []
   ingredientsTypeWeightState:
   - {x: 0, y: 100, z: 1}

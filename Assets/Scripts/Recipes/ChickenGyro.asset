@@ -13,18 +13,17 @@ MonoBehaviour:
   m_Name: ChickenGyro
   m_EditorClassIdentifier: 
   recipeName: Chicken Gyro
-  recipeDescription: Chicken Gyro is quick and easy to make for something just as
-    delicious, but far better for you! Originally from Greek but famous all around
-    the wrold..
+  recipeDescription: Chicken Gyro is riginally from Greek but famous all around the
+    wrold. The secret is in the sauce.
   recipeServings: 1
   recipeWeight: 425
   recipeDifficulty: 2
   ingredient:
-  - Roasted Chicken
-  - Whole Bread
-  - Cucumber Cut To Dices
-  - Tomatoes Cut To Dices
-  - Tzatziki Sauce
+  - Roasted Chicken - 150g
+  - Whole Bread - 100g
+  - Cucumber Cut To Dices - 30g
+  - Tomatoes Cut To Dices - 50g
+  - Tzatziki Sauce - 95g
   ingredientWeight: []
   ingredientsTypeWeightState:
   - {x: 9, y: 150, z: 3}

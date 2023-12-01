@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: GreekGreenBeans
   m_EditorClassIdentifier: 
   recipeName: Greek Green Beans
-  recipeDescription: Hearty, healthy, and bursting with fresh and vibrant colors
-    and flavors. This traditional Greek Green Beans recipe will certainly amaze you!
+  recipeDescription: Bursting with fresh vibrant colors and flavors. This traditional
+    Greek Green Beans recipe will amaze you!
   recipeServings: 1
   recipeWeight: 285
   recipeDifficulty: 2
   ingredient:
-  - Tomatoes Cut To Dices
-  - Roasted Green Beans
-  - Garlic Cut To Dices
-  - Olive Oil
-  - Herbs & Spices
+  - Tomatoes Cut To Dices - 150g
+  - Roasted Green Beans - 100g
+  - Garlic Cut To Dices - 10g
+  - Olive Oil - 20g
+  - Herbs & Spices - 5g
   ingredientWeight: []
   ingredientsTypeWeightState:
   - {x: 1, y: 150, z: 2}
@@ -31,4 +31,4 @@ MonoBehaviour:
   - {x: 4, y: 10, z: 2}
   - {x: 7, y: 20, z: 4}
   - {x: 6, y: 5, z: 4}
-  recipeSprite: {fileID: 21300000, guid: 2af00b5591b8544448631516c1fafe2d, type: 3}
+  recipeSprite: {fileID: 21300000, guid: ce4838925192c68439a3a0755d9aecc9, type: 3}
