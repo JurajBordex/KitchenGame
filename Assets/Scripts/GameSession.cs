@@ -21,7 +21,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] TextMeshProUGUI timeLeftText;
 
     [SerializeField] GameObject winBoard, failBoard;
-    [SerializeField] GameObject wrongObj;
+    [SerializeField] GameObject wrongObj, correctObj;
 
     [SerializeField] float gameTime;
     private float timeCounter;
@@ -137,7 +137,7 @@ public class GameSession : MonoBehaviour
     }
 
     //The passed recipe index will be passed when meal is put on the counter, each recipe(meal) will have a recipeIndex(what recipe it is)
-    public void RecipeCompletedTracker(List<Vector3> passedIngredientTypeWeightState)
+    public void RecipeCompletedTracker(List<Vector3> passedIngredientTypeWeightState, GameObject instrumentGameObj)
     {
         bool ingredientsMatch = false;
         Recipes passedRecipe = null;
@@ -150,6 +150,7 @@ public class GameSession : MonoBehaviour
                 if (ingredientsMatch)
                 {
                     RecipeCompleted(passedRecipe);
+                    Destroy(instrumentGameObj); //delete the dish object
                     return;
 
                 }
@@ -177,8 +178,15 @@ public class GameSession : MonoBehaviour
         //CODE WHEN COMPLETED AS DELETING OBJS AND RESETING THE ASSIGNED VARIABLES
 
             sfx.PlayBell();
+            StartCoroutine(CorrectAnimation());
             SubrtactRecipeMenu(completedRecipe);
             GenerateRandomRecipe();
+    }
+    IEnumerator CorrectAnimation()
+    {
+        correctObj.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        correctObj.SetActive(false);
     }
     IEnumerator WrongAnimation()
     {

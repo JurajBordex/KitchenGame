@@ -115,7 +115,7 @@ public class Location : MonoBehaviour
             {
 				PlaceObjectAtPosition();
 				//The game session should check for completion
-				gameSession.RecipeCompletedTracker(instrumentScript.ingredientsTypeWeightState);
+				gameSession.RecipeCompletedTracker(instrumentScript.ingredientsTypeWeightState, instrumentScript.gameObject);
             }
 			else if(servingPlace && !objectScript.servingInstrument)
             {
