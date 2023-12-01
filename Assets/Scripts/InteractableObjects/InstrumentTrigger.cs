@@ -18,13 +18,17 @@ public class InstrumentTrigger : MonoBehaviour
     {
         if(other.tag == "Location" && !onLocation)
         {
-            onLocation = true;
-            location = other.transform;
-            //Checking if the location has a instrument holder function
-            if (other.GetComponent<Location>().instrumentPlace)
+            if(!other.GetComponent<Location>().hasObjectPlaced)
             {
-                onInstrumentPlaceLocation = true;
+                onLocation = true;
+                location = other.transform;
+                //Checking if the location has a instrument holder function
+                if (other.GetComponent<Location>().instrumentPlace)
+                {
+                    onInstrumentPlaceLocation = true;
+                }
             }
+            
         }
     }
     private void OnTriggerExit2D(Collider2D other)

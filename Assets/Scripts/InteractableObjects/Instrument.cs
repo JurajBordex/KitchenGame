@@ -77,6 +77,8 @@ public class Instrument : MonoBehaviour
 				otherInstrument.ingredientsTypeWeightState.Add(ingredientsTypeWeightState[i]);
 			}
 
+			otherInstrument.plateFillSr.gameObject.SetActive(true);
+
 			//CHANGE VISUALS OF OTHER AND THIS INSTRUMENT
 
 			//Return the instrument to last pos
