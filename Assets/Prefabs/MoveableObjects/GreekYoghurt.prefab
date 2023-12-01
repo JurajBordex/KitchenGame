@@ -103,6 +103,7 @@ MonoBehaviour:
   state: 4
   cutToSlicesWeight: 0
   cutToSmallPiecesWeight: 0
+  onInstrument: 0
 --- !u!114 &6672754451280458250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +121,7 @@ MonoBehaviour:
   currentIngredientWeight: 0
   droppedOnScale: 0
   droppedOnLocation: 0
+  canDrag: 1
   isDragging: 0
   isReturning: 0
   spawnable: 1
@@ -139,6 +141,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   lastLocationPosition: {x: 0, y: 0, z: 0}
+  slicedSprite: {fileID: 0}
+  dicedSprite: {fileID: 0}
+  cutSpriteColor: {r: 1, g: 1, b: 0.9686275, a: 1}
 --- !u!60 &6604668827329030110
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -174,7 +179,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.723671, y: 0.64756435}
+    pivot: {x: 0.5516163, y: 0.57026863}
     oldSize: {x: 4.63, y: 1.79}
     newSize: {x: 16.33, y: 16.75}
     adaptiveTilingThreshold: 0.5

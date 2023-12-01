@@ -103,6 +103,7 @@ MonoBehaviour:
   state: 4
   cutToSlicesWeight: 0
   cutToSmallPiecesWeight: 0
+  onInstrument: 0
 --- !u!114 &6672754451280458250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +121,7 @@ MonoBehaviour:
   currentIngredientWeight: 0
   droppedOnScale: 0
   droppedOnLocation: 0
+  canDrag: 1
   isDragging: 0
   isReturning: 0
   spawnable: 1
@@ -139,6 +141,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   lastLocationPosition: {x: 0, y: 0, z: 0}
+  slicedSprite: {fileID: 0}
+  dicedSprite: {fileID: 0}
+  cutSpriteColor: {r: 0.4431373, g: 0.43137258, b: 0.32941177, a: 1}
 --- !u!61 &436395710513660332
 BoxCollider2D:
   m_ObjectHideFlags: 0

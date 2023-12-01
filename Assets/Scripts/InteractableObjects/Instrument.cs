@@ -8,14 +8,14 @@ public class Instrument : MonoBehaviour
 	//Floats
 	//Bools
 	private bool canAddIngredient;
-
+	[SerializeField] private bool servingInstrument;
 	
 	//Strings
 	//Components
 	private MoveableObject instrumentsMoveableScript;
 	private GameManager gameManager;
 	private Scale scale;
-	//GameObjects
+	public SpriteRenderer plateFillSr;
 	//Vectors
 	public List<Vector3> ingredientsTypeWeightState; //I FEEL FANCY TODAY .... AND TOMORROW
 
@@ -53,7 +53,12 @@ public class Instrument : MonoBehaviour
             {
 				scale.AddedObject(instrumentsMoveableScript.currentIngredientWeight);
 			}
-			//UPDATE THE IMAGE - ADD FOOD INTO THE INSTRUMENT
+			//Update the visual color
+			if(!plateFillSr.gameObject.activeSelf) //if not active fill
+            {
+				plateFillSr.gameObject.SetActive(true);
+            }
+			plateFillSr.color = ingredientObj.GetComponent<MoveableObject>().cutSpriteColor;
 		}
 
 	}
@@ -76,6 +81,10 @@ public class Instrument : MonoBehaviour
 
 			//Return the instrument to last pos
 			ingredientsTypeWeightState.Clear();
+
+			plateFillSr.gameObject.SetActive(false); //hide plate fill
+
+			gameManager.isReturning = true;
 			instrumentsMoveableScript.ReturnToLastPosition(false);
 		}
 	}

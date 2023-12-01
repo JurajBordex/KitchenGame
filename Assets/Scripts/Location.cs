@@ -7,7 +7,7 @@ public class Location : MonoBehaviour
 	//Ints
 	//Floats
 	//Bools
-	[SerializeField] private bool hasObjectPlaced;
+	public bool hasObjectPlaced;
 
 	[SerializeField] private bool cut, fill, place; //the functions of this location
 	public bool cook;

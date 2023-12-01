@@ -27,6 +27,9 @@ public class GameSession : MonoBehaviour
     private float timeCounter;
     private bool countTime;
 
+    [SerializeField] GameObject FinishedGameObj;
+    [SerializeField] private bool lastLevel;
+
     private SFX sfx;
     void Start()
     {
@@ -109,8 +112,12 @@ public class GameSession : MonoBehaviour
         sfx.PlayLevelFinished();
         winBoard.SetActive(true);
         timeLeftText.text = timeCounter.ToString("F0");
-        //win window
-        //load next level
+
+        
+        if(lastLevel)
+        {
+            FinishedGameObj.SetActive(true);
+        }
     }
 
     private void LevelFailed()
@@ -120,8 +127,6 @@ public class GameSession : MonoBehaviour
 
         sfx.PlayLevelFailed();
         failBoard.SetActive(true);
-        //failed window
-        //restart level
     }
 
     public void GenerateRandomRecipe()

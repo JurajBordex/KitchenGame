@@ -105,6 +105,10 @@ public class MoveableObject : MonoBehaviour
             gameManager.isDragging = true;
             isDragging = true;
             sr.sortingOrder = 10; //Setting the sorting order to show obj at top
+            if(instrument != null && instrument.plateFillSr != null)
+            {
+                instrument.plateFillSr.sortingOrder = 11;
+            }
             if (ingredientScript != null)
             {
                 if (ingredientScript.type >= 0 && ingredientScript.type <= 5) //vegetable
@@ -176,9 +180,13 @@ public class MoveableObject : MonoBehaviour
             checkingMouseUp = true;
             canDrag = false;
 
+            if(instrument != null)
+            {
+                instrument.plateFillSr.sortingOrder = 2;
+            }
 
             //Checks if the object is in bounds(if is not outside)
-            if (!isOutside() && instrumentTrigger != null && instrumentTrigger.onLocation) //check if the object has instrumentTrigger && isOnLocaion
+            if (!isOutside() && instrumentTrigger != null && instrumentTrigger.onLocation && !instrumentTrigger.location.GetComponent<Location>().hasObjectPlaced) //check if the object has instrumentTrigger && isOnLocaion
             {
                 currentLocationScript = instrumentTrigger.location.GetComponent<Location>();  //stores the current location script
                 currentLocationScript.objectScript = GetComponent<MoveableObject>();
@@ -295,7 +303,7 @@ public class MoveableObject : MonoBehaviour
                 {
                     StartCoroutine(CheckIfDroppedOnScale());
                 }
-                else if(!waiting && !checkingMouseUp) //means back on location
+                else if(!waiting && !checkingMouseUp && instrumentTrigger.location != null) //means back on location
                 {
 
                     currentLocationScript = instrumentTrigger.location.GetComponent<Location>();  //stores the current location script
@@ -350,12 +358,14 @@ public class MoveableObject : MonoBehaviour
                 if (instrument.ingredientsTypeWeightState.Count > 0) //if there is something in the instrument
                 {
                     instrument.ingredientsTypeWeightState.Clear(); //it will clear/throw out the ingredients and then return
+                    instrument.plateFillSr.gameObject.SetActive(false); //hide plate fill
+                    
                     currentIngredientWeight = defualtIngredientWeight; //setting weight back to normal
                 }
                 ReturnToLastPosition(false); //false because it is not already returning
             }
         }
-        if(other.tag == "Location" && !droppedOnLocation && !isDragging && spawnable && !isReturning) //If stopped dragging on location and its not returning
+        if(other.tag == "Location" && !droppedOnLocation && !isDragging && spawnable && !isReturning && !other.GetComponent<Location>().hasObjectPlaced) //If stopped dragging on location and its not returning
         {
                 currentLocationScript = other.GetComponent<Location>();  //stores the current location script
                 if(GetComponent<Instrument>() != null) //if the object has instrument script then assign it to the location script, will be used when you finished order
