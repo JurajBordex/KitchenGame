@@ -12,6 +12,8 @@ public class Location : MonoBehaviour
 	[SerializeField] private bool cut, fill, place; //the functions of this location
 	public bool cook;
 	public bool instrumentPlace, servingPlace;
+
+	private bool cookingNow;
 	//Strings
 	//Components
 	[SerializeField] private GameObject actionCircleObj;
@@ -165,6 +167,7 @@ public class Location : MonoBehaviour
 
 	IEnumerator Cooking(float secondsToWait)
     {
+		cookingNow = true;
 		sfx.PlaySizzling(); //plays sfx
 		actionCircleObj.SetActive(true); //shows circle
 
@@ -172,32 +175,39 @@ public class Location : MonoBehaviour
         {
 			yield return new WaitForSeconds(secondsToWait);
 			sfx.StopSizzling(); //stops sfx
+
 			actionCircleObj.SetActive(false); //hides circle
 			//After done wiating
-			for (int i = 0; i < instrumentScript.ingredientsTypeWeightState.Count; i++) //looping every ingredient 
-			{
-				Vector3 ingredientInfoVector3 = instrumentScript.ingredientsTypeWeightState[i];
-				if (ingredientInfoVector3.z != 4) //if the ingredient state can be changed (state is not 4) then change it and its not lamb
+			if(cookingNow)
+            {
+				for (int i = 0; i < instrumentScript.ingredientsTypeWeightState.Count; i++) //looping every ingredient 
 				{
-					if (ingredientInfoVector3.x != 10) //if is not lamb
+					Vector3 ingredientInfoVector3 = instrumentScript.ingredientsTypeWeightState[i];
+					if (ingredientInfoVector3.z != 4) //if the ingredient state can be changed (state is not 4) then change it and its not lamb
 					{
-						instrumentScript.ingredientsTypeWeightState[i] = new Vector3(ingredientInfoVector3.x, ingredientInfoVector3.y, 3); //cooked
-					}
-					else if (ingredientInfoVector3.x == 10) //if is lamb
-					{
-						if (ingredientInfoVector3.z != 2) //if is not cut to small pieces
+						if (ingredientInfoVector3.x != 10) //if is not lamb
 						{
 							instrumentScript.ingredientsTypeWeightState[i] = new Vector3(ingredientInfoVector3.x, ingredientInfoVector3.y, 3); //cooked
 						}
-						else if (ingredientInfoVector3.z == 2) //if is cut to small pieces
+						else if (ingredientInfoVector3.x == 10) //if is lamb
 						{
-							instrumentScript.ingredientsTypeWeightState[i] = new Vector3(ingredientInfoVector3.x, ingredientInfoVector3.y, 5); //cooked & cut to small pieces
+							if (ingredientInfoVector3.z != 2) //if is not cut to small pieces
+							{
+								instrumentScript.ingredientsTypeWeightState[i] = new Vector3(ingredientInfoVector3.x, ingredientInfoVector3.y, 3); //cooked
+							}
+							else if (ingredientInfoVector3.z == 2) //if is cut to small pieces
+							{
+								instrumentScript.ingredientsTypeWeightState[i] = new Vector3(ingredientInfoVector3.x, ingredientInfoVector3.y, 5); //cooked & cut to small pieces
+							}
 						}
 					}
 				}
 			}
+			
 		}
-		
+		cookingNow = false;
+
+
 	}
 
 }//END OF CLASS 
