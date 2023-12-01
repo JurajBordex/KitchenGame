@@ -6579,10 +6579,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 521802178}
     - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: gameTime
-      value: 123
-      objectReference: {fileID: 0}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
       propertyPath: timeText
       value: 
       objectReference: {fileID: 478990631}
@@ -6606,81 +6602,9 @@ PrefabInstance:
       propertyPath: timeLeftText
       value: 
       objectReference: {fileID: 769659595}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: orderSpritePrefab
-      value: 
-      objectReference: {fileID: 2322302667595790673, guid: 714f1f76439f5ed44b414d4b2b18d66d, type: 3}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: recipes.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: numOfRecipesInLevel
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: recipes.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 298cad28af7044e4a997886b91fa4017, type: 2}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: recipes.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 599fc3b485de5b84c953af796cc7de48, type: 2}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: recipes.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 5c0592738ddf15d4fa54080c25334e83, type: 2}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: recipes.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: dbc4193f94f1ff94cb77f1ba98017368, type: 2}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: recipesList.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: vectorsListTest.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: vectorsListTest.Array.data[0].x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: vectorsListTest.Array.data[0].y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: vectorsListTest.Array.data[1].x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: vectorsListTest.Array.data[1].y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: vectorsListTest.Array.data[1].z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: vectorsListTest.Array.data[2].x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: vectorsListTest.Array.data[2].y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6641240487919433868, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: vectorsListTest.Array.data[2].z
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8649907115715778479, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
       propertyPath: m_Name
       value: Game Session
-      objectReference: {fileID: 0}
-    - target: {fileID: 8649907115715778479, guid: 2c58ad218f3dfc84bae86eadb989d030, type: 3}
-      propertyPath: m_TagString
-      value: GameSession
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

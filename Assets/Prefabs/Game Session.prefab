@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6641240487919433868}
   m_Layer: 0
   m_Name: Game Session
-  m_TagString: Untagged
+  m_TagString: GameSession
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,3 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62be514ad0d4a2841ba979c328112e8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recipes:
+  - {fileID: 11400000, guid: 298cad28af7044e4a997886b91fa4017, type: 2}
+  orderSpritePrefab: {fileID: 2322302667595790673, guid: 714f1f76439f5ed44b414d4b2b18d66d, type: 3}
+  poster: {fileID: 0}
+  currentRecipeIndex: 0
+  recipesList: []
+  timeText: {fileID: 0}
+  timeLeftText: {fileID: 0}
+  winBoard: {fileID: 0}
+  failBoard: {fileID: 0}
+  wrongObj: {fileID: 0}
+  correctObj: {fileID: 0}
+  gameTime: 123
