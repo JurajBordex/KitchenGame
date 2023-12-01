@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: CheesyGrilledFish
   m_EditorClassIdentifier: 
   recipeName: Cheesy Grilled Fish
-  recipeDescription: Cheesy Grilled Fish has to be one of the easiest and tastiest
-    fish dishes in the world. It is perfect for children and adults alike.
+  recipeDescription: Cheesy Grilled Fish has to be one of the easiest fish dishes
+    in the world. It is a perfect meal for anybody !
   recipeServings: 1
   recipeWeight: 435
   recipeDifficulty: 2
   ingredient:
-  - Roasted Fish
-  - Roasted Cheddar Cheese
-  - Roasted Green Beans
-  - Tomatoes Cut To Slices
-  - Roasted Onion
-  - Mayonnaise
-  - Herbs & Spices
+  - Roasted Fish - 150g
+  - Roasted Cheddar Cheese - 50g
+  - Roasted Green Beans - 100g
+  - Tomatoes Cut To Slices - 60g
+  - Roasted Onion - 40g
+  - Mayonnaise - 30g
+  - Herbs & Spices - 5g
   ingredientWeight: []
   ingredientsTypeWeightState:
   - {x: 11, y: 150, z: 3}
@@ -35,4 +35,4 @@ MonoBehaviour:
   - {x: 3, y: 40, z: 3}
   - {x: 16, y: 30, z: 4}
   - {x: 6, y: 5, z: 4}
-  recipeSprite: {fileID: 21300000, guid: 7e531bf47ba5b224d983d2d25ab34d14, type: 3}
+  recipeSprite: {fileID: 21300000, guid: 9e10967e587ee964daaf404357ad5846, type: 3}

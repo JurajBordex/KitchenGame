@@ -19,11 +19,11 @@ MonoBehaviour:
   recipeWeight: 235
   recipeDifficulty: 2
   ingredient:
-  - Roasted Lamb Cut To Dices
-  - Onions Cut To Dices
-  - Garlic Cut To Dices
-  - Pita Bread Cut To Crumbs
-  - Herbs & Spices
+  - Roasted Lamb Cut To Dices - 150g
+  - Onions Cut To Dices - 40g
+  - Garlic Cut To Dices - 10g
+  - Pita Bread Cut To Crumbs - 30g
+  - Herbs & Spices - 5g
   ingredientWeight: []
   ingredientsTypeWeightState:
   - {x: 10, y: 150, z: 5}

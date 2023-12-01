@@ -19,12 +19,12 @@ MonoBehaviour:
   recipeWeight: 140
   recipeDifficulty: 2
   ingredient:
-  - Olive From Jar
-  - Whole Feta Cheese
-  - Bread Cut To Slices
+  - Olive From Jar - 40g
+  - Whole Feta Cheese - 50g
+  - Bread Cut To Slices - 50g
   ingredientWeight: []
   ingredientsTypeWeightState:
   - {x: 12, y: 40, z: 4}
   - {x: 13, y: 50, z: 0}
   - {x: 8, y: 50, z: 1}
-  recipeSprite: {fileID: 21300000, guid: 30eb9866cb4ece94394e2457fd3b1ab2, type: 3}
+  recipeSprite: {fileID: 21300000, guid: 297b4fa343d52754084eefd05c934e87, type: 3}

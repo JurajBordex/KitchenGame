@@ -14,6 +14,8 @@ public class Location : MonoBehaviour
 	public bool instrumentPlace, servingPlace;
 	//Strings
 	//Components
+	[SerializeField] private GameObject actionCircleObj;
+
 	[SerializeField] private Transform placePositionPoint;
 
 	[SerializeField] private CuttingManager cuttingManager;
@@ -163,12 +165,14 @@ public class Location : MonoBehaviour
 
 	IEnumerator Cooking(float secondsToWait)
     {
-		sfx.PlaySizzling(); //stops sfx
+		sfx.PlaySizzling(); //plays sfx
+		actionCircleObj.SetActive(true); //shows circle
 
 		if (instrumentScript.ingredientsTypeWeightState.Count != 0) //cook only if the instrument has ingredients
         {
 			yield return new WaitForSeconds(secondsToWait);
 			sfx.StopSizzling(); //stops sfx
+			actionCircleObj.SetActive(false); //hides circle
 			//After done wiating
 			for (int i = 0; i < instrumentScript.ingredientsTypeWeightState.Count; i++) //looping every ingredient 
 			{
