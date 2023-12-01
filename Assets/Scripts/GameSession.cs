@@ -44,7 +44,7 @@ public class GameSession : MonoBehaviour
 
         StartCoroutine(WaitToEndGame(gameTime));
     }
-    private void Update()
+    void Update()
     {
         if (countTime)
         {
