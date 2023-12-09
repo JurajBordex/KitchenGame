@@ -19,14 +19,16 @@ MonoBehaviour:
   recipeWeight: 285
   recipeDifficulty: 2
   ingredient:
-  - Tomatoes Cut To Dices - 150g
+  - Tomatoes - 150g
   - Roasted Green Beans - 100g
-  - Garlic Cut To Dices - 10g
+  - Garlic - 10g
   - Olive Oil - 20g
   - Herbs & Spices - 5g
   ingredientWeight: []
   ingredientsTypeWeightState:
-  - {x: 1, y: 150, z: 2}
+  - {x: 1, y: 50, z: 2}
+  - {x: 1, y: 50, z: 2}
+  - {x: 1, y: 50, z: 2}
   - {x: 5, y: 100, z: 3}
   - {x: 4, y: 10, z: 2}
   - {x: 7, y: 20, z: 4}

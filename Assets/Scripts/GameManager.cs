@@ -15,12 +15,23 @@ public class GameManager : MonoBehaviour
     private SFX sfx;
 
     [SerializeField] Animator transition;
+    [SerializeField] MusicList musicList;
     //Vectors
     private void Start()
     {
 		sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFX>();
+        musicList = GameObject.FindGameObjectWithTag("MusicList").GetComponent<MusicList>();
+
     }
 
+    public void PlayFridgeOpenSFX()
+    {
+        sfx.PlayFridgeOpen();
+    }
+    public void PlayFridgeCloseSFX()
+    {
+        sfx.PlayFridgeClose();
+    }
     public void PlayBookOpenSFX()
     {
         sfx.PlayBookOpen();
@@ -44,6 +55,7 @@ public class GameManager : MonoBehaviour
     {
         transition.SetTrigger("FadeIn");
         yield return new WaitForSeconds(0.95f);
+        musicList.LoadNextMusic();
         SceneManager.LoadScene(sceneIndex);
     }
 

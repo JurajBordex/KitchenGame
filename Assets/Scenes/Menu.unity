@@ -8066,7 +8066,7 @@ PrefabInstance:
     - target: {fileID: 2724961611560350436, guid: f40edb02c83e68947b06988f5ca60157, type: 3}
       propertyPath: musicList.Array.data[3]
       value: 
-      objectReference: {fileID: 8300000, guid: 79e379766b1db9345b94cc278eda33e9, type: 3}
+      objectReference: {fileID: 8300000, guid: 3155c9bbd82e60548b30d080dd903e20, type: 3}
     - target: {fileID: 2724961611560350436, guid: f40edb02c83e68947b06988f5ca60157, type: 3}
       propertyPath: musicList.Array.data[4]
       value: 
@@ -8079,6 +8079,10 @@ PrefabInstance:
       propertyPath: musicList.Array.data[6]
       value: 
       objectReference: {fileID: 8300000, guid: 3155c9bbd82e60548b30d080dd903e20, type: 3}
+    - target: {fileID: 3709135658148538794, guid: f40edb02c83e68947b06988f5ca60157, type: 3}
+      propertyPath: m_TagString
+      value: MusicList
+      objectReference: {fileID: 0}
     - target: {fileID: 6823665339944722496, guid: f40edb02c83e68947b06988f5ca60157, type: 3}
       propertyPath: Loop
       value: 1

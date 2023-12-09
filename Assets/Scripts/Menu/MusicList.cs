@@ -26,9 +26,5 @@ public class MusicList : MonoBehaviour
         CurrentMusicIndex++;
         PlayMusic();
     }
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
-}
+}//END OF CLASS

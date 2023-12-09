@@ -17,11 +17,11 @@ MonoBehaviour:
     north of Greece due to cold weather and shortage of raw materials.
   recipeServings: 1
   recipeWeight: 140
-  recipeDifficulty: 2
+  recipeDifficulty: 1
   ingredient:
-  - Olive From Jar - 40g
-  - Whole Feta Cheese - 50g
-  - Bread Cut To Slices - 50g
+  - Olives From Jar - 40g
+  - Feta Cheese - 50g
+  - Bread - 50g
   ingredientWeight: []
   ingredientsTypeWeightState:
   - {x: 12, y: 40, z: 4}

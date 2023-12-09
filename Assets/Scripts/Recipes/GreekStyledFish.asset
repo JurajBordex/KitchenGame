@@ -20,14 +20,16 @@ MonoBehaviour:
   recipeDifficulty: 2
   ingredient:
   - Roasted Fish - 150g
-  - Tomatoes Cut To Dices 150g
-  - Garlic Cut To Dices - 10g
+  - Tomatoes - 150g
+  - Garlic - 10g
   - Herbs & Spices - 5g
   - Olive Oil - 20g
   ingredientWeight: []
   ingredientsTypeWeightState:
   - {x: 11, y: 150, z: 3}
-  - {x: 1, y: 150, z: 2}
+  - {x: 1, y: 50, z: 2}
+  - {x: 1, y: 50, z: 2}
+  - {x: 1, y: 50, z: 2}
   - {x: 4, y: 10, z: 2}
   - {x: 6, y: 5, z: 4}
   - {x: 7, y: 20, z: 4}

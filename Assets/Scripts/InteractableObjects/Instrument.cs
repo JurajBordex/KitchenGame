@@ -77,6 +77,9 @@ public class Instrument : MonoBehaviour
 				otherInstrument.ingredientsTypeWeightState.Add(ingredientsTypeWeightState[i]);
 			}
 
+			otherInstrument.instrumentsMoveableScript.currentIngredientWeight += instrumentsMoveableScript.currentIngredientWeight;
+			instrumentsMoveableScript.currentIngredientWeight = instrumentsMoveableScript.defualtIngredientWeight;
+
 			otherInstrument.plateFillSr.gameObject.SetActive(true);
 
 			//CHANGE VISUALS OF OTHER AND THIS INSTRUMENT

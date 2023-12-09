@@ -20,8 +20,8 @@ MonoBehaviour:
   recipeDifficulty: 2
   ingredient:
   - Greek Yoghurt - 30g
-  - Cucumber Cut To Dices - 30g
-  - Garlic Cut To Dices - 10g
+  - Cucumber - 30g
+  - Garlic - 10g
   - Olive Oil - 20g
   - Herbs & Spices - 5g
   ingredientWeight: []

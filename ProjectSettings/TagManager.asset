@@ -12,6 +12,7 @@ TagManager:
   - Instrument
   - GameSession
   - SFX
+  - MusicList
   layers:
   - Default
   - TransparentFX

@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   returnSpeed: 15
-  defualtIngredientWeight: 100
+  defualtIngredientWeight: 85
   currentIngredientWeight: 0
   droppedOnScale: 0
   droppedOnLocation: 0

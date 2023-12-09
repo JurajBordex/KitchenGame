@@ -20,9 +20,9 @@ MonoBehaviour:
   recipeDifficulty: 2
   ingredient:
   - Roasted Lamb Cut To Dices - 150g
-  - Onions Cut To Dices - 40g
-  - Garlic Cut To Dices - 10g
-  - Pita Bread Cut To Crumbs - 30g
+  - Onions - 40g
+  - Garlic  - 10g
+  - Bread - 30g
   - Herbs & Spices - 5g
   ingredientWeight: []
   ingredientsTypeWeightState:

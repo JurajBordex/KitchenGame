@@ -17,7 +17,7 @@ MonoBehaviour:
     due to its rich nutritions and exquisite taste.
   recipeServings: 1
   recipeWeight: 300
-  recipeDifficulty: 2
+  recipeDifficulty: 1
   ingredient:
   - Lettuce - 100g
   - Tomatoes - 120g

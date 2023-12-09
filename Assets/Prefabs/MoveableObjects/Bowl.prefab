@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3578286776100642726}
   m_Layer: 0
   m_Name: Bowl
-  m_TagString: Untagged
+  m_TagString: Instrument
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   sr: {fileID: 6318135174741331518}
   currentLocationScript: {fileID: 0}
   instrumentTrigger: {fileID: 0}
-  instrument: {fileID: 0}
+  instrument: {fileID: 316295268422332261}
   ingredientScript: {fileID: 0}
   whatIsOutside:
     serializedVersion: 2

@@ -40,6 +40,12 @@ public class Location : MonoBehaviour
     {
 		objectScript.transform.position = placePosition;
 		objectScript.lastLocationPosition = placePosition; //sets the last location pos
+
+		if(objectScript.instrument != null)
+        {
+			instrumentScript = objectScript.instrument;
+        }
+
 		objectScript.droppedOnLocation = true;
 		hasObjectPlaced = true;
 	}
@@ -118,6 +124,8 @@ public class Location : MonoBehaviour
 			if(servingPlace && objectScript.servingInstrument)
             {
 				PlaceObjectAtPosition();
+				gameSession.servingLocation = gameObject;
+
 				//The game session should check for completion
 				gameSession.RecipeCompletedTracker(instrumentScript.ingredientsTypeWeightState, instrumentScript.gameObject);
             }
@@ -162,6 +170,7 @@ public class Location : MonoBehaviour
     }
 	public void StartCooking()
     {
+		if(!cookingNow)
 		StartCoroutine(Cooking(10));
     }
 
@@ -206,7 +215,8 @@ public class Location : MonoBehaviour
 			
 		}
 		cookingNow = false;
-
+		actionCircleObj.SetActive(false);
+		StopAllCoroutines();
 
 	}
 

@@ -23,14 +23,18 @@ public class GameSession : MonoBehaviour
     [SerializeField] GameObject winBoard, failBoard;
     [SerializeField] GameObject wrongObj, correctObj;
 
+    public GameObject servingLocation;
+
     [SerializeField] float gameTime;
     private float timeCounter;
     private bool countTime;
+
 
     [SerializeField] GameObject FinishedGameObj;
     [SerializeField] private bool lastLevel;
 
     private SFX sfx;
+
     void Start()
     {
         countTime = true;
@@ -72,7 +76,7 @@ public class GameSession : MonoBehaviour
     private void GenerateOrderSprite()
     {
         newSprite = Instantiate(orderSpritePrefab);
-        newSprite.GetComponent<SpriteRenderer>().sprite = recipes[currentRecipeIndex].GetRecipeSprite();
+        newSprite.GetComponent<SpriteRenderer>().sprite = recipesList[currentRecipeIndex].GetRecipeSprite();
         AssignSpriteParent(poster.transform);
     }
 
@@ -85,12 +89,13 @@ public class GameSession : MonoBehaviour
     {
         if (recipesList.Count > 1)
         {
+            servingLocation.GetComponent<Location>().hasObjectPlaced = false;
+            //recipesList.Remove(recipesList[currentRecipeIndex]);
+            recipesList.Remove(completedRecipe);
 
-            recipesList.Remove(recipesList[currentRecipeIndex]);
             Destroy(newSprite);
             GenerateRandomRecipe();
 
-            recipesList.Remove(completedRecipe);
 
         }
         else
@@ -149,35 +154,33 @@ public class GameSession : MonoBehaviour
         bool ingredientsMatch = false;
         Recipes passedRecipe = null;
 
-        for(int recipeIndex = 0; recipeIndex < recipesList.Count; recipeIndex++) //goes through each recipe in recipe list
-        {
-            //COmparing if all the ingredients are same in the chosen recipe
-            for (int i = 0; i < recipesList[recipeIndex].ingredientsTypeWeightState.Count; i++)
-            {
-                if (ingredientsMatch)
-                {
-                    RecipeCompleted(passedRecipe);
-                    Destroy(instrumentGameObj); //delete the dish object
-                    return;
 
-                }
-                //SIMPLIFIED if(recipesList[recipeIndex].ingredientsTypeWeightState.Contains(passedIngredientTypeWeightState[i])) //if the chosen vector 3 list contains the ingredient the loop continues until all of ingredients have been looped through 
-                if (passedIngredientTypeWeightState.Count > 0 && recipesList[recipeIndex].ingredientsTypeWeightState.Contains(passedIngredientTypeWeightState[i]) && passedIngredientTypeWeightState.Contains(passedIngredientTypeWeightState[i])) //if the chosen vector 3 list contains the ingredient the loop continues until all of ingredients have been looped through , check for the other way as well
-                {
-                    ingredientsMatch = true;
-                    passedRecipe = recipesList[recipeIndex]; //sets the recipe to passedRecipe
-                }
-                else
-                {
-                    sfx.PlayWrongBell();
-                    StartCoroutine(WrongAnimation());
-                    ingredientsMatch = false;
-                    passedRecipe = null;
-                    break;
-                }
-                //if the script got here it will loop the second for loop again
+        //COmparing if all the ingredients are same in the chosen recipe
+        for (int i = 0; i < recipesList[currentRecipeIndex].ingredientsTypeWeightState.Count + 1; i++)
+        {
+            if (i >= recipesList[currentRecipeIndex].ingredientsTypeWeightState.Count && ingredientsMatch)
+            {
+                RecipeCompleted(passedRecipe);
+                Destroy(instrumentGameObj); //delete the dish object
+                return;
+
             }
+            if (passedIngredientTypeWeightState.Count > 0 && recipesList[currentRecipeIndex].ingredientsTypeWeightState.Contains(passedIngredientTypeWeightState[i])/* && passedIngredientTypeWeightState.Contains(passedIngredientTypeWeightState[i])*/) //if the chosen vector 3 list contains the ingredient the loop continues until all of ingredients have been looped through , check for the other way as well
+            {
+                ingredientsMatch = true;
+                passedRecipe = recipesList[currentRecipeIndex]; //sets the recipe to passedRecipe
+            }
+            else
+            {
+                sfx.PlayWrongBell();
+                StartCoroutine(WrongAnimation());
+                ingredientsMatch = false;
+                passedRecipe = null;
+                break;
+            }
+            //if the script got here it will loop the second for loop again
         }
+
     }
 
     public void RecipeCompleted(Recipes completedRecipe)

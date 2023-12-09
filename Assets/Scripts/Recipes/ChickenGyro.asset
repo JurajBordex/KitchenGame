@@ -17,12 +17,12 @@ MonoBehaviour:
     wrold. The secret is in the sauce.
   recipeServings: 1
   recipeWeight: 425
-  recipeDifficulty: 2
+  recipeDifficulty: 3
   ingredient:
   - Roasted Chicken - 150g
-  - Whole Bread - 100g
-  - Cucumber Cut To Dices - 30g
-  - Tomatoes Cut To Dices - 50g
+  - Bread - 100g
+  - Cucumber - 30g
+  - Tomatoes - 50g
   - Tzatziki Sauce - 95g
   ingredientWeight: []
   ingredientsTypeWeightState:

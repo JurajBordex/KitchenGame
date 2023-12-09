@@ -8,7 +8,7 @@ public class MoveableObject : MonoBehaviour
     //Floats
     [SerializeField] private float returnSpeed;
     //Weight is stated in grams
-	[SerializeField] private float defualtIngredientWeight; //important later on when we will be changing the weight by cutting or other actions
+	public float defualtIngredientWeight; //important later on when we will be changing the weight by cutting or other actions
     public float currentIngredientWeight; 
     //Bools
     public bool droppedOnScale; //creted bool to not call the if statements and functions again
@@ -200,20 +200,15 @@ public class MoveableObject : MonoBehaviour
                 {
                     Destroy(gameObject);
                 }
-                else
+                else if(!isReturning)
                 {
+                    Debug.Log("S");
                     ReturnToLastPosition(false); //false because it is not already returning
                 }
 
             }
 
-            if (!waiting && !onScale()) //If object is not on scale
-            {
-                //Checks if the object is on location, if not then it will return to its last position
-                StartCoroutine(CheckIfDroppedOnLocation());
-                StartCoroutine(WaitToBeAbleToClickAgain());
-            }
-            else if (!waiting && onScale() )//if it is on scale
+            if (!waiting && onScale() )//if it is on scale
             {
                 StartCoroutine(CheckIfDroppedOnScale());
                 StartCoroutine(WaitToBeAbleToClickAgain());
@@ -221,7 +216,12 @@ public class MoveableObject : MonoBehaviour
             else
             {
                 if (!waiting)
+                {
+                    //Checks if the object is on location, if not then it will return to its last position
+                    StartCoroutine(CheckIfDroppedOnLocation());
                     StartCoroutine(WaitToBeAbleToClickAgain());
+                }
+                    
             }
 
             gameManager.isDragging = false;
@@ -281,7 +281,6 @@ public class MoveableObject : MonoBehaviour
             canDrag = false;
             sr.sortingOrder = 1; //Setting the sorting order to not show obj at top
         }
-
         if (isReturning)
         {
             if (Vector2.Distance(transform.position, lastLocationPosition) > 0.01f) //if position is not close enough to location pos
@@ -292,26 +291,14 @@ public class MoveableObject : MonoBehaviour
             {
                 gameManager.isReturning = false;
                 gameManager.isDragging = false;
-                
+
+                    StartCoroutine(CheckOnLocationsAfterReturn());
 
 
-                if (!waiting && !checkingMouseUp && onScale()) //checks if object in on scale after returned
-                {
-                    StartCoroutine(CheckIfDroppedOnScale());
-                }
-                else if(!waiting && !checkingMouseUp && instrumentTrigger.location != null) //means back on location
-                {
-
-                    currentLocationScript = instrumentTrigger.location.GetComponent<Location>();  //stores the current location script
-                    currentLocationScript.objectScript = GetComponent<MoveableObject>();
-                    currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
-                }
-                if (!waiting)
-                    StartCoroutine(WaitToBeAbleToClickAgain());
+                StartCoroutine(IsReturingChangedBool());
 
             }
         }
-        StartCoroutine(IsReturingChangedBool());
     }
     private void SettingObjectSFX()
     {
@@ -377,6 +364,22 @@ public class MoveableObject : MonoBehaviour
 
         }
     }
+    IEnumerator CheckOnLocationsAfterReturn()
+    {
+        yield return new WaitForSeconds(0.05f);
+        if (!waiting && !checkingMouseUp && onScale()) //checks if object in on scale after returned
+        {
+            StartCoroutine(CheckIfDroppedOnScale());
+        }
+        else if (!waiting && !checkingMouseUp && instrumentTrigger.location != null) //means back on location
+        {
+            currentLocationScript = instrumentTrigger.location.GetComponent<Location>();  //stores the current location script
+            currentLocationScript.objectScript = GetComponent<MoveableObject>();
+            currentLocationScript.ObjectPlaced(); //lets the location know that there is object placed
+        }
+        if (!waiting)
+            StartCoroutine(WaitToBeAbleToClickAgain());
+    }
     IEnumerator LoopingFirstDrag()
     {
         yield return new WaitForEndOfFrame();
@@ -409,7 +412,7 @@ public class MoveableObject : MonoBehaviour
         //Waiting 0.05 seconds (3 frames) to give time for doppedOnLocation to be changed from Location.cs
         yield return new WaitForSeconds(0.05f);
         //If the object is not dropped on location it will return back to original position
-        if(!droppedOnLocation)
+        if(!droppedOnLocation )
         {
             ReturnToLastPosition(false);
         }

@@ -17,14 +17,14 @@ MonoBehaviour:
     Bordex reccomends this dish.
   recipeServings: 1
   recipeWeight: 175
-  recipeDifficulty: 2
+  recipeDifficulty: 1
   ingredient:
   - Roasted Lamb - 150g
   - Herbs & Spices - 5g
   - Olive Oil - 20g
   ingredientWeight: []
   ingredientsTypeWeightState:
-  - {x: 10, y: 150, z: 3}
+  - {x: 10, y: 150, z: 5}
   - {x: 6, y: 5, z: 4}
   - {x: 7, y: 20, z: 4}
   recipeSprite: {fileID: 21300000, guid: 6f61e4a9cb7d11d4f90d853f54b6db75, type: 3}

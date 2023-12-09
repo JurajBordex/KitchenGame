@@ -57,7 +57,14 @@ public class CuttingManager : MonoBehaviour
 	public void CutToSmallestPieces()
     {
 		moveableScript.currentIngredientWeight = ingredientScript.cutToSmallPiecesWeight; //change the weight
-		moveableScript.ingredientScript.state = 2; //change the state to 2
+		if(moveableScript.ingredientScript.type == 10 && moveableScript.ingredientScript.type == 3) //is lamb and roasted
+        {
+			moveableScript.ingredientScript.state = 5; //change the state to 5
+		}
+		else
+        {
+			moveableScript.ingredientScript.state = 2; //change the state to 2
+		}
 		//change the visuals
 		moveableScript.sr.sprite = moveableScript.dicedSprite;
 		moveableScript.sr.color = moveableScript.cutSpriteColor;
